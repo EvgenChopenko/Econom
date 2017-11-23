@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OracleString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OracleString (Settings)" PropertyReference="ApplicationSettings.Econom.Properties.Settings.GlobalReference.Default.OracleString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LUTAG9TableAdapter" GeneratorDataComponentClassName="LUTAG9TableAdapter" Name="LUTAG9" UserDataComponentName="LUTAG9TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OracleString (Settings)" DbObjectName="SOLUTION_MED.LUTAG9" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, DOC_SPEC FROM SOLUTION_MED.LUTAG9</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="DOC_SPEC" DataSetColumn="DOC_SPEC" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LUTAG9" msprop:Generator_TableClassName="LUTAG9DataTable" msprop:Generator_TableVarName="tableLUTAG9" msprop:Generator_TablePropName="LUTAG9" msprop:Generator_RowDeletingName="LUTAG9RowDeleting" msprop:Generator_RowChangingName="LUTAG9RowChanging" msprop:Generator_RowEvHandlerName="LUTAG9RowChangeEventHandler" msprop:Generator_RowDeletedName="LUTAG9RowDeleted" msprop:Generator_UserTableName="LUTAG9" msprop:Generator_RowChangedName="LUTAG9RowChanged" msprop:Generator_RowEvArgName="LUTAG9RowChangeEvent" msprop:Generator_RowClassName="LUTAG9Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="DOC_SPEC" msprop:Generator_ColumnVarNameInTable="columnDOC_SPEC" msprop:Generator_ColumnPropNameInRow="DOC_SPEC" msprop:Generator_ColumnPropNameInTable="DOC_SPECColumn" msprop:Generator_UserColumnName="DOC_SPEC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

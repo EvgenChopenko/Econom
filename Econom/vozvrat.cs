@@ -110,18 +110,17 @@ namespace Econom
             VozTablLO.AddDeletParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
 
             VozTablLO.setupdatecomand(sqlupdate, CommandType.StoredProcedure);
-            VozTablLO.AddInsertParametr("tcountry", OracleType.VarChar, 5, "LO");
-            VozTablLO.AddInsertParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            VozTablLO.AddInsertParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
-            VozTablLO.AddInsertParametrGrid("tPOS", OracleType.Number, 12, "POS");
-            VozTablLO.AddInsertParametrGrid("tOBR", OracleType.Number, 12, "OBR");
-            VozTablLO.AddInsertParametrGrid("tQTY", OracleType.Number, 12, "QTY");
-            VozTablLO.AddInsertParametrGrid("tUET", OracleType.Number, 12, "UET");
-            VozTablLO.AddInsertParametr("tdatas", OracleType.DateTime, 6, DateTime.Today);
-            VozTablLO.AddInsertParametr("tdatef", OracleType.DateTime, 6, DateTime.Today);
-            VozTablLO.AddInsertParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            VozTablLO.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
-            VozTablLO.AddInsertParametr("v_cunt", OracleType.Number, 5, 0);
+            VozTablLO.AddUpdateParametr("tcountry", OracleType.VarChar, 5, "LO");
+            VozTablLO.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
+            VozTablLO.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
+            VozTablLO.AddUpdateParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            VozTablLO.AddUpdateParametrGrid("tPOS", OracleType.Number, 12, "POS");
+            VozTablLO.AddUpdateParametrGrid("tOBR", OracleType.Number, 12, "OBR");
+            VozTablLO.AddUpdateParametrGrid("tQTY", OracleType.Number, 12, "QTY");
+            VozTablLO.AddUpdateParametrGrid("tUET", OracleType.Number, 12, "UET");
+            VozTablLO.AddUpdateParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
+            VozTablLO.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+           
 
 
 

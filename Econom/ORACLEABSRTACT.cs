@@ -221,18 +221,17 @@ namespace Econom
             return (int)iMax;
         }
 
-
+        //--------------------------------------------------------------------------------------------
         public void AddInsertParametr(string oracleparametr, object value)
         {
             this.adapter.InsertCommand.Parameters.AddWithValue(oracleparametr, value);
         }
 
-
+       
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, string value)
         {
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
         }
-
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, int value)
         {
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
@@ -247,6 +246,7 @@ namespace Econom
         {
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length,TabelGrid);
         }
+        //-----------------------------------------------------------------------------------------------------------
         public void AddDeletParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
         {
             this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
@@ -255,5 +255,16 @@ namespace Econom
         {
             this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
         }
+
+        public void AddUpdateParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
+        {
+            this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+        }
+        public void AddUpdateParametr(string oracleparametr, OracleType datatype, int length, object value)
+        {
+            this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+        }
+
+
     }
 }

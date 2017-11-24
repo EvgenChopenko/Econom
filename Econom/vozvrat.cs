@@ -19,8 +19,10 @@ namespace Econom
         private Vozvratset VozTablSPB;
         private Vozvratset VozTablALL;
         private int count;
+        private DateTime dates=DateTime.Today;
+        private DateTime datef= DateTime.Today;
         private string ConectString = ConfigurationManager.ConnectionStrings["Econom.Properties.Settings.OracleString"].ConnectionString;
-        private string sqlscan = @"select doceco.specid , doceco.keyid , doceco.keyid 
+        private string sqlscan = @"select doceco.specid , doceco.keyid , doceco.DATASTART,doceco.DATAFINISH
                                     from docplan_eco doceco 
                                     where doceco.DATATEXT = :Moths 
                                     and doceco.YEAR = :year";
@@ -37,6 +39,48 @@ namespace Econom
                                         where DP.keyid = pl.DOCPLAN_ECOID
                                         and DP.DATATEXT = :Month 
                                         and DP.YEAR = :year";
+
+        private string SqlVozLO = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
+count(distinct v.dat) as pos,
+count(distinct v.num) as obr,
+sum(get_QTYUSL(v.num,i.keyid))as qty ,
+sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
+get_specdocid(v.num) as specid
+from invoice i, visit v,BILL b 
+where v.KEYID = i.VISITID 
+ and i.BILLID = b.KEYID 
+ and b.NOTE LIKE '%отказы%' 
+ and i.STATUS not in (1,2) and
+b.dat between :DATES and :DATEF
+and i.AGRID != 435
+group by get_specdocid(v.num)";
+        private string SqlVozSPB = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
+count(distinct v.dat) as pos,
+count(distinct v.num) as obr,
+sum(get_QTYUSL(v.num,i.keyid))as qty ,
+sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
+get_specdocid(v.num) as specid
+from invoice i, visit v,BILL b 
+where v.KEYID = i.VISITID 
+ and i.BILLID = b.KEYID 
+ and b.NOTE LIKE '%отказы%' 
+ and i.STATUS not in (1,2) and
+b.dat between :DATES and :DATEF
+and i.AGRID = 435
+group by get_specdocid(v.num)";
+        private string SqlVozALL = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
+count(distinct v.dat) as pos,
+count(distinct v.num) as obr,
+sum(get_QTYUSL(v.num,i.keyid))as qty ,
+sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
+get_specdocid(v.num) as specid
+from invoice i, visit v,BILL b 
+where v.KEYID = i.VISITID 
+ and i.BILLID = b.KEYID 
+ and b.NOTE LIKE '%отказы%' 
+ and i.STATUS not in (1,2) and
+b.dat between :DATES and :DATEF
+group by get_specdocid(v.num)";
 
         private string sqlinsert = @"Int_REF_Inv_TABL";
         private string sqlupdate = @"UPT_REF_INV_TABL";
@@ -58,21 +102,37 @@ namespace Econom
             scan.adapterinstal();
 
            count= (int)scan.count(scan.Ds.Tables["DOCPLAN"], "KEYID");
-
-           
+            this.scan.Enabled = false;
+            this.MonthBox.Enabled = false;
+            this.yearBox.Enabled = false;
+            
             if (count > 0)
             {
-               ///
+                ///
+                fordat.Visible = true;
+                indat.Visible = true;
+                dates = scan.datastart(scan.Ds.Tables["DOCPLAN"]);
+                datef = scan.datafinish(scan.Ds.Tables["DOCPLAN"]);
+                this.indat.Text = dates.ToString();
+                this.fordat.Text = datef.ToString();
+                datatextfinish.Visible = true;
+                datatextstart.Visible = true;
+                button2.Visible = true;
+
             }
             else if (count ==0)
             {
-                ex_oracle.Visible = true;
+               // ex_oracle.Visible = true;
                 datatextfinish.Visible = true;
                 datatextstart.Visible = true;
                 fordat.Visible = true;
                 indat.Visible = true;
                 yearBox.Enabled = false;
                 MonthBox.Enabled = false;
+                button2.Visible = true;
+
+                this.indat.Text = dates.ToString();
+                this.fordat.Text = datef.ToString();
             }
         }
 
@@ -150,6 +210,18 @@ namespace Econom
             VozTablSPB.AddDeletParametr("tcountry", OracleType.VarChar, 5, "RF");
             VozTablSPB.AddDeletParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
 
+            VozTablSPB.setupdatecomand(sqlupdate, CommandType.StoredProcedure);
+            VozTablSPB.AddUpdateParametr("tcountry", OracleType.VarChar, 5, "RF");
+            VozTablSPB.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
+            VozTablSPB.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
+            VozTablSPB.AddUpdateParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            VozTablSPB.AddUpdateParametrGrid("tPOS", OracleType.Number, 12, "POS");
+            VozTablSPB.AddUpdateParametrGrid("tOBR", OracleType.Number, 12, "OBR");
+            VozTablSPB.AddUpdateParametrGrid("tQTY", OracleType.Number, 12, "QTY");
+            VozTablSPB.AddUpdateParametrGrid("tUET", OracleType.Number, 12, "UET");
+            VozTablSPB.AddUpdateParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
+            VozTablSPB.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+
 
             VozTablSPB.adapterinstal();
 
@@ -178,6 +250,21 @@ namespace Econom
             VozTablALL.AddDeletParametr("tcountry", OracleType.VarChar, 5, "ALL");
             VozTablALL.AddDeletParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
 
+            VozTablALL.setupdatecomand(sqlupdate, CommandType.StoredProcedure);
+            VozTablALL.AddUpdateParametr("tcountry", OracleType.VarChar, 5, "ALL");
+            VozTablALL.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
+            VozTablALL.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
+            VozTablALL.AddUpdateParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            VozTablALL.AddUpdateParametrGrid("tPOS", OracleType.Number, 12, "POS");
+            VozTablALL.AddUpdateParametrGrid("tOBR", OracleType.Number, 12, "OBR");
+            VozTablALL.AddUpdateParametrGrid("tQTY", OracleType.Number, 12, "QTY");
+            VozTablALL.AddUpdateParametrGrid("tUET", OracleType.Number, 12, "UET");
+            VozTablALL.AddUpdateParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
+            VozTablALL.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+
+
+
+
 
             VozTablALL.adapterinstal();
 
@@ -199,6 +286,59 @@ namespace Econom
         private void button1_Click(object sender, EventArgs e)
         {
             VozTablLO.UpdateDB();
+            VozTablALL.UpdateDB();
+            VozTablSPB.UpdateDB();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dates != null && datef != null)
+            {
+                button2.Enabled = false;
+                ex_oracle.Visible = true;
+                indat.Enabled = false;
+                fordat.Enabled = false;
+            }
+        }
+
+        private void ex_oracle_Click(object sender, EventArgs e)
+        {
+
+
+
+            Vozvratset LO = new Vozvratset(ConectString, "MED", "LO");
+            Vozvratset SPB = new Vozvratset(ConectString, "MED", "SPB");
+            Vozvratset ALL = new Vozvratset(ConectString, "MED", "ALL");
+            LO.setselectcomand(SqlVozLO, CommandType.Text);
+            LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+
+            SPB.setselectcomand(SqlVozSPB, CommandType.Text);
+            SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            ALL.setselectcomand(SqlVozALL, CommandType.Text);
+            ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            long iMaxLO = VozTablLO.maxkeid(VozTablLO.Ds.Tables["inv_ref_tabl_LO"], "keyid");
+            //"System.Int32"
+
+
+            long iMaxSPB = VozTablSPB.maxkeid(VozTablSPB.Ds.Tables["inv_ref_tabl_SPB"], "keyid");
+            long iMaxALL = VozTablALL.maxkeid(VozTablALL.Ds.Tables["inv_ref_tabl_ALL"], "keyid");
+           // MessageBox.Show("" + iMaxALL + iMaxLO + iMaxSPB);
+            LO.dataColumn("keyid", "System.Int32", iMaxLO, 1);
+            SPB.dataColumn("keyid", "System.Int32", iMaxSPB, 1);
+            ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
+
+
+
+            SPB.adapterinstal();
+            LO.adapterinstal();
+            ALL.adapterinstal();
+
+            VozTablALL.load(ALL.Dt, "inv_ref_tabl_ALL");
+            VozTablSPB.load(SPB.Dt, "inv_ref_tabl_SPB");
+            VozTablLO.load(LO.Dt, "inv_ref_tabl_LO");
         }
     }
 }

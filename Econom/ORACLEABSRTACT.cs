@@ -214,7 +214,7 @@ namespace Econom
         public long count(DataTable dt, string name)
         {
 
-           // var table = dt;
+            // var table = dt;
             var colum = name;
             var iMax = (from c in dt.AsEnumerable()
                         select c.Field<decimal>(colum)).Count();
@@ -227,7 +227,7 @@ namespace Econom
             this.adapter.InsertCommand.Parameters.AddWithValue(oracleparametr, value);
         }
 
-       
+
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, string value)
         {
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
@@ -237,14 +237,14 @@ namespace Econom
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
         }
 
-        public void AddInsertParametr(string oracleparametr, OracleType datatype, int length,DateTime value)
+        public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, DateTime value)
         {
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
         }
 
         public void AddInsertParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
         {
-            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length,TabelGrid);
+            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
         }
         //-----------------------------------------------------------------------------------------------------------
         public void AddDeletParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
@@ -264,7 +264,43 @@ namespace Econom
         {
             this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
         }
+        /*
+        public long maxkeid(DataTable dt, string name)
+        {
+
+            var table = dt;
+            var colum = name;
+            var iMax = table.Select().Any() ? (decimal)table.Select().Max(p => p[colum]) : 0;
+            return (long)iMax;
+        }*/
+
+        public void dataColumn(string Columnname, string systype, long Imax, int step)
+        {
+            DataColumn column = new DataColumn();
+            column.ColumnName = Columnname;
+            column.DataType = System.Type.GetType(systype);
+            column.AutoIncrement = true;
+            column.AutoIncrementSeed = (long)Imax + 1;
+            column.AutoIncrementStep = step;
 
 
+            this.Dt.Columns.Add(column);
+        }
+
+        public void load(DataTable DT, string TabelName)
+        {
+            int counter = (int)DT.Rows.Count;
+            // MessageBox.Show(DT.Rows[1].ItemArray.ToString());
+
+            if (counter > 0)
+            {
+                for (int i = 0; i < (counter); i++)
+                {
+
+                    this.Ds.Tables[TabelName].Rows.Add(DT.Rows[i].ItemArray);
+                }
+            }
+
+        }
     }
 }

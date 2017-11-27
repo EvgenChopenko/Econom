@@ -95,12 +95,19 @@
     </Compile>
     <Compile Include="renouncementset.cs" />
     <Compile Include="scan.cs" />
+    <Compile Include="dohod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dohod.Designer.cs">
+      <DependentUpon>dohod.cs</DependentUpon>
+    </Compile>
     <Compile Include="vozvrat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vozvrat.Designer.cs">
       <DependentUpon>vozvrat.cs</DependentUpon>
     </Compile>
+    <Compile Include="dohodset.cs" />
     <Compile Include="vozvratset.cs" />
     <EmbeddedResource Include="BILLS.resx">
       <DependentUpon>BILLS.cs</DependentUpon>
@@ -119,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="renouncement.resx">
       <DependentUpon>renouncement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dohod.resx">
+      <DependentUpon>dohod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vozvrat.resx">
       <DependentUpon>vozvrat.cs</DependentUpon>

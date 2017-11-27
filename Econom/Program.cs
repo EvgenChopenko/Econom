@@ -16,9 +16,10 @@ namespace Econom
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-        // Application.Run(new renouncement());
-       Application.Run(new vozvrat());
-         //Application.Run(new BILLS());
+            //Application.Run(new renouncement());
+            //Application.Run(new vozvrat());
+            //Application.Run(new BILLS());
+            Application.Run(new dohod());
 
         }
         

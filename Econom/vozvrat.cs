@@ -298,6 +298,8 @@ group by get_specdocid(v.num)";
                 ex_oracle.Visible = true;
                 indat.Enabled = false;
                 fordat.Enabled = false;
+                this.dates = DateTime.Parse( indat.Text);
+                this.datef = DateTime.Parse(fordat.Text);
             }
         }
 
@@ -316,6 +318,7 @@ group by get_specdocid(v.num)";
             SPB.setselectcomand(SqlVozSPB, CommandType.Text);
             SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
             SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+
             ALL.setselectcomand(SqlVozALL, CommandType.Text);
             ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
             ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);

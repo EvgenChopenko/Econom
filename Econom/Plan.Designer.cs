@@ -55,12 +55,18 @@
             this.DATATEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YEAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SPBPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SPBPosPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBOBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBUETPLANOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOPOSPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOOBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOUETPLANOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.POSPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UetPlanObr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DATASTART = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -77,23 +83,31 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.keyid,
             this.DATATEXT,
             this.YEAR,
             this.specid,
-            this.SPBPlanTotal,
             this.SPBPosPlanTotal,
-            this.PLANTOTAL,
+            this.SPBOBRPLANTOTAL,
+            this.SPBUETPLANOBR,
+            this.SPBPlanTotal,
+            this.LOPOSPLANTOTAL,
+            this.LOOBRPLANTOTAL,
+            this.LOUETPLANOBR,
+            this.LOPLANTOTAL,
             this.POSPLANTOTAL,
             this.OBRPLANTOTAL,
             this.UetPlanObr,
+            this.PLANTOTAL,
             this.DATASTART,
             this.DataFinish});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(846, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(996, 293);
             this.dataGridView1.TabIndex = 0;
             // 
             // lUTAG9BindingSource
@@ -209,9 +223,9 @@
             this.groupBox1.Controls.Add(this.comboxyear);
             this.groupBox1.Controls.Add(this.comboxmonth);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 213);
+            this.groupBox1.Location = new System.Drawing.Point(0, 209);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(852, 105);
+            this.groupBox1.Size = new System.Drawing.Size(996, 105);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Меню ";
@@ -256,12 +270,14 @@
             this.keyid.HeaderText = "keyid ";
             this.keyid.Name = "keyid";
             this.keyid.Visible = false;
+            this.keyid.Width = 60;
             // 
             // DATATEXT
             // 
             this.DATATEXT.DataPropertyName = "DATATEXT";
             this.DATATEXT.HeaderText = "Месяц";
             this.DATATEXT.Name = "DATATEXT";
+            this.DATATEXT.Width = 65;
             // 
             // YEAR
             // 
@@ -270,6 +286,7 @@
             this.YEAR.Name = "YEAR";
             this.YEAR.ReadOnly = true;
             this.YEAR.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.YEAR.Width = 55;
             // 
             // specid
             // 
@@ -281,64 +298,124 @@
             this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.specid.ValueMember = "ID";
-            // 
-            // SPBPlanTotal
-            // 
-            this.SPBPlanTotal.DataPropertyName = "SPBPlanTotal";
-            this.SPBPlanTotal.HeaderText = "СПБ +РФ Плановая стоимость";
-            this.SPBPlanTotal.Name = "SPBPlanTotal";
+            this.specid.Width = 110;
             // 
             // SPBPosPlanTotal
             // 
             this.SPBPosPlanTotal.DataPropertyName = "SPBPosPlanTotal";
             this.SPBPosPlanTotal.HeaderText = "СПБ+РФ кол-посещений";
             this.SPBPosPlanTotal.Name = "SPBPosPlanTotal";
+            this.SPBPosPlanTotal.Visible = false;
+            this.SPBPosPlanTotal.Width = 159;
             // 
-            // PLANTOTAL
+            // SPBOBRPLANTOTAL
             // 
-            this.PLANTOTAL.DataPropertyName = "PLANTOTAL";
-            this.PLANTOTAL.HeaderText = "СПБ+РФ +ЛО Плановая стоимость";
-            this.PLANTOTAL.Name = "PLANTOTAL";
+            this.SPBOBRPLANTOTAL.DataPropertyName = "SPBOBRPLANTOTAL";
+            this.SPBOBRPLANTOTAL.HeaderText = "СПБ+РФ кол-во обращений";
+            this.SPBOBRPLANTOTAL.Name = "SPBOBRPLANTOTAL";
+            this.SPBOBRPLANTOTAL.Visible = false;
+            this.SPBOBRPLANTOTAL.Width = 174;
+            // 
+            // SPBUETPLANOBR
+            // 
+            this.SPBUETPLANOBR.DataPropertyName = "SPBUETPLANOBR";
+            this.SPBUETPLANOBR.HeaderText = "СПБ+РФ кол-во ует";
+            this.SPBUETPLANOBR.Name = "SPBUETPLANOBR";
+            this.SPBUETPLANOBR.Visible = false;
+            this.SPBUETPLANOBR.Width = 133;
+            // 
+            // SPBPlanTotal
+            // 
+            this.SPBPlanTotal.DataPropertyName = "SPBPlanTotal";
+            this.SPBPlanTotal.HeaderText = "СПБ +РФ Плановая стоимость";
+            this.SPBPlanTotal.Name = "SPBPlanTotal";
+            this.SPBPlanTotal.Visible = false;
+            this.SPBPlanTotal.Width = 191;
+            // 
+            // LOPOSPLANTOTAL
+            // 
+            this.LOPOSPLANTOTAL.DataPropertyName = "LOPOSPLANTOTAL";
+            this.LOPOSPLANTOTAL.HeaderText = "ЛО кол-во Посещений ";
+            this.LOPOSPLANTOTAL.Name = "LOPOSPLANTOTAL";
+            this.LOPOSPLANTOTAL.Visible = false;
+            this.LOPOSPLANTOTAL.Width = 149;
+            // 
+            // LOOBRPLANTOTAL
+            // 
+            this.LOOBRPLANTOTAL.DataPropertyName = "LOOBRPLANTOTAL";
+            this.LOOBRPLANTOTAL.HeaderText = "ЛО кол-во Оброщений";
+            this.LOOBRPLANTOTAL.Name = "LOOBRPLANTOTAL";
+            this.LOOBRPLANTOTAL.Visible = false;
+            this.LOOBRPLANTOTAL.Width = 146;
+            // 
+            // LOUETPLANOBR
+            // 
+            this.LOUETPLANOBR.DataPropertyName = "LOUETPLANOBR";
+            this.LOUETPLANOBR.HeaderText = "ЛО кол-во УЕТ";
+            this.LOUETPLANOBR.Name = "LOUETPLANOBR";
+            this.LOUETPLANOBR.Visible = false;
+            this.LOUETPLANOBR.Width = 109;
+            // 
+            // LOPLANTOTAL
+            // 
+            this.LOPLANTOTAL.DataPropertyName = "LOPLANTOTAL";
+            this.LOPLANTOTAL.HeaderText = "ЛО Плановая Стоимость ";
+            this.LOPLANTOTAL.Name = "LOPLANTOTAL";
+            this.LOPLANTOTAL.Visible = false;
+            this.LOPLANTOTAL.Width = 162;
             // 
             // POSPLANTOTAL
             // 
             this.POSPLANTOTAL.DataPropertyName = "PosPlanTotal";
             this.POSPLANTOTAL.HeaderText = "СПБ+РФ +ЛО кол-во Посещений ";
             this.POSPLANTOTAL.Name = "POSPLANTOTAL";
+            this.POSPLANTOTAL.Width = 204;
             // 
             // OBRPLANTOTAL
             // 
             this.OBRPLANTOTAL.DataPropertyName = "OBRPLANTOTAL";
             this.OBRPLANTOTAL.HeaderText = "СПБ +РФ+ЛО кол-во Обращений";
             this.OBRPLANTOTAL.Name = "OBRPLANTOTAL";
+            this.OBRPLANTOTAL.Width = 201;
             // 
             // UetPlanObr
             // 
             this.UetPlanObr.DataPropertyName = "UetPlanObr";
             this.UetPlanObr.HeaderText = "СПБ + РФ+ЛО кол-во УЕТ";
             this.UetPlanObr.Name = "UetPlanObr";
+            this.UetPlanObr.Width = 167;
+            // 
+            // PLANTOTAL
+            // 
+            this.PLANTOTAL.DataPropertyName = "PLANTOTAL";
+            this.PLANTOTAL.HeaderText = "СПБ+РФ +ЛО Плановая стоимость";
+            this.PLANTOTAL.Name = "PLANTOTAL";
+            this.PLANTOTAL.Width = 213;
             // 
             // DATASTART
             // 
             this.DATASTART.DataPropertyName = "DATASTART";
             this.DATASTART.HeaderText = "Дата начала месяца ";
             this.DATASTART.Name = "DATASTART";
+            this.DATASTART.Width = 140;
             // 
             // DataFinish
             // 
             this.DataFinish.DataPropertyName = "DataFinish";
             this.DataFinish.HeaderText = "Дата Окончания Месяца";
             this.DataFinish.Name = "DataFinish";
+            this.DataFinish.Width = 158;
             // 
             // Plan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 318);
+            this.ClientSize = new System.Drawing.Size(996, 314);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Plan";
             this.Text = "План";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Plan_FormClosed);
             this.Load += new System.EventHandler(this.Plan_Load);
             this.SizeChanged += new System.EventHandler(this.Plan_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -386,12 +463,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DATATEXT;
         private System.Windows.Forms.DataGridViewTextBoxColumn YEAR;
         private System.Windows.Forms.DataGridViewComboBoxColumn specid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SPBPlanTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn SPBPosPlanTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PLANTOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SPBOBRPLANTOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SPBUETPLANOBR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SPBPlanTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOPOSPLANTOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOOBRPLANTOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOUETPLANOBR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOPLANTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn POSPLANTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn OBRPLANTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn UetPlanObr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PLANTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATASTART;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataFinish;
     }

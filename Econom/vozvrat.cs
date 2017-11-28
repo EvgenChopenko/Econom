@@ -15,6 +15,7 @@ namespace Econom
     
     public partial class vozvrat : Form
     {
+        private Home father=null;
         private Vozvratset VozTablLO;
         private Vozvratset VozTablSPB;
         private Vozvratset VozTablALL;
@@ -89,8 +90,15 @@ group by get_specdocid(v.num)";
         public vozvrat()
         {
             InitializeComponent();
-            this.MonthBox.Text = MonthBox.Items[0].ToString();
-            this.yearBox.Text = yearBox.Items[0].ToString();
+            
+        }
+        public vozvrat(Home father)
+        {
+            
+            InitializeComponent();
+            this.MonthBox.DataSource = Program.GETMonths();
+            this.yearBox.DataSource = Program.GETYERS();
+            this.father = father;
         }
 
         private void scan_Click(object sender, EventArgs e)
@@ -288,6 +296,19 @@ group by get_specdocid(v.num)";
             VozTablLO.UpdateDB();
             VozTablALL.UpdateDB();
             VozTablSPB.UpdateDB();
+
+            if (father  is null)
+            {
+                this.Close();
+            }
+            else
+            {
+                father.Enabled = true;
+                this.Hide();
+            }
+            
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -342,6 +363,15 @@ group by get_specdocid(v.num)";
             VozTablALL.load(ALL.Dt, "inv_ref_tabl_ALL");
             VozTablSPB.load(SPB.Dt, "inv_ref_tabl_SPB");
             VozTablLO.load(LO.Dt, "inv_ref_tabl_LO");
+        }
+
+        private void vozvrat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(father != null)
+            {
+                father.Enabled = true;
+                father.Vozvrat = null;
+            }
         }
     }
 }

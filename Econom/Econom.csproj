@@ -77,7 +77,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatForm.Designer.cs">
+      <DependentUpon>DatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="ORACLEABSRTACT.cs" />
+    <Compile Include="PlabCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlabCalc.Designer.cs">
+      <DependentUpon>PlabCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,18 @@
     <Compile Include="vozvratset.cs" />
     <EmbeddedResource Include="BILLS.resx">
       <DependentUpon>BILLS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatForm.resx">
+      <DependentUpon>DatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlabCalc.resx">
+      <DependentUpon>PlabCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlabCalc.ru.resx">
+      <DependentUpon>PlabCalc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>

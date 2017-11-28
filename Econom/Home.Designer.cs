@@ -1,6 +1,6 @@
 ﻿namespace Econom
 {
-    partial class vozvrat
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.scan = new System.Windows.Forms.Button();
-            this.datatextfinish = new System.Windows.Forms.Label();
-            this.datatextstart = new System.Windows.Forms.Label();
-            this.indat = new System.Windows.Forms.MaskedTextBox();
-            this.fordat = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.mathcheck = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.yearBox = new System.Windows.Forms.ComboBox();
-            this.MonthBox = new System.Windows.Forms.ComboBox();
-            this.ex_oracle = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.выгрузкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.доходыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.возвратыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отказыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.планToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.планToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сформироватьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toExelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exeltoLOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sPBtoexelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sPBLOtoexelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.таблицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выгрузитьВсёToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabLO = new System.Windows.Forms.TabPage();
             this.datageidlo = new System.Windows.Forms.DataGridView();
@@ -50,8 +49,6 @@
             this.datagridspbrf = new System.Windows.Forms.DataGridView();
             this.keyidspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpecIdspb = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new Econom.DataSet1();
             this.SumOtkSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dopotkspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,188 +77,124 @@
             this.DOCPLAN_ECOIDspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bills = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
-            this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).BeginInit();
             this.tabspbrf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tabLOspbrf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.Bills.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // menuStrip1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.scan);
-            this.groupBox1.Controls.Add(this.datatextfinish);
-            this.groupBox1.Controls.Add(this.datatextstart);
-            this.groupBox1.Controls.Add(this.indat);
-            this.groupBox1.Controls.Add(this.fordat);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.mathcheck);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.yearBox);
-            this.groupBox1.Controls.Add(this.MonthBox);
-            this.groupBox1.Controls.Add(this.ex_oracle);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(736, 116);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выгрузкиToolStripMenuItem,
+            this.планToolStripMenuItem,
+            this.сформироватьОтчетToolStripMenuItem,
+            this.toExelToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(875, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button2
+            // выгрузкиToolStripMenuItem
             // 
-            this.button2.Location = new System.Drawing.Point(312, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Фиксация дат";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.выгрузкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.доходыToolStripMenuItem,
+            this.возвратыToolStripMenuItem,
+            this.отказыToolStripMenuItem});
+            this.выгрузкиToolStripMenuItem.Name = "выгрузкиToolStripMenuItem";
+            this.выгрузкиToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.выгрузкиToolStripMenuItem.Text = "Выгрузки";
             // 
-            // scan
+            // доходыToolStripMenuItem
             // 
-            this.scan.Location = new System.Drawing.Point(534, 77);
-            this.scan.Name = "scan";
-            this.scan.Size = new System.Drawing.Size(75, 23);
-            this.scan.TabIndex = 19;
-            this.scan.Text = "Скан";
-            this.scan.UseVisualStyleBackColor = true;
-            this.scan.Click += new System.EventHandler(this.scan_Click);
+            this.доходыToolStripMenuItem.Name = "доходыToolStripMenuItem";
+            this.доходыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.доходыToolStripMenuItem.Text = "Доходы";
+            this.доходыToolStripMenuItem.Click += new System.EventHandler(this.доходыToolStripMenuItem_Click);
             // 
-            // datatextfinish
+            // возвратыToolStripMenuItem
             // 
-            this.datatextfinish.AutoSize = true;
-            this.datatextfinish.Location = new System.Drawing.Point(127, 55);
-            this.datatextfinish.Name = "datatextfinish";
-            this.datatextfinish.Size = new System.Drawing.Size(196, 13);
-            this.datatextfinish.TabIndex = 18;
-            this.datatextfinish.Text = "Дата окончания выстовления счетов";
-            this.datatextfinish.Visible = false;
+            this.возвратыToolStripMenuItem.Name = "возвратыToolStripMenuItem";
+            this.возвратыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.возвратыToolStripMenuItem.Text = "Возвраты";
+            this.возвратыToolStripMenuItem.Click += new System.EventHandler(this.возвратыToolStripMenuItem_Click);
             // 
-            // datatextstart
+            // отказыToolStripMenuItem
             // 
-            this.datatextstart.AutoSize = true;
-            this.datatextstart.Location = new System.Drawing.Point(145, 16);
-            this.datatextstart.Name = "datatextstart";
-            this.datatextstart.Size = new System.Drawing.Size(178, 13);
-            this.datatextstart.TabIndex = 17;
-            this.datatextstart.Text = "Дата начала выстовления счетов";
-            this.datatextstart.Visible = false;
+            this.отказыToolStripMenuItem.Name = "отказыToolStripMenuItem";
+            this.отказыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.отказыToolStripMenuItem.Text = "Отказы";
+            this.отказыToolStripMenuItem.Click += new System.EventHandler(this.отказыToolStripMenuItem_Click);
             // 
-            // indat
+            // планToolStripMenuItem
             // 
-            this.indat.Location = new System.Drawing.Point(329, 13);
-            this.indat.Mask = "00/00/0000";
-            this.indat.Name = "indat";
-            this.indat.Size = new System.Drawing.Size(100, 20);
-            this.indat.TabIndex = 16;
-            this.indat.ValidatingType = typeof(System.DateTime);
-            this.indat.Visible = false;
+            this.планToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.планToolStripMenuItem1});
+            this.планToolStripMenuItem.Name = "планToolStripMenuItem";
+            this.планToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.планToolStripMenuItem.Text = "План";
             // 
-            // fordat
+            // планToolStripMenuItem1
             // 
-            this.fordat.Location = new System.Drawing.Point(329, 52);
-            this.fordat.Mask = "00/00/0000";
-            this.fordat.Name = "fordat";
-            this.fordat.Size = new System.Drawing.Size(100, 20);
-            this.fordat.TabIndex = 15;
-            this.fordat.ValidatingType = typeof(System.DateTime);
-            this.fordat.Visible = false;
+            this.планToolStripMenuItem1.Name = "планToolStripMenuItem1";
+            this.планToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.планToolStripMenuItem1.Text = "План";
+            this.планToolStripMenuItem1.Click += new System.EventHandler(this.планToolStripMenuItem1_Click);
             // 
-            // button1
+            // сформироватьОтчетToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(649, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.сформироватьОтчетToolStripMenuItem.Name = "сформироватьОтчетToolStripMenuItem";
+            this.сформироватьОтчетToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
+            this.сформироватьОтчетToolStripMenuItem.Text = "Сформировать  отчет";
+            this.сформироватьОтчетToolStripMenuItem.Click += new System.EventHandler(this.СформироватьОтчетToolStripMenuItem_Click);
             // 
-            // mathcheck
+            // toExelToolStripMenuItem
             // 
-            this.mathcheck.AutoSize = true;
-            this.mathcheck.Location = new System.Drawing.Point(12, 93);
-            this.mathcheck.Name = "mathcheck";
-            this.mathcheck.Size = new System.Drawing.Size(91, 17);
-            this.mathcheck.TabIndex = 13;
-            this.mathcheck.Text = "калькуляция";
-            this.mathcheck.UseVisualStyleBackColor = true;
+            this.toExelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exeltoLOToolStripMenuItem,
+            this.sPBtoexelToolStripMenuItem,
+            this.sPBLOtoexelToolStripMenuItem,
+            this.таблицаToolStripMenuItem,
+            this.выгрузитьВсёToolStripMenuItem});
+            this.toExelToolStripMenuItem.Name = "toExelToolStripMenuItem";
+            this.toExelToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.toExelToolStripMenuItem.Text = "to_Exel";
             // 
-            // label2
+            // exeltoLOToolStripMenuItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(458, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Месяц\r\n";
+            this.exeltoLOToolStripMenuItem.Name = "exeltoLOToolStripMenuItem";
+            this.exeltoLOToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.exeltoLOToolStripMenuItem.Text = "LO_to_exel";
             // 
-            // label1
+            // sPBtoexelToolStripMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(468, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 26);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "ГОД\r\n\r\n";
+            this.sPBtoexelToolStripMenuItem.Name = "sPBtoexelToolStripMenuItem";
+            this.sPBtoexelToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.sPBtoexelToolStripMenuItem.Text = "SPB_to_exel";
             // 
-            // yearBox
+            // sPBLOtoexelToolStripMenuItem
             // 
-            this.yearBox.FormattingEnabled = true;
-            this.yearBox.Items.AddRange(new object[] {
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021"});
-            this.yearBox.Location = new System.Drawing.Point(509, 39);
-            this.yearBox.Name = "yearBox";
-            this.yearBox.Size = new System.Drawing.Size(121, 21);
-            this.yearBox.TabIndex = 10;
+            this.sPBLOtoexelToolStripMenuItem.Name = "sPBLOtoexelToolStripMenuItem";
+            this.sPBLOtoexelToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.sPBLOtoexelToolStripMenuItem.Text = "SPB+LO_to_exel";
             // 
-            // MonthBox
+            // таблицаToolStripMenuItem
             // 
-            this.MonthBox.FormattingEnabled = true;
-            this.MonthBox.Items.AddRange(new object[] {
-            "Январь",
-            "Февраль",
-            "Март",
-            "Апрель ",
-            "Май  ",
-            "Июнь",
-            "Июль",
-            "Август",
-            "Сентябрь ",
-            "Октябрь",
-            "Декабрь"});
-            this.MonthBox.Location = new System.Drawing.Point(509, 12);
-            this.MonthBox.Name = "MonthBox";
-            this.MonthBox.Size = new System.Drawing.Size(121, 21);
-            this.MonthBox.TabIndex = 9;
+            this.таблицаToolStripMenuItem.Name = "таблицаToolStripMenuItem";
+            this.таблицаToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.таблицаToolStripMenuItem.Text = "Таблица";
             // 
-            // ex_oracle
+            // выгрузитьВсёToolStripMenuItem
             // 
-            this.ex_oracle.Location = new System.Drawing.Point(7, 12);
-            this.ex_oracle.Name = "ex_oracle";
-            this.ex_oracle.Size = new System.Drawing.Size(111, 23);
-            this.ex_oracle.TabIndex = 8;
-            this.ex_oracle.Text = "Экспорт из Oracle";
-            this.ex_oracle.UseVisualStyleBackColor = true;
-            this.ex_oracle.Visible = false;
-            this.ex_oracle.Click += new System.EventHandler(this.ex_oracle_Click);
+            this.выгрузитьВсёToolStripMenuItem.Name = "выгрузитьВсёToolStripMenuItem";
+            this.выгрузитьВсёToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.выгрузитьВсёToolStripMenuItem.Text = "Выгрузить всё";
             // 
             // tab
             // 
@@ -270,11 +203,11 @@
             this.tab.Controls.Add(this.tabLOspbrf);
             this.tab.Controls.Add(this.Bills);
             this.tab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tab.Location = new System.Drawing.Point(0, 116);
+            this.tab.Location = new System.Drawing.Point(0, 24);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(736, 221);
-            this.tab.TabIndex = 1;
+            this.tab.Size = new System.Drawing.Size(875, 389);
+            this.tab.TabIndex = 2;
             // 
             // tabLO
             // 
@@ -282,7 +215,7 @@
             this.tabLO.Location = new System.Drawing.Point(4, 22);
             this.tabLO.Name = "tabLO";
             this.tabLO.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLO.Size = new System.Drawing.Size(728, 195);
+            this.tabLO.Size = new System.Drawing.Size(867, 363);
             this.tabLO.TabIndex = 0;
             this.tabLO.Text = "ЛО";
             this.tabLO.UseVisualStyleBackColor = true;
@@ -294,9 +227,8 @@
             this.datageidlo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datageidlo.Location = new System.Drawing.Point(3, 3);
             this.datageidlo.Name = "datageidlo";
-            this.datageidlo.Size = new System.Drawing.Size(722, 189);
+            this.datageidlo.Size = new System.Drawing.Size(861, 357);
             this.datageidlo.TabIndex = 0;
-            this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
             // 
             // tabspbrf
             // 
@@ -304,7 +236,7 @@
             this.tabspbrf.Location = new System.Drawing.Point(4, 22);
             this.tabspbrf.Name = "tabspbrf";
             this.tabspbrf.Padding = new System.Windows.Forms.Padding(3);
-            this.tabspbrf.Size = new System.Drawing.Size(728, 195);
+            this.tabspbrf.Size = new System.Drawing.Size(867, 363);
             this.tabspbrf.TabIndex = 1;
             this.tabspbrf.Text = "СПБ+РФ";
             this.tabspbrf.UseVisualStyleBackColor = true;
@@ -330,7 +262,7 @@
             this.datagridspbrf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagridspbrf.Location = new System.Drawing.Point(3, 3);
             this.datagridspbrf.Name = "datagridspbrf";
-            this.datagridspbrf.Size = new System.Drawing.Size(722, 189);
+            this.datagridspbrf.Size = new System.Drawing.Size(861, 357);
             this.datagridspbrf.TabIndex = 1;
             // 
             // keyidspb
@@ -344,22 +276,9 @@
             // 
             this.SpecIdspb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SpecIdspb.DataPropertyName = "SpecId";
-            this.SpecIdspb.DataSource = this.lUTAG9BindingSource;
-            this.SpecIdspb.DisplayMember = "DOC_SPEC";
             this.SpecIdspb.HeaderText = "Доктор";
             this.SpecIdspb.Name = "SpecIdspb";
             this.SpecIdspb.ReadOnly = true;
-            this.SpecIdspb.ValueMember = "ID";
-            // 
-            // lUTAG9BindingSource
-            // 
-            this.lUTAG9BindingSource.DataMember = "LUTAG9";
-            this.lUTAG9BindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // SumOtkSPB
             // 
@@ -433,7 +352,7 @@
             this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
             this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
             this.tabLOspbrf.Name = "tabLOspbrf";
-            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
+            this.tabLOspbrf.Size = new System.Drawing.Size(867, 363);
             this.tabLOspbrf.TabIndex = 2;
             this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
             this.tabLOspbrf.UseVisualStyleBackColor = true;
@@ -459,7 +378,7 @@
             this.datagridspbrflo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagridspbrflo.Location = new System.Drawing.Point(0, 0);
             this.datagridspbrflo.Name = "datagridspbrflo";
-            this.datagridspbrflo.Size = new System.Drawing.Size(728, 195);
+            this.datagridspbrflo.Size = new System.Drawing.Size(867, 363);
             this.datagridspbrflo.TabIndex = 1;
             // 
             // keyidspblo
@@ -473,11 +392,8 @@
             // 
             this.SpecIdspblo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SpecIdspblo.DataPropertyName = "SpecId";
-            this.SpecIdspblo.DataSource = this.lUTAG9BindingSource;
-            this.SpecIdspblo.DisplayMember = "DOC_SPEC";
             this.SpecIdspblo.HeaderText = "Доктор";
             this.SpecIdspblo.Name = "SpecIdspblo";
-            this.SpecIdspblo.ValueMember = "ID";
             // 
             // sumotkspblo
             // 
@@ -552,7 +468,7 @@
             this.Bills.Location = new System.Drawing.Point(4, 22);
             this.Bills.Name = "Bills";
             this.Bills.Padding = new System.Windows.Forms.Padding(3);
-            this.Bills.Size = new System.Drawing.Size(728, 195);
+            this.Bills.Size = new System.Drawing.Size(867, 363);
             this.Bills.TabIndex = 3;
             this.Bills.Text = "Счета";
             this.Bills.UseVisualStyleBackColor = true;
@@ -563,75 +479,55 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(3, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(722, 189);
+            this.listBox1.Size = new System.Drawing.Size(861, 357);
             this.listBox1.TabIndex = 0;
             // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // lUTAG9TableAdapter
-            // 
-            this.lUTAG9TableAdapter.ClearBeforeFill = true;
-            // 
-            // vozvrat
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 337);
+            this.ClientSize = new System.Drawing.Size(875, 413);
             this.Controls.Add(this.tab);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "vozvrat";
-            this.Text = "vozvrat";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.vozvrat_FormClosed);
-            this.Load += new System.EventHandler(this.vozvrat_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "Home";
+            this.Text = "Home";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.tab.ResumeLayout(false);
             this.tabLO.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).EndInit();
             this.tabspbrf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tabLOspbrf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.Bills.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem выгрузкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem доходыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem возвратыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отказыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem планToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem планToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem сформироватьОтчетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toExelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exeltoLOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sPBtoexelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sPBLOtoexelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem таблицаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выгрузитьВсёToolStripMenuItem;
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.TabPage tabLO;
         private System.Windows.Forms.DataGridView datageidlo;
         private System.Windows.Forms.TabPage tabspbrf;
         private System.Windows.Forms.DataGridView datagridspbrf;
-        private System.Windows.Forms.TabPage tabLOspbrf;
-        private System.Windows.Forms.DataGridView datagridspbrflo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox mathcheck;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox yearBox;
-        private System.Windows.Forms.ComboBox MonthBox;
-        private System.Windows.Forms.Button ex_oracle;
-        private System.Windows.Forms.MaskedTextBox indat;
-        private System.Windows.Forms.MaskedTextBox fordat;
-        private System.Windows.Forms.Label datatextfinish;
-        private System.Windows.Forms.Label datatextstart;
-        private System.Windows.Forms.TabPage Bills;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button scan;
-        private DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource dataSet1BindingSource;
-        private System.Windows.Forms.BindingSource lUTAG9BindingSource;
-        private DataSet1TableAdapters.LUTAG9TableAdapter lUTAG9TableAdapter;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyidspb;
         private System.Windows.Forms.DataGridViewComboBoxColumn SpecIdspb;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumOtkSPB;
@@ -645,6 +541,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UETSPB;
         private System.Windows.Forms.DataGridViewTextBoxColumn dopUETspb;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDSPB;
+        private System.Windows.Forms.TabPage tabLOspbrf;
+        private System.Windows.Forms.DataGridView datagridspbrflo;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyidspblo;
         private System.Windows.Forms.DataGridViewComboBoxColumn SpecIdspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumotkspblo;
@@ -658,5 +556,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uetspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dopuetspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDspblo;
+        private System.Windows.Forms.TabPage Bills;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

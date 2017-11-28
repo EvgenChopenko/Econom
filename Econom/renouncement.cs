@@ -14,13 +14,22 @@ namespace Econom
 {
     public partial class renouncement : Form
     {
+        private Home father=null;
         private Calcultion calcultionLO;
         private Calcultion calcultionSPB;
         public renouncement()
         {
             InitializeComponent();
-            this.MonthBox.Text = this.MonthBox.Items[0].ToString();
-            this.yearBox.Text = this.yearBox.Items[0].ToString();
+            this.MonthBox.DataSource = Program.GETMonths();
+            this.yearBox.DataSource = Program.GETYERS();
+        }
+
+        public renouncement(Home father)
+        {
+            InitializeComponent();
+            this.MonthBox.DataSource = Program.GETMonths();
+            this.yearBox.DataSource = Program.GETYERS();
+            this.father = father;
         }
         private string sqlComandlointobill = @" select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
 count(distinct v.dat) as pos,
@@ -134,12 +143,7 @@ group by get_specdocid(v.num)";
             SPB.adapterinstal();
             LO.adapterinstal();
             ALL.adapterinstal();
-            /*
-            for (int i = 0; i < ((int)LO.Dt.Rows.Count); i++)
-            {
-                selectLO.Ds.Tables["INV_TABL_LO"].Rows.Add(LO.Dt.Rows[i].ItemArray);
-            }
-            */
+          
 
            selectALL.load(ALL.Dt, "INV_TABL_ALL");
            selectspb.load(SPB.Dt, "INV_TABL_spb");
@@ -402,6 +406,11 @@ group by get_specdocid(v.num)";
             selectLO.UpdateDB();
             selectALL.UpdateDB();
             selectspb.UpdateDB();
+            if (this.father is null){
+                this.Close();
+            }
+            this.father.Enabled = true;
+            this.Hide();
         }
 
         private void datagridspbrf_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -436,6 +445,14 @@ group by get_specdocid(v.num)";
 
         }
 
+        private void renouncement_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.father != null)
+            {
+                this.father.Enabled = true;
+                this.father.Renouncement = null;
+            }
+        }
     }
 }
     

@@ -14,9 +14,9 @@ namespace Econom
     public partial class Plan : Form
     {
 
-        private Planset p;
-       // private Planset d;
-        private DataView view;
+        private Planset p = null;
+        private Home father = null;
+        private DataView view = null;
         private const string sqlcomm= @"
 select * from solution_med.DOCPLAN_ECO
 ";
@@ -28,6 +28,14 @@ select * from solution_med.DOCPLAN_ECO
         public Plan()
         {
             InitializeComponent();
+
+        }
+
+
+        public Plan(Home father)
+        {
+            InitializeComponent();
+            this.father = father;
 
         }
 
@@ -48,7 +56,8 @@ select * from solution_med.DOCPLAN_ECO
             comboxdoc.ValueMember = "ID";
             comboxdoc.DisplayMember = "DOC_SPEC";
 
-            comboxyear.Text = comboxyear.Items[0].ToString();
+            comboxyear.DataSource = Program.GETYERS();
+            comboxmonth.DataSource = Program.GETMonths();
             p.Dt.Columns["YEAR"].DefaultValue = int.Parse(comboxyear.Text.ToString());
            // p.Dt.Columns["specid"].DefaultValue = comboxdoc.Text;
 
@@ -63,6 +72,14 @@ select * from solution_med.DOCPLAN_ECO
         private void button1_Click(object sender, EventArgs e)
         {
             p.UpdateDB();
+            if (this.father is null)
+            {
+                this.Close();
+            }
+
+            this.Hide();
+
+            father.Enabled = true;
         }
 
         private void comboxyear_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,6 +91,15 @@ select * from solution_med.DOCPLAN_ECO
         {
             dataGridView1.Width = this.groupBox1.Width;
             dataGridView1.Height = (Height - this.groupBox1.Height) - 40;
+        }
+
+        private void Plan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.father != null)
+            {
+                this.father.Enabled = true;
+                this.father.Plan1 = null;
+            }
         }
     }
     }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.scan = new System.Windows.Forms.Button();
             this.datatextfinish = new System.Windows.Forms.Label();
             this.datatextstart = new System.Windows.Forms.Label();
@@ -47,17 +48,10 @@
             this.datageidlo = new System.Windows.Forms.DataGridView();
             this.tabspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrf = new System.Windows.Forms.DataGridView();
-            this.tabLOspbrf = new System.Windows.Forms.TabPage();
-            this.datagridspbrflo = new System.Windows.Forms.DataGridView();
-            this.Bills = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataSet1 = new Econom.DataSet1();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
-            this.button2 = new System.Windows.Forms.Button();
             this.keyidspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpecIdspb = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Econom.DataSet1();
             this.SumOtkSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dopotkspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +63,8 @@
             this.UETSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dopUETspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCPLAN_ECOIDSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLOspbrf = new System.Windows.Forms.TabPage();
+            this.datagridspbrflo = new System.Windows.Forms.DataGridView();
             this.keyidspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpecIdspblo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.sumotkspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,18 +78,22 @@
             this.uetspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dopuetspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCPLAN_ECOIDspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bills = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.groupBox1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).BeginInit();
             this.tabspbrf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tabLOspbrf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.Bills.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -118,6 +118,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(312, 77);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Фиксация дат";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // scan
             // 
@@ -322,90 +333,6 @@
             this.datagridspbrf.Size = new System.Drawing.Size(722, 189);
             this.datagridspbrf.TabIndex = 1;
             // 
-            // tabLOspbrf
-            // 
-            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
-            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
-            this.tabLOspbrf.Name = "tabLOspbrf";
-            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
-            this.tabLOspbrf.TabIndex = 2;
-            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
-            this.tabLOspbrf.UseVisualStyleBackColor = true;
-            // 
-            // datagridspbrflo
-            // 
-            this.datagridspbrflo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridspbrflo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridspbrflo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.keyidspblo,
-            this.SpecIdspblo,
-            this.sumotkspblo,
-            this.dopotkspblo,
-            this.qtyspblo,
-            this.dopqtyspblo,
-            this.obrspblo,
-            this.dopobrspblo,
-            this.posspblo,
-            this.dopposspblo,
-            this.uetspblo,
-            this.dopuetspblo,
-            this.DOCPLAN_ECOIDspblo});
-            this.datagridspbrflo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridspbrflo.Location = new System.Drawing.Point(0, 0);
-            this.datagridspbrflo.Name = "datagridspbrflo";
-            this.datagridspbrflo.Size = new System.Drawing.Size(728, 195);
-            this.datagridspbrflo.TabIndex = 1;
-            // 
-            // Bills
-            // 
-            this.Bills.Controls.Add(this.listBox1);
-            this.Bills.Location = new System.Drawing.Point(4, 22);
-            this.Bills.Name = "Bills";
-            this.Bills.Padding = new System.Windows.Forms.Padding(3);
-            this.Bills.Size = new System.Drawing.Size(728, 195);
-            this.Bills.TabIndex = 3;
-            this.Bills.Text = "Счета";
-            this.Bills.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(722, 189);
-            this.listBox1.TabIndex = 0;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // lUTAG9BindingSource
-            // 
-            this.lUTAG9BindingSource.DataMember = "LUTAG9";
-            this.lUTAG9BindingSource.DataSource = this.dataSet1;
-            // 
-            // lUTAG9TableAdapter
-            // 
-            this.lUTAG9TableAdapter.ClearBeforeFill = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(312, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Фиксация дат";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // keyidspb
             // 
             this.keyidspb.DataPropertyName = "keyid";
@@ -423,6 +350,16 @@
             this.SpecIdspb.Name = "SpecIdspb";
             this.SpecIdspb.ReadOnly = true;
             this.SpecIdspb.ValueMember = "ID";
+            // 
+            // lUTAG9BindingSource
+            // 
+            this.lUTAG9BindingSource.DataMember = "LUTAG9";
+            this.lUTAG9BindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // SumOtkSPB
             // 
@@ -490,6 +427,40 @@
             this.DOCPLAN_ECOIDSPB.HeaderText = "DOCPLAN_ECOID";
             this.DOCPLAN_ECOIDSPB.Name = "DOCPLAN_ECOIDSPB";
             this.DOCPLAN_ECOIDSPB.Visible = false;
+            // 
+            // tabLOspbrf
+            // 
+            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
+            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
+            this.tabLOspbrf.Name = "tabLOspbrf";
+            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
+            this.tabLOspbrf.TabIndex = 2;
+            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
+            this.tabLOspbrf.UseVisualStyleBackColor = true;
+            // 
+            // datagridspbrflo
+            // 
+            this.datagridspbrflo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridspbrflo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridspbrflo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.keyidspblo,
+            this.SpecIdspblo,
+            this.sumotkspblo,
+            this.dopotkspblo,
+            this.qtyspblo,
+            this.dopqtyspblo,
+            this.obrspblo,
+            this.dopobrspblo,
+            this.posspblo,
+            this.dopposspblo,
+            this.uetspblo,
+            this.dopuetspblo,
+            this.DOCPLAN_ECOIDspblo});
+            this.datagridspbrflo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridspbrflo.Location = new System.Drawing.Point(0, 0);
+            this.datagridspbrflo.Name = "datagridspbrflo";
+            this.datagridspbrflo.Size = new System.Drawing.Size(728, 195);
+            this.datagridspbrflo.TabIndex = 1;
             // 
             // keyidspblo
             // 
@@ -575,15 +546,45 @@
             this.DOCPLAN_ECOIDspblo.Name = "DOCPLAN_ECOIDspblo";
             this.DOCPLAN_ECOIDspblo.Visible = false;
             // 
-            // vozvrat
+            // Bills
+            // 
+            this.Bills.Controls.Add(this.listBox1);
+            this.Bills.Location = new System.Drawing.Point(4, 22);
+            this.Bills.Name = "Bills";
+            this.Bills.Padding = new System.Windows.Forms.Padding(3);
+            this.Bills.Size = new System.Drawing.Size(728, 195);
+            this.Bills.TabIndex = 3;
+            this.Bills.Text = "Счета";
+            this.Bills.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(722, 189);
+            this.listBox1.TabIndex = 0;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // lUTAG9TableAdapter
+            // 
+            this.lUTAG9TableAdapter.ClearBeforeFill = true;
+            // 
+            // dohod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 337);
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
-            this.Name = "vozvrat";
+            this.Name = "dohod";
             this.Text = "vozvrat";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.dohod_FormClosed);
             this.Load += new System.EventHandler(this.vozvrat_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -592,12 +593,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).EndInit();
             this.tabspbrf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tabLOspbrf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.Bills.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

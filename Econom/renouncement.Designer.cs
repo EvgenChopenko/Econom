@@ -32,10 +32,36 @@
             this.tab = new System.Windows.Forms.TabControl();
             this.tabLO = new System.Windows.Forms.TabPage();
             this.datageidlo = new System.Windows.Forms.DataGridView();
+            this.KEYID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpecId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Econom.DataSet1();
+            this.SumOtk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopotk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopqty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopobr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doppos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UET = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopuet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCPLAN_ECOID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrf = new System.Windows.Forms.DataGridView();
+            this.keyidspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpecIdspb = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SumOtkSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopotkspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOPQTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBRSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopOBRSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POSSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopPOSSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UETSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dopUETspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCPLAN_ECOIDSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLOspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrflo = new System.Windows.Forms.DataGridView();
             this.keyidspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +78,7 @@
             this.dopuetspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCPLAN_ECOIDspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitconte = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.mathcheck = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,33 +86,6 @@
             this.MonthBox = new System.Windows.Forms.ComboBox();
             this.ex_oracle = new System.Windows.Forms.Button();
             this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
-            this.keyidspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpecIdspb = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SumOtkSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopotkspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOPQTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBRSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopOBRSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POSSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopPOSSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UETSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopUETspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCPLAN_ECOIDSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KEYID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpecId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SumOtk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopotk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopqty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopobr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doppos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UET = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopuet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCPLAN_ECOID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).BeginInit();
@@ -150,6 +150,22 @@
             this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
             this.datageidlo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellValueChanged);
             // 
+            // KEYID
+            // 
+            this.KEYID.DataPropertyName = "keyid";
+            this.KEYID.HeaderText = "KEYID";
+            this.KEYID.Name = "KEYID";
+            // 
+            // SpecId
+            // 
+            this.SpecId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SpecId.DataPropertyName = "SpecId";
+            this.SpecId.DataSource = this.lUTAG9BindingSource;
+            this.SpecId.DisplayMember = "DOC_SPEC";
+            this.SpecId.HeaderText = "Доктор";
+            this.SpecId.Name = "SpecId";
+            this.SpecId.ValueMember = "ID";
+            // 
             // lUTAG9BindingSource
             // 
             this.lUTAG9BindingSource.DataMember = "LUTAG9";
@@ -159,6 +175,73 @@
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // SumOtk
+            // 
+            this.SumOtk.DataPropertyName = "SumOtk";
+            this.SumOtk.HeaderText = "Сумма Отказа";
+            this.SumOtk.Name = "SumOtk";
+            // 
+            // dopotk
+            // 
+            this.dopotk.HeaderText = "Доп.Сумма";
+            this.dopotk.Name = "dopotk";
+            this.dopotk.Visible = false;
+            // 
+            // QTY
+            // 
+            this.QTY.DataPropertyName = "QTY";
+            this.QTY.HeaderText = "КОЛ-во Услуг";
+            this.QTY.Name = "QTY";
+            // 
+            // dopqty
+            // 
+            this.dopqty.HeaderText = "Доп.Услуги";
+            this.dopqty.Name = "dopqty";
+            this.dopqty.Visible = false;
+            // 
+            // OBR
+            // 
+            this.OBR.DataPropertyName = "OBR";
+            this.OBR.HeaderText = "Кол-Во Оброщений ";
+            this.OBR.Name = "OBR";
+            // 
+            // dopobr
+            // 
+            this.dopobr.HeaderText = "Доп.Оброщения";
+            this.dopobr.Name = "dopobr";
+            this.dopobr.Visible = false;
+            // 
+            // POS
+            // 
+            this.POS.DataPropertyName = "POS";
+            this.POS.HeaderText = "Кол-во Посещений ";
+            this.POS.Name = "POS";
+            // 
+            // doppos
+            // 
+            this.doppos.HeaderText = "Доп.Посещения";
+            this.doppos.Name = "doppos";
+            this.doppos.Visible = false;
+            // 
+            // UET
+            // 
+            this.UET.DataPropertyName = "UET";
+            this.UET.HeaderText = "Кол-во УЕТ";
+            this.UET.Name = "UET";
+            // 
+            // dopuet
+            // 
+            this.dopuet.HeaderText = "Доп.Ует";
+            this.dopuet.Name = "dopuet";
+            this.dopuet.Visible = false;
+            // 
+            // DOCPLAN_ECOID
+            // 
+            this.DOCPLAN_ECOID.DataPropertyName = "DOCPLAN_ECOID";
+            this.DOCPLAN_ECOID.HeaderText = "DOCPLAN_ECOID";
+            this.DOCPLAN_ECOID.Name = "DOCPLAN_ECOID";
+            this.DOCPLAN_ECOID.Visible = false;
             // 
             // tabspbrf
             // 
@@ -194,6 +277,91 @@
             this.datagridspbrf.Name = "datagridspbrf";
             this.datagridspbrf.Size = new System.Drawing.Size(631, 248);
             this.datagridspbrf.TabIndex = 1;
+            // 
+            // keyidspb
+            // 
+            this.keyidspb.DataPropertyName = "keyid";
+            this.keyidspb.HeaderText = "KEYID";
+            this.keyidspb.Name = "keyidspb";
+            this.keyidspb.Visible = false;
+            // 
+            // SpecIdspb
+            // 
+            this.SpecIdspb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SpecIdspb.DataPropertyName = "SpecId";
+            this.SpecIdspb.DataSource = this.lUTAG9BindingSource;
+            this.SpecIdspb.DisplayMember = "DOC_SPEC";
+            this.SpecIdspb.HeaderText = "Доктор";
+            this.SpecIdspb.Name = "SpecIdspb";
+            this.SpecIdspb.ReadOnly = true;
+            this.SpecIdspb.ValueMember = "ID";
+            // 
+            // SumOtkSPB
+            // 
+            this.SumOtkSPB.DataPropertyName = "SumOtk";
+            this.SumOtkSPB.HeaderText = "Сумма Отказа";
+            this.SumOtkSPB.Name = "SumOtkSPB";
+            // 
+            // dopotkspb
+            // 
+            this.dopotkspb.HeaderText = "Доп.Сумма";
+            this.dopotkspb.Name = "dopotkspb";
+            this.dopotkspb.Visible = false;
+            // 
+            // QTYSPB
+            // 
+            this.QTYSPB.DataPropertyName = "QTY";
+            this.QTYSPB.HeaderText = "КОЛ-во Услуг";
+            this.QTYSPB.Name = "QTYSPB";
+            // 
+            // DOPQTYSPB
+            // 
+            this.DOPQTYSPB.HeaderText = "ДопУслуги";
+            this.DOPQTYSPB.Name = "DOPQTYSPB";
+            this.DOPQTYSPB.Visible = false;
+            // 
+            // OBRSPB
+            // 
+            this.OBRSPB.DataPropertyName = "OBR";
+            this.OBRSPB.HeaderText = "Кол-Во Оброщений ";
+            this.OBRSPB.Name = "OBRSPB";
+            // 
+            // dopOBRSPB
+            // 
+            this.dopOBRSPB.HeaderText = "Доп.Оброшений";
+            this.dopOBRSPB.Name = "dopOBRSPB";
+            this.dopOBRSPB.Visible = false;
+            // 
+            // POSSPB
+            // 
+            this.POSSPB.DataPropertyName = "POS";
+            this.POSSPB.HeaderText = "Кол-во Посещений ";
+            this.POSSPB.Name = "POSSPB";
+            // 
+            // dopPOSSPB
+            // 
+            this.dopPOSSPB.HeaderText = "Доп Посеще.";
+            this.dopPOSSPB.Name = "dopPOSSPB";
+            this.dopPOSSPB.Visible = false;
+            // 
+            // UETSPB
+            // 
+            this.UETSPB.DataPropertyName = "UET";
+            this.UETSPB.HeaderText = "Кол-во УЕТ";
+            this.UETSPB.Name = "UETSPB";
+            // 
+            // dopUETspb
+            // 
+            this.dopUETspb.HeaderText = "Доп.УЕТ";
+            this.dopUETspb.Name = "dopUETspb";
+            this.dopUETspb.Visible = false;
+            // 
+            // DOCPLAN_ECOIDSPB
+            // 
+            this.DOCPLAN_ECOIDSPB.DataPropertyName = "DOCPLAN_ECOID";
+            this.DOCPLAN_ECOIDSPB.HeaderText = "DOCPLAN_ECOID";
+            this.DOCPLAN_ECOIDSPB.Name = "DOCPLAN_ECOIDSPB";
+            this.DOCPLAN_ECOIDSPB.Visible = false;
             // 
             // tabLOspbrf
             // 
@@ -338,6 +506,16 @@
             this.splitconte.SplitterDistance = 85;
             this.splitconte.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(495, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // mathcheck
             // 
             this.mathcheck.AutoSize = true;
@@ -418,184 +596,6 @@
             // 
             this.lUTAG9TableAdapter.ClearBeforeFill = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(495, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // keyidspb
-            // 
-            this.keyidspb.DataPropertyName = "keyid";
-            this.keyidspb.HeaderText = "KEYID";
-            this.keyidspb.Name = "keyidspb";
-            this.keyidspb.Visible = false;
-            // 
-            // SpecIdspb
-            // 
-            this.SpecIdspb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SpecIdspb.DataPropertyName = "SpecId";
-            this.SpecIdspb.DataSource = this.lUTAG9BindingSource;
-            this.SpecIdspb.DisplayMember = "DOC_SPEC";
-            this.SpecIdspb.HeaderText = "Доктор";
-            this.SpecIdspb.Name = "SpecIdspb";
-            this.SpecIdspb.ReadOnly = true;
-            this.SpecIdspb.ValueMember = "ID";
-            // 
-            // SumOtkSPB
-            // 
-            this.SumOtkSPB.DataPropertyName = "SumOtk";
-            this.SumOtkSPB.HeaderText = "Сумма Отказа";
-            this.SumOtkSPB.Name = "SumOtkSPB";
-            // 
-            // dopotkspb
-            // 
-            this.dopotkspb.HeaderText = "Доп.Сумма";
-            this.dopotkspb.Name = "dopotkspb";
-            this.dopotkspb.Visible = false;
-            // 
-            // QTYSPB
-            // 
-            this.QTYSPB.DataPropertyName = "QTY";
-            this.QTYSPB.HeaderText = "КОЛ-во Услуг";
-            this.QTYSPB.Name = "QTYSPB";
-            // 
-            // DOPQTYSPB
-            // 
-            this.DOPQTYSPB.HeaderText = "ДопУслуги";
-            this.DOPQTYSPB.Name = "DOPQTYSPB";
-            this.DOPQTYSPB.Visible = false;
-            // 
-            // OBRSPB
-            // 
-            this.OBRSPB.DataPropertyName = "OBR";
-            this.OBRSPB.HeaderText = "Кол-Во Оброщений ";
-            this.OBRSPB.Name = "OBRSPB";
-            // 
-            // dopOBRSPB
-            // 
-            this.dopOBRSPB.HeaderText = "Доп.Оброшений";
-            this.dopOBRSPB.Name = "dopOBRSPB";
-            this.dopOBRSPB.Visible = false;
-            // 
-            // POSSPB
-            // 
-            this.POSSPB.DataPropertyName = "POS";
-            this.POSSPB.HeaderText = "Кол-во Посещений ";
-            this.POSSPB.Name = "POSSPB";
-            // 
-            // dopPOSSPB
-            // 
-            this.dopPOSSPB.HeaderText = "Доп Посеще.";
-            this.dopPOSSPB.Name = "dopPOSSPB";
-            this.dopPOSSPB.Visible = false;
-            // 
-            // UETSPB
-            // 
-            this.UETSPB.DataPropertyName = "UET";
-            this.UETSPB.HeaderText = "Кол-во УЕТ";
-            this.UETSPB.Name = "UETSPB";
-            // 
-            // dopUETspb
-            // 
-            this.dopUETspb.HeaderText = "Доп.УЕТ";
-            this.dopUETspb.Name = "dopUETspb";
-            this.dopUETspb.Visible = false;
-            // 
-            // DOCPLAN_ECOIDSPB
-            // 
-            this.DOCPLAN_ECOIDSPB.DataPropertyName = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOIDSPB.HeaderText = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOIDSPB.Name = "DOCPLAN_ECOIDSPB";
-            this.DOCPLAN_ECOIDSPB.Visible = false;
-            // 
-            // KEYID
-            // 
-            this.KEYID.DataPropertyName = "keyid";
-            this.KEYID.HeaderText = "KEYID";
-            this.KEYID.Name = "KEYID";
-            // 
-            // SpecId
-            // 
-            this.SpecId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SpecId.DataPropertyName = "SpecId";
-            this.SpecId.DataSource = this.lUTAG9BindingSource;
-            this.SpecId.DisplayMember = "DOC_SPEC";
-            this.SpecId.HeaderText = "Доктор";
-            this.SpecId.Name = "SpecId";
-            this.SpecId.ValueMember = "ID";
-            // 
-            // SumOtk
-            // 
-            this.SumOtk.DataPropertyName = "SumOtk";
-            this.SumOtk.HeaderText = "Сумма Отказа";
-            this.SumOtk.Name = "SumOtk";
-            // 
-            // dopotk
-            // 
-            this.dopotk.HeaderText = "Доп.Сумма";
-            this.dopotk.Name = "dopotk";
-            this.dopotk.Visible = false;
-            // 
-            // QTY
-            // 
-            this.QTY.DataPropertyName = "QTY";
-            this.QTY.HeaderText = "КОЛ-во Услуг";
-            this.QTY.Name = "QTY";
-            // 
-            // dopqty
-            // 
-            this.dopqty.HeaderText = "Доп.Услуги";
-            this.dopqty.Name = "dopqty";
-            this.dopqty.Visible = false;
-            // 
-            // OBR
-            // 
-            this.OBR.DataPropertyName = "OBR";
-            this.OBR.HeaderText = "Кол-Во Оброщений ";
-            this.OBR.Name = "OBR";
-            // 
-            // dopobr
-            // 
-            this.dopobr.HeaderText = "Доп.Оброщения";
-            this.dopobr.Name = "dopobr";
-            this.dopobr.Visible = false;
-            // 
-            // POS
-            // 
-            this.POS.DataPropertyName = "POS";
-            this.POS.HeaderText = "Кол-во Посещений ";
-            this.POS.Name = "POS";
-            // 
-            // doppos
-            // 
-            this.doppos.HeaderText = "Доп.Посещения";
-            this.doppos.Name = "doppos";
-            this.doppos.Visible = false;
-            // 
-            // UET
-            // 
-            this.UET.DataPropertyName = "UET";
-            this.UET.HeaderText = "Кол-во УЕТ";
-            this.UET.Name = "UET";
-            // 
-            // dopuet
-            // 
-            this.dopuet.HeaderText = "Доп.Ует";
-            this.dopuet.Name = "dopuet";
-            this.dopuet.Visible = false;
-            // 
-            // DOCPLAN_ECOID
-            // 
-            this.DOCPLAN_ECOID.DataPropertyName = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOID.HeaderText = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOID.Name = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOID.Visible = false;
-            // 
             // renouncement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,6 +604,7 @@
             this.Controls.Add(this.splitconte);
             this.Name = "renouncement";
             this.Text = "Отказы";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.renouncement_FormClosed);
             this.Load += new System.EventHandler(this.renouncement_Load);
             this.tab.ResumeLayout(false);
             this.tabLO.ResumeLayout(false);

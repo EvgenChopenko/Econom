@@ -15,6 +15,7 @@ namespace Econom
     
     public partial class dohod : Form
     {
+        private Home father;
         private dohodset DohTablLO;
         private dohodset DohTablSPB;
         private dohodset DohTablALL;
@@ -40,7 +41,7 @@ namespace Econom
                                         and DP.DATATEXT = :Month 
                                         and DP.YEAR = :year";
 
-        private string SqlDohLO = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
+        private string SqlDohLO = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
@@ -49,12 +50,12 @@ get_specdocid(v.num) as specid
 from invoice i, visit v,BILL b 
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
- and b.NOTE LIKE '%отказы%' 
+ and b.NOTE NOT LIKE '%отказы%' 
  and i.STATUS not in (1,2) and
 b.dat between :DATES and :DATEF
 and i.AGRID != 435
 group by get_specdocid(v.num)";
-        private string SqlDohSPB = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
+        private string SqlDohSPB = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
@@ -63,12 +64,12 @@ get_specdocid(v.num) as specid
 from invoice i, visit v,BILL b 
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
- and b.NOTE LIKE '%отказы%' 
+ and b.NOTE NOT LIKE '%отказы%' 
  and i.STATUS not in (1,2) and
 b.dat between :DATES and :DATEF
 and i.AGRID = 435
 group by get_specdocid(v.num)";
-        private string SqlDohALL = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
+        private string SqlDohALL = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
@@ -77,7 +78,7 @@ get_specdocid(v.num) as specid
 from invoice i, visit v,BILL b 
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
- and b.NOTE LIKE '%отказы%' 
+ and b.NOTE NOT LIKE '%отказы%' 
  and i.STATUS not in (1,2) and
 b.dat between :DATES and :DATEF
 group by get_specdocid(v.num)";
@@ -89,8 +90,15 @@ group by get_specdocid(v.num)";
         public dohod()
         {
             InitializeComponent();
-            this.MonthBox.Text = MonthBox.Items[0].ToString();
-            this.yearBox.Text = yearBox.Items[0].ToString();
+            this.MonthBox.DataSource = Program.GETMonths();
+            this.yearBox.DataSource = Program.GETYERS();
+        }
+        public dohod(Home father)
+        {
+            InitializeComponent();
+            this.father = father;
+            this.MonthBox.DataSource = Program.GETMonths();
+            this.yearBox.DataSource = Program.GETYERS();
         }
 
         private void scan_Click(object sender, EventArgs e)
@@ -278,6 +286,8 @@ group by get_specdocid(v.num)";
 
         }
 
+        
+
         private void datageidlo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -288,6 +298,9 @@ group by get_specdocid(v.num)";
             DohTablLO.UpdateDB();
             DohTablALL.UpdateDB();
             DohTablSPB.UpdateDB();
+            this.Hide();
+            father.Enabled = true;
+            father.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -342,6 +355,17 @@ group by get_specdocid(v.num)";
             DohTablALL.load(ALL.Dt, "inv_income_tabl_ALL");
             DohTablSPB.load(SPB.Dt, "inv_income_tabl_SPB");
             DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+        }
+
+        private void dohod_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (father != null)
+            {
+                father.Enabled = true;
+                father.Dohod = null;
+            }
+            
+            
         }
     }
 }

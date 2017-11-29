@@ -25,8 +25,9 @@ namespace Econom
             //Application.Run(new renouncement());
             //Application.Run(new vozvrat());
             //Application.Run(new BILLS());
-            Application.Run(new Home());
-           // Application.Run(new DatForm());
+           //Application.Run(new Home());
+           Application.Run(new PlabCalc());
+           
 
         }
         public static int[] GETYERS()

@@ -32,36 +32,33 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.chekDisp = new System.Windows.Forms.CheckBox();
+            this.DispBoxUet = new System.Windows.Forms.TextBox();
+            this.DispBoxPos = new System.Windows.Forms.TextBox();
+            this.DisbBoxObr = new System.Windows.Forms.TextBox();
+            this.DispBoxSum = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.SPBOBRBOX = new System.Windows.Forms.TextBox();
+            this.LOOBRBOX = new System.Windows.Forms.TextBox();
+            this.SPBLOOBRBOX = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.SPBLOPOSBOX = new System.Windows.Forms.TextBox();
+            this.LOPOSBOX = new System.Windows.Forms.TextBox();
+            this.SPBPOSBOX = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.SPBLOUETBOX = new System.Windows.Forms.TextBox();
+            this.LOUETBOX = new System.Windows.Forms.TextBox();
+            this.SPBUETBOX = new System.Windows.Forms.TextBox();
+            this.ONESUMBOX = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,19 +66,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.SPBLOTOTALMONTHS = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.LOTOTALMOTHES = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.SPBTOTALMONTHS = new System.Windows.Forms.TextBox();
+            this.DispLabelObr = new System.Windows.Forms.Label();
+            this.DispLabelPos = new System.Windows.Forms.Label();
+            this.DispLabelUet = new System.Windows.Forms.Label();
+            this.DispLabelSum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -102,37 +96,39 @@
             resources.ApplyResources(this.comboBox3, "comboBox3");
             this.comboBox3.Name = "comboBox3";
             // 
-            // checkBox1
+            // chekDisp
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.chekDisp, "chekDisp");
+            this.chekDisp.Name = "chekDisp";
+            this.chekDisp.UseVisualStyleBackColor = true;
+            this.chekDisp.CheckedChanged += new System.EventHandler(this.chekDisp_CheckedChanged);
             // 
-            // textBox1
+            // DispBoxUet
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.DispBoxUet, "DispBoxUet");
+            this.DispBoxUet.Name = "DispBoxUet";
             // 
-            // textBox2
+            // DispBoxPos
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            resources.ApplyResources(this.DispBoxPos, "DispBoxPos");
+            this.DispBoxPos.Name = "DispBoxPos";
             // 
-            // textBox3
+            // DisbBoxObr
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
+            resources.ApplyResources(this.DisbBoxObr, "DisbBoxObr");
+            this.DisbBoxObr.Name = "DisbBoxObr";
             // 
-            // textBox4
+            // DispBoxSum
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
+            resources.ApplyResources(this.DispBoxSum, "DispBoxSum");
+            this.DispBoxSum.Name = "DispBoxSum";
             // 
             // button1
             // 
             resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -161,20 +157,20 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // textBox5
+            // SPBOBRBOX
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
-            this.textBox5.Name = "textBox5";
+            resources.ApplyResources(this.SPBOBRBOX, "SPBOBRBOX");
+            this.SPBOBRBOX.Name = "SPBOBRBOX";
             // 
-            // textBox6
+            // LOOBRBOX
             // 
-            resources.ApplyResources(this.textBox6, "textBox6");
-            this.textBox6.Name = "textBox6";
+            resources.ApplyResources(this.LOOBRBOX, "LOOBRBOX");
+            this.LOOBRBOX.Name = "LOOBRBOX";
             // 
-            // textBox7
+            // SPBLOOBRBOX
             // 
-            resources.ApplyResources(this.textBox7, "textBox7");
-            this.textBox7.Name = "textBox7";
+            resources.ApplyResources(this.SPBLOOBRBOX, "SPBLOOBRBOX");
+            this.SPBLOOBRBOX.Name = "SPBLOOBRBOX";
             // 
             // label4
             // 
@@ -197,20 +193,20 @@
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
             // 
-            // textBox8
+            // SPBLOPOSBOX
             // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.Name = "textBox8";
+            resources.ApplyResources(this.SPBLOPOSBOX, "SPBLOPOSBOX");
+            this.SPBLOPOSBOX.Name = "SPBLOPOSBOX";
             // 
-            // textBox9
+            // LOPOSBOX
             // 
-            resources.ApplyResources(this.textBox9, "textBox9");
-            this.textBox9.Name = "textBox9";
+            resources.ApplyResources(this.LOPOSBOX, "LOPOSBOX");
+            this.LOPOSBOX.Name = "LOPOSBOX";
             // 
-            // textBox10
+            // SPBPOSBOX
             // 
-            resources.ApplyResources(this.textBox10, "textBox10");
-            this.textBox10.Name = "textBox10";
+            resources.ApplyResources(this.SPBPOSBOX, "SPBPOSBOX");
+            this.SPBPOSBOX.Name = "SPBPOSBOX";
             // 
             // label8
             // 
@@ -222,40 +218,25 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
             // 
-            // textBox11
+            // SPBLOUETBOX
             // 
-            resources.ApplyResources(this.textBox11, "textBox11");
-            this.textBox11.Name = "textBox11";
+            resources.ApplyResources(this.SPBLOUETBOX, "SPBLOUETBOX");
+            this.SPBLOUETBOX.Name = "SPBLOUETBOX";
             // 
-            // textBox12
+            // LOUETBOX
             // 
-            resources.ApplyResources(this.textBox12, "textBox12");
-            this.textBox12.Name = "textBox12";
+            resources.ApplyResources(this.LOUETBOX, "LOUETBOX");
+            this.LOUETBOX.Name = "LOUETBOX";
             // 
-            // textBox13
+            // SPBUETBOX
             // 
-            resources.ApplyResources(this.textBox13, "textBox13");
-            this.textBox13.Name = "textBox13";
+            resources.ApplyResources(this.SPBUETBOX, "SPBUETBOX");
+            this.SPBUETBOX.Name = "SPBUETBOX";
             // 
-            // label10
+            // ONESUMBOX
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
-            // textBox14
-            // 
-            resources.ApplyResources(this.textBox14, "textBox14");
-            this.textBox14.Name = "textBox14";
-            // 
-            // textBox15
-            // 
-            resources.ApplyResources(this.textBox15, "textBox15");
-            this.textBox15.Name = "textBox15";
-            // 
-            // textBox16
-            // 
-            resources.ApplyResources(this.textBox16, "textBox16");
-            this.textBox16.Name = "textBox16";
+            resources.ApplyResources(this.ONESUMBOX, "ONESUMBOX");
+            this.ONESUMBOX.Name = "ONESUMBOX";
             // 
             // label12
             // 
@@ -292,10 +273,10 @@
             resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
             // 
-            // textBox17
+            // SPBLOTOTALMONTHS
             // 
-            resources.ApplyResources(this.textBox17, "textBox17");
-            this.textBox17.Name = "textBox17";
+            resources.ApplyResources(this.SPBLOTOTALMONTHS, "SPBLOTOTALMONTHS");
+            this.SPBLOTOTALMONTHS.Name = "SPBLOTOTALMONTHS";
             // 
             // label19
             // 
@@ -307,73 +288,55 @@
             resources.ApplyResources(this.label20, "label20");
             this.label20.Name = "label20";
             // 
-            // textBox18
+            // LOTOTALMOTHES
             // 
-            resources.ApplyResources(this.textBox18, "textBox18");
-            this.textBox18.Name = "textBox18";
+            resources.ApplyResources(this.LOTOTALMOTHES, "LOTOTALMOTHES");
+            this.LOTOTALMOTHES.Name = "LOTOTALMOTHES";
             // 
             // label21
             // 
             resources.ApplyResources(this.label21, "label21");
             this.label21.Name = "label21";
             // 
-            // textBox19
+            // SPBTOTALMONTHS
             // 
-            resources.ApplyResources(this.textBox19, "textBox19");
-            this.textBox19.Name = "textBox19";
+            resources.ApplyResources(this.SPBTOTALMONTHS, "SPBTOTALMONTHS");
+            this.SPBTOTALMONTHS.Name = "SPBTOTALMONTHS";
             // 
-            // label11
+            // DispLabelObr
             // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
+            resources.ApplyResources(this.DispLabelObr, "DispLabelObr");
+            this.DispLabelObr.Name = "DispLabelObr";
             // 
-            // label22
+            // DispLabelPos
             // 
-            resources.ApplyResources(this.label22, "label22");
-            this.label22.Name = "label22";
+            resources.ApplyResources(this.DispLabelPos, "DispLabelPos");
+            this.DispLabelPos.Name = "DispLabelPos";
             // 
-            // label23
+            // DispLabelUet
             // 
-            resources.ApplyResources(this.label23, "label23");
-            this.label23.Name = "label23";
+            resources.ApplyResources(this.DispLabelUet, "DispLabelUet");
+            this.DispLabelUet.Name = "DispLabelUet";
             // 
-            // label24
+            // DispLabelSum
             // 
-            resources.ApplyResources(this.label24, "label24");
-            this.label24.Name = "label24";
-            // 
-            // label25
-            // 
-            resources.ApplyResources(this.label25, "label25");
-            this.label25.Name = "label25";
-            // 
-            // label26
-            // 
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.Name = "label26";
-            // 
-            // label27
-            // 
-            resources.ApplyResources(this.label27, "label27");
-            this.label27.Name = "label27";
+            resources.ApplyResources(this.DispLabelSum, "DispLabelSum");
+            this.DispLabelSum.Name = "DispLabelSum";
             // 
             // PlabCalc
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.DispLabelSum);
+            this.Controls.Add(this.DispLabelUet);
+            this.Controls.Add(this.DispLabelPos);
+            this.Controls.Add(this.DispLabelObr);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.SPBTOTALMONTHS);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.LOTOTALMOTHES);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.textBox17);
+            this.Controls.Add(this.SPBLOTOTALMONTHS);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -381,41 +344,39 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.ONESUMBOX);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.SPBLOUETBOX);
+            this.Controls.Add(this.LOUETBOX);
+            this.Controls.Add(this.SPBUETBOX);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.SPBLOPOSBOX);
+            this.Controls.Add(this.LOPOSBOX);
+            this.Controls.Add(this.SPBPOSBOX);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.SPBLOOBRBOX);
+            this.Controls.Add(this.LOOBRBOX);
+            this.Controls.Add(this.SPBOBRBOX);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.DispBoxSum);
+            this.Controls.Add(this.DisbBoxObr);
+            this.Controls.Add(this.DispBoxPos);
+            this.Controls.Add(this.DispBoxUet);
+            this.Controls.Add(this.chekDisp);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "PlabCalc";
+            this.Load += new System.EventHandler(this.PlabCalc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,36 +387,33 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.CheckBox chekDisp;
+        private System.Windows.Forms.TextBox DispBoxUet;
+        private System.Windows.Forms.TextBox DispBoxPos;
+        private System.Windows.Forms.TextBox DisbBoxObr;
+        private System.Windows.Forms.TextBox DispBoxSum;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox SPBOBRBOX;
+        private System.Windows.Forms.TextBox LOOBRBOX;
+        private System.Windows.Forms.TextBox SPBLOOBRBOX;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox SPBLOPOSBOX;
+        private System.Windows.Forms.TextBox LOPOSBOX;
+        private System.Windows.Forms.TextBox SPBPOSBOX;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox SPBLOUETBOX;
+        private System.Windows.Forms.TextBox LOUETBOX;
+        private System.Windows.Forms.TextBox SPBUETBOX;
+        private System.Windows.Forms.TextBox ONESUMBOX;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -463,18 +421,15 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox SPBLOTOTALMONTHS;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox LOTOTALMOTHES;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox SPBTOTALMONTHS;
+        private System.Windows.Forms.Label DispLabelObr;
+        private System.Windows.Forms.Label DispLabelPos;
+        private System.Windows.Forms.Label DispLabelUet;
+        private System.Windows.Forms.Label DispLabelSum;
     }
 }

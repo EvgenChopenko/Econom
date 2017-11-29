@@ -8,19 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OracleClient;
 
 namespace Econom
 {
     public partial class Plan : Form
     {
-
+        private PlabCalc PlabCalc = null;
         private Planset p = null;
         private Home father = null;
         private DataView view = null;
-        private const string sqlcomm= @"
-select * from solution_med.DOCPLAN_ECO
-";
-        
+        private const string sqlselect= @"
+       select * from solution_med.DOCPLAN_ECO dd
+        where dd.DATATEXT =:MONTHS
+        and dd.YEAR = :YEAR";
+
+        private const string sqlinsert = "p_insert";
+
         private string connectionString = ConfigurationManager.ConnectionStrings["Econom.Properties.Settings.OracleString"].ConnectionString;
 
 
@@ -28,7 +32,7 @@ select * from solution_med.DOCPLAN_ECO
         public Plan()
         {
             InitializeComponent();
-
+            PlabCalc = new PlabCalc(this);
         }
 
 
@@ -44,9 +48,45 @@ select * from solution_med.DOCPLAN_ECO
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.LUTAG9". При необходимости она может быть перемещена или удалена.
             this.lUTAG9TableAdapter.Fill(this.dataSet1.LUTAG9);
 
-            
+             comboxyear.DataSource = Program.GETYERS();
+            comboxmonth.DataSource = Program.GETMonths();
 
-            p = new Planset(connectionString, sqlcomm, "MED", "solution_med.DOCPLAN_ECO");
+            p = new Planset(connectionString, "MED", "DOCPLAN_ECO");
+            p.setselectcomand(sqlselect, CommandType.Text);
+            p.AddSelectParametr(":MONTHS", OracleType.NVarChar, 14, comboxmonth.Text);
+            p.AddSelectParametr(":YEAR", OracleType.Number, 12, int.Parse(comboxyear.Text));
+
+            p.setinsertcomand(sqlinsert, CommandType.StoredProcedure);
+            
+                p.AddInsertParametrGrid("specid", OracleType.Number, 12, "specid");
+            p.AddInsertParametrGrid("PlanTotal", OracleType.Number, 12, "PlanTotal");
+            p.AddInsertParametrGrid("PosPlanTotal", OracleType.Number, 12, "PosPlanTotal");
+            p.AddInsertParametrGrid("ObrPlanTotal", OracleType.Number, 12, "ObrPlanTotal");
+            p.AddInsertParametrGrid("UetPlanObr", OracleType.Number, 12, "UetPlanObr");
+
+            p.AddInsertParametrGrid("LOPlanTotal", OracleType.Number, 12, "LOPlanTotal");
+            p.AddInsertParametrGrid("LOPosPlanTotal", OracleType.Number, 12, "LOPosPlanTotal");
+            p.AddInsertParametrGrid("LOObrPlanTotal", OracleType.Number, 12, "LOObrPlanTotal");
+            p.AddInsertParametrGrid("LOUetPlanObr", OracleType.Number, 12, "LOUetPlanObr");
+
+            p.AddInsertParametrGrid("SPBPlanTotal", OracleType.Number, 12, "SPBPlanTotal");
+            p.AddInsertParametrGrid("SPBPosPlanTotal", OracleType.Number, 12, "SPBPosPlanTotal");
+            p.AddInsertParametrGrid("SPBObrPlanTotal", OracleType.Number, 12, "SPBObrPlanTotal");
+            p.AddInsertParametrGrid("SPBUetPlanObr", OracleType.Number, 12, "SPBUetPlanObr");
+
+            p.AddInsertParametrGrid("DataStart", OracleType.DateTime, 0, "DataStart");
+            p.AddInsertParametrGrid("DataFinish", OracleType.DateTime, 10, "DataFinish");
+            p.AddInsertParametrGrid("DATATEXT", OracleType.NVarChar, 255, "DATATEXT");
+            p.AddInsertParametrGrid("YEAR", OracleType.Number, 0, "YEAR");
+
+
+
+
+
+
+            p.adapterinstal();
+
+
             view = p.GetDataView();
             this.dataGridView1.DataSource = view;
            
@@ -56,10 +96,9 @@ select * from solution_med.DOCPLAN_ECO
             comboxdoc.ValueMember = "ID";
             comboxdoc.DisplayMember = "DOC_SPEC";
 
-            comboxyear.DataSource = Program.GETYERS();
-            comboxmonth.DataSource = Program.GETMonths();
+           
             p.Dt.Columns["YEAR"].DefaultValue = int.Parse(comboxyear.Text.ToString());
-           // p.Dt.Columns["specid"].DefaultValue = comboxdoc.Text;
+        
 
 
 

@@ -16,6 +16,7 @@ namespace Econom
         private OracleCommand update;
         private OracleCommand delet;
 
+        public Planset(string connectionString, string nameDB, string nameTabel) : base(connectionString, nameDB, nameTabel) { }
 
 
         public Planset(string connectionString, string sqlcommand, string nameDB, string nameTabel) : base(connectionString, sqlcommand, nameDB, nameTabel)
@@ -77,6 +78,8 @@ namespace Econom
 
 
         }
+
+       
 
 
 

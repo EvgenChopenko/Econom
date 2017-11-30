@@ -48,7 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.docbox = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.MonthsYear = new System.Windows.Forms.CheckBox();
             this.yearbox = new System.Windows.Forms.CheckBox();
             this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +69,11 @@
             this.PLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DATASTART = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BoxRadio = new System.Windows.Forms.GroupBox();
+            this.SPBRadioButton = new System.Windows.Forms.RadioButton();
+            this.SPBLORadioButton = new System.Windows.Forms.RadioButton();
+            this.LORadioButton = new System.Windows.Forms.RadioButton();
+            this.ALLRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -79,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dOCMONTHYEARBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearIdBindingSource2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.BoxRadio.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -109,6 +115,8 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(996, 293);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // lUTAG9BindingSource
             // 
@@ -123,7 +131,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(731, 16);
+            this.button1.Location = new System.Drawing.Point(875, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 23);
             this.button1.TabIndex = 2;
@@ -133,7 +141,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(753, 59);
+            this.button2.Location = new System.Drawing.Point(909, 65);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -150,7 +158,7 @@
             "2018",
             "2019",
             "2020"});
-            this.comboxyear.Location = new System.Drawing.Point(48, 32);
+            this.comboxyear.Location = new System.Drawing.Point(6, 30);
             this.comboxyear.Name = "comboxyear";
             this.comboxyear.Size = new System.Drawing.Size(121, 21);
             this.comboxyear.TabIndex = 4;
@@ -164,7 +172,7 @@
             // 
             this.comboxmonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboxmonth.FormattingEnabled = true;
-            this.comboxmonth.Location = new System.Drawing.Point(210, 32);
+            this.comboxmonth.Location = new System.Drawing.Point(133, 30);
             this.comboxmonth.Name = "comboxmonth";
             this.comboxmonth.Size = new System.Drawing.Size(121, 21);
             this.comboxmonth.TabIndex = 5;
@@ -177,15 +185,15 @@
             // 
             this.comboxdoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboxdoc.FormattingEnabled = true;
-            this.comboxdoc.Location = new System.Drawing.Point(364, 32);
+            this.comboxdoc.Location = new System.Drawing.Point(270, 30);
             this.comboxdoc.Name = "comboxdoc";
-            this.comboxdoc.Size = new System.Drawing.Size(170, 21);
+            this.comboxdoc.Size = new System.Drawing.Size(139, 21);
             this.comboxdoc.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 16);
+            this.label1.Location = new System.Drawing.Point(47, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 13);
             this.label1.TabIndex = 7;
@@ -194,7 +202,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(255, 16);
+            this.label2.Location = new System.Drawing.Point(178, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 8;
@@ -203,7 +211,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(432, 16);
+            this.label3.Location = new System.Drawing.Point(325, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 9;
@@ -211,8 +219,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BoxRadio);
             this.groupBox1.Controls.Add(this.docbox);
-            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.MonthsYear);
             this.groupBox1.Controls.Add(this.yearbox);
             this.groupBox1.Controls.Add(this.comboxdoc);
             this.groupBox1.Controls.Add(this.label3);
@@ -233,32 +242,34 @@
             // docbox
             // 
             this.docbox.AutoSize = true;
-            this.docbox.Location = new System.Drawing.Point(397, 63);
+            this.docbox.Location = new System.Drawing.Point(290, 61);
             this.docbox.Name = "docbox";
             this.docbox.Size = new System.Drawing.Size(125, 17);
             this.docbox.TabIndex = 12;
             this.docbox.Text = "Скрыть Спец.Врача";
             this.docbox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // MonthsYear
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(229, 65);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(100, 17);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Скрыть Месяц";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.MonthsYear.AutoSize = true;
+            this.MonthsYear.Location = new System.Drawing.Point(138, 63);
+            this.MonthsYear.Name = "MonthsYear";
+            this.MonthsYear.Size = new System.Drawing.Size(100, 17);
+            this.MonthsYear.TabIndex = 11;
+            this.MonthsYear.Text = "Скрыть Месяц";
+            this.MonthsYear.UseVisualStyleBackColor = true;
+            this.MonthsYear.CheckedChanged += new System.EventHandler(this.MonthsYear_CheckedChanged);
             // 
             // yearbox
             // 
             this.yearbox.AutoSize = true;
-            this.yearbox.Location = new System.Drawing.Point(65, 65);
+            this.yearbox.Location = new System.Drawing.Point(6, 65);
             this.yearbox.Name = "yearbox";
-            this.yearbox.Size = new System.Drawing.Size(85, 17);
+            this.yearbox.Size = new System.Drawing.Size(126, 17);
             this.yearbox.TabIndex = 10;
-            this.yearbox.Text = "Скрыть Год";
+            this.yearbox.Text = "Зафиксировать год";
             this.yearbox.UseVisualStyleBackColor = true;
+            this.yearbox.CheckedChanged += new System.EventHandler(this.yearbox_CheckedChanged);
             // 
             // lUTAG9TableAdapter
             // 
@@ -277,6 +288,7 @@
             this.DATATEXT.DataPropertyName = "DATATEXT";
             this.DATATEXT.HeaderText = "Месяц";
             this.DATATEXT.Name = "DATATEXT";
+            this.DATATEXT.ReadOnly = true;
             this.DATATEXT.Width = 65;
             // 
             // YEAR
@@ -406,6 +418,67 @@
             this.DataFinish.Name = "DataFinish";
             this.DataFinish.Width = 158;
             // 
+            // BoxRadio
+            // 
+            this.BoxRadio.Controls.Add(this.ALLRadioButton);
+            this.BoxRadio.Controls.Add(this.LORadioButton);
+            this.BoxRadio.Controls.Add(this.SPBLORadioButton);
+            this.BoxRadio.Controls.Add(this.SPBRadioButton);
+            this.BoxRadio.Location = new System.Drawing.Point(633, 14);
+            this.BoxRadio.Name = "BoxRadio";
+            this.BoxRadio.Size = new System.Drawing.Size(236, 79);
+            this.BoxRadio.TabIndex = 13;
+            this.BoxRadio.TabStop = false;
+            this.BoxRadio.Text = "Фильтр";
+            // 
+            // SPBRadioButton
+            // 
+            this.SPBRadioButton.AutoSize = true;
+            this.SPBRadioButton.Location = new System.Drawing.Point(18, 16);
+            this.SPBRadioButton.Name = "SPBRadioButton";
+            this.SPBRadioButton.Size = new System.Drawing.Size(71, 17);
+            this.SPBRadioButton.TabIndex = 0;
+            this.SPBRadioButton.TabStop = true;
+            this.SPBRadioButton.Text = "СПБ+РФ";
+            this.SPBRadioButton.UseVisualStyleBackColor = true;
+            this.SPBRadioButton.CheckedChanged += new System.EventHandler(this.SPBRadioButton_CheckedChanged);
+            // 
+            // SPBLORadioButton
+            // 
+            this.SPBLORadioButton.AutoSize = true;
+            this.SPBLORadioButton.Location = new System.Drawing.Point(109, 16);
+            this.SPBLORadioButton.Name = "SPBLORadioButton";
+            this.SPBLORadioButton.Size = new System.Drawing.Size(93, 17);
+            this.SPBLORadioButton.TabIndex = 1;
+            this.SPBLORadioButton.TabStop = true;
+            this.SPBLORadioButton.Text = "СПБ+РФ+ЛО";
+            this.SPBLORadioButton.UseVisualStyleBackColor = true;
+            this.SPBLORadioButton.CheckedChanged += new System.EventHandler(this.SPBLORadioButton_CheckedChanged);
+            // 
+            // LORadioButton
+            // 
+            this.LORadioButton.AutoSize = true;
+            this.LORadioButton.Location = new System.Drawing.Point(18, 46);
+            this.LORadioButton.Name = "LORadioButton";
+            this.LORadioButton.Size = new System.Drawing.Size(41, 17);
+            this.LORadioButton.TabIndex = 2;
+            this.LORadioButton.TabStop = true;
+            this.LORadioButton.Text = "ЛО";
+            this.LORadioButton.UseVisualStyleBackColor = true;
+            this.LORadioButton.CheckedChanged += new System.EventHandler(this.LORadioButton_CheckedChanged);
+            // 
+            // ALLRadioButton
+            // 
+            this.ALLRadioButton.AutoSize = true;
+            this.ALLRadioButton.Location = new System.Drawing.Point(109, 46);
+            this.ALLRadioButton.Name = "ALLRadioButton";
+            this.ALLRadioButton.Size = new System.Drawing.Size(44, 17);
+            this.ALLRadioButton.TabIndex = 3;
+            this.ALLRadioButton.TabStop = true;
+            this.ALLRadioButton.Text = "ALL";
+            this.ALLRadioButton.UseVisualStyleBackColor = true;
+            this.ALLRadioButton.CheckedChanged += new System.EventHandler(this.ALLRadioButton_CheckedChanged);
+            // 
             // Plan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,6 +502,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.yearIdBindingSource2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.BoxRadio.ResumeLayout(false);
+            this.BoxRadio.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -452,7 +527,7 @@
         private System.Windows.Forms.BindingSource yearIdBindingSource2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox docbox;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox MonthsYear;
         private System.Windows.Forms.CheckBox yearbox;
         private System.Windows.Forms.BindingSource dOCIDBindingSource1;
         private System.Windows.Forms.BindingSource dOCMONTHYEARBindingSource1;
@@ -477,5 +552,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PLANTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATASTART;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataFinish;
+        private System.Windows.Forms.GroupBox BoxRadio;
+        private System.Windows.Forms.RadioButton ALLRadioButton;
+        private System.Windows.Forms.RadioButton LORadioButton;
+        private System.Windows.Forms.RadioButton SPBLORadioButton;
+        private System.Windows.Forms.RadioButton SPBRadioButton;
     }
 }

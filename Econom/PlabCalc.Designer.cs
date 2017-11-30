@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlabCalc));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.DocBox = new System.Windows.Forms.ComboBox();
+            this.MonthsBox = new System.Windows.Forms.ComboBox();
+            this.MonthsYear = new System.Windows.Forms.ComboBox();
             this.chekDisp = new System.Windows.Forms.CheckBox();
             this.DispBoxUet = new System.Windows.Forms.TextBox();
             this.DispBoxPos = new System.Windows.Forms.TextBox();
@@ -76,25 +77,34 @@
             this.DispLabelPos = new System.Windows.Forms.Label();
             this.DispLabelUet = new System.Windows.Forms.Label();
             this.DispLabelSum = new System.Windows.Forms.Label();
+            this.dataSet1 = new Econom.DataSet1();
+            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
+            this.redact = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // DocBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
+            this.DocBox.DataSource = this.lUTAG9BindingSource;
+            this.DocBox.DisplayMember = "DOC_SPEC";
+            this.DocBox.FormattingEnabled = true;
+            resources.ApplyResources(this.DocBox, "DocBox");
+            this.DocBox.Name = "DocBox";
+            this.DocBox.ValueMember = "ID";
             // 
-            // comboBox2
+            // MonthsBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox2, "comboBox2");
-            this.comboBox2.Name = "comboBox2";
+            this.MonthsBox.FormattingEnabled = true;
+            resources.ApplyResources(this.MonthsBox, "MonthsBox");
+            this.MonthsBox.Name = "MonthsBox";
             // 
-            // comboBox3
+            // MonthsYear
             // 
-            this.comboBox3.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox3, "comboBox3");
-            this.comboBox3.Name = "comboBox3";
+            this.MonthsYear.FormattingEnabled = true;
+            resources.ApplyResources(this.MonthsYear, "MonthsYear");
+            this.MonthsYear.Name = "MonthsYear";
             // 
             // chekDisp
             // 
@@ -135,12 +145,14 @@
             resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -323,10 +335,32 @@
             resources.ApplyResources(this.DispLabelSum, "DispLabelSum");
             this.DispLabelSum.Name = "DispLabelSum";
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lUTAG9BindingSource
+            // 
+            this.lUTAG9BindingSource.DataMember = "LUTAG9";
+            this.lUTAG9BindingSource.DataSource = this.dataSet1;
+            // 
+            // lUTAG9TableAdapter
+            // 
+            this.lUTAG9TableAdapter.ClearBeforeFill = true;
+            // 
+            // redact
+            // 
+            resources.ApplyResources(this.redact, "redact");
+            this.redact.Name = "redact";
+            this.redact.UseVisualStyleBackColor = true;
+            this.redact.CheckedChanged += new System.EventHandler(this.redact_CheckedChanged);
+            // 
             // PlabCalc
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.redact);
             this.Controls.Add(this.DispLabelSum);
             this.Controls.Add(this.DispLabelUet);
             this.Controls.Add(this.DispLabelPos);
@@ -371,12 +405,15 @@
             this.Controls.Add(this.DispBoxPos);
             this.Controls.Add(this.DispBoxUet);
             this.Controls.Add(this.chekDisp);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.MonthsYear);
+            this.Controls.Add(this.MonthsBox);
+            this.Controls.Add(this.DocBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "PlabCalc";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlabCalc_FormClosed);
             this.Load += new System.EventHandler(this.PlabCalc_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,9 +421,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox DocBox;
+        private System.Windows.Forms.ComboBox MonthsBox;
+        private System.Windows.Forms.ComboBox MonthsYear;
         private System.Windows.Forms.CheckBox chekDisp;
         private System.Windows.Forms.TextBox DispBoxUet;
         private System.Windows.Forms.TextBox DispBoxPos;
@@ -431,5 +468,9 @@
         private System.Windows.Forms.Label DispLabelPos;
         private System.Windows.Forms.Label DispLabelUet;
         private System.Windows.Forms.Label DispLabelSum;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource lUTAG9BindingSource;
+        private DataSet1TableAdapters.LUTAG9TableAdapter lUTAG9TableAdapter;
+        private System.Windows.Forms.CheckBox redact;
     }
 }

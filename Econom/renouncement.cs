@@ -93,7 +93,7 @@ group by get_specdocid(v.num)";
         private string sqldeletall = @"DelInv_Tabl";
 
         private string ConectString = ConfigurationManager.ConnectionStrings["Econom.Properties.Settings.OracleString"].ConnectionString;
-        private string filter;
+       
         private renouncementset selectLO;
         private renouncementset selectspb;
         private renouncementset selectALL;

@@ -15,6 +15,8 @@ namespace Econom
 
         private Plan father = null;
         private bool flagRed = true;
+        private int RowIndex = 0;
+        private DataGridView DataGrid = null; 
         public PlabCalc()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace Econom
             this.MonthsBox.DataSource = Program.GETMonths();
             this.flagRed = true;
             this.MonthsYear.DataSource = Program.GETYERS();
+            this.DataGrid = father.getdataview();
          
 
 
@@ -126,7 +129,7 @@ namespace Econom
 
         private void button2_Click(object sender, EventArgs e)
         {
-            returndata(this.father.Ds);
+            returndata(this.father.Ds,DataGrid,RowIndex);
             this.Hide();
 
         }
@@ -268,6 +271,10 @@ namespace Econom
             DateStart.Value = (DateTime)datas;
             DateFinish.Value = (DateTime)dataf;
         }
+        public void SetRowindex(int RowIndex)
+        {
+            this.RowIndex = RowIndex;
+        }
 
 
 
@@ -297,30 +304,29 @@ namespace Econom
             if (flagRed)
                {
                 //DS.Tables[].Rows[21].a
-                dataGrid["specid",Rowindex].Value=
-                      dataGrid["PLANTOTAL", Rowindex].Value =
-                        dataGrid["POSPLANTOTAL", Rowindex].Value =
-                          dataGrid["OBRPLANTOTAL", Rowindex].Value =
-                            dataGrid["UETPLANOBR", Rowindex].Value =
-                              dataGrid["LOPLANTOTAL", Rowindex].Value =
-                                dataGrid["LOPOSPLANTOTAL", Rowindex].Value =
-                                  dataGrid["LOOBRPLANTOTAL", Rowindex].Value =
-                                  dataGrid["LOUETPLANOBR", Rowindex].Value =
-                                  dataGrid["SPBPLANTOTAL", Rowindex].Value =
-                                  dataGrid["SPBPOSPLANTOTAL", Rowindex].Value =
-                                  dataGrid["SPBOBRPLANTOTAL", Rowindex].Value =
-                                  dataGrid["SPBUETPLANOBR", Rowindex].Value =
-                                   dataGrid["YEAR", Rowindex].Value =
-                                  dataGrid["DATATEXT", Rowindex].Value =
-                                   dataGrid["DATASTART", Rowindex].Value =
-                                  dataGrid["DATAFINISH", Rowindex].Value =
+                dataGrid["specid", Rowindex].Value = DocBox.SelectedValue;
+                dataGrid["PLANTOTAL", Rowindex].Value = decimal.Parse(ONESUMBOX.Text);
+                dataGrid["POSPLANTOTAL", Rowindex].Value = decimal.Parse(SPBLOPOSBOX.Text);
+                          dataGrid["OBRPLANTOTAL", Rowindex].Value =decimal.Parse(SPBLOOBRBOX.Text);
+                            dataGrid["UETPLANOBR", Rowindex].Value = decimal.Parse(SPBLOUETBOX.Text);
+                              dataGrid["LOPLANTOTAL", Rowindex].Value =decimal.Parse(ONESUMBOX.Text);
+                                dataGrid["LOPOSPLANTOTAL", Rowindex].Value =decimal.Parse(LOPOSBOX.Text);
+                                  dataGrid["LOOBRPLANTOTAL", Rowindex].Value =decimal.Parse(LOOBRBOX.Text);
+                                  dataGrid["LOUETPLANOBR", Rowindex].Value =decimal.Parse(LOUETBOX.Text);
+                                  dataGrid["SPBPLANTOTAL", Rowindex].Value =decimal.Parse(ONESUMBOX.Text);
+                                  dataGrid["SPBPOSPLANTOTAL", Rowindex].Value = decimal.Parse(SPBPOSBOX.Text);
+                                 dataGrid["SPBOBRPLANTOTAL", Rowindex].Value =decimal.Parse(SPBOBRBOX.Text);
+                                  dataGrid["SPBUETPLANOBR", Rowindex].Value =decimal.Parse(SPBUETBOX.Text);
+                dataGrid["YEAR", Rowindex].Value = int.Parse(MonthsYear.Text);
+                dataGrid["DATATEXT", Rowindex].Value = MonthsBox.Text;
+                ////
+                dataGrid["DATASTART", Rowindex].Value = DateStart.Value;
+                dataGrid["DATAFINISH", Rowindex].Value = DateFinish.Value;
 
-               } else
+
+            } else
                {
                 DataRow DR = DS.Tables["DOCPLAN_ECO"].NewRow();
-
-
-
                 DR["specid"] = DocBox.SelectedValue;
                 ///
                 DR["PLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);

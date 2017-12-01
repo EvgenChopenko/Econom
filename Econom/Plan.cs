@@ -325,6 +325,7 @@ namespace Econom
                 Calcwindows.Show();
                 try
                 {
+                    Calcwindows.SetRowindex(e.RowIndex);
                     Calcwindows.DataMonthsYearDoc(p.Dt.Rows[ e.RowIndex]["DATATEXT"], p.Dt.Rows[e.RowIndex]["YEAR"],
                 p.Dt.Rows[e.RowIndex]["specid"]);
                     Calcwindows.DataLO(dataGridView1["LOObrPlanTotal", e.RowIndex].Value.ToString(),
@@ -411,6 +412,11 @@ namespace Econom
             Calcwindows = new PlabCalc(this,false);
             Calcwindows.Show();
         }
+        public DataGridView getdataview()
+        {
+            return dataGridView1;
+        }
+
     }
     }
     

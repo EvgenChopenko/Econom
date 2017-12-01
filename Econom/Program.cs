@@ -22,12 +22,9 @@ namespace Econom
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new renouncement());
-            //Application.Run(new vozvrat());
-            //Application.Run(new BILLS());
-            //Application.Run(new Home());
-            //Application.Run(new PlabCalc());
-            Application.Run(new Plan());
+           
+            Application.Run(new Home());
+         
 
 
         }

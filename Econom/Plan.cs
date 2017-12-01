@@ -19,7 +19,7 @@ namespace Econom
         private Home father = null;
         private DataView view = null;
         private PlabCalc calcwindows = null;
-
+        private DataSet ds = null;
         private int Row = -1;
         private const string sqlselect= @"
        select * from solution_med.DOCPLAN_ECO dd
@@ -34,11 +34,14 @@ namespace Econom
 
         public PlabCalc Calcwindows { get => calcwindows; set => calcwindows = value; }
         public int Row1 { get => Row; set => Row = value; }
+        public DataSet Ds { get => ds; set => ds = value; }
 
         public Plan()
         {
             InitializeComponent();
             PlabCalc = new PlabCalc(this);
+            comboxyear.DataSource = Program.GETYERS();
+            comboxmonth.DataSource = Program.GETMonths();
         }
 
 
@@ -46,8 +49,10 @@ namespace Econom
         {
             InitializeComponent();
             this.father = father;
-          //  this.YEAR.DataSource = Program.GETYERS();
-            //this.YEAR.ValueMember = "YEAR";
+            PlabCalc = new PlabCalc(this);
+            comboxyear.DataSource = Program.GETYERS();
+            comboxmonth.DataSource = Program.GETMonths();
+
 
         }
 
@@ -56,8 +61,7 @@ namespace Econom
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.LUTAG9". При необходимости она может быть перемещена или удалена.
             this.lUTAG9TableAdapter.Fill(this.dataSet1.LUTAG9);
 
-             comboxyear.DataSource = Program.GETYERS();
-            comboxmonth.DataSource = Program.GETMonths();
+          
 
             p = new Planset(connectionString, "MED", "DOCPLAN_ECO");
             p.setselectcomand(sqlselect, CommandType.Text);
@@ -85,6 +89,7 @@ namespace Econom
             p.AddInsertParametrGrid("tYEAR", OracleType.Number, 0, "YEAR");
             //////////////////////////
             p.setupdatecomand(sqlupdate,CommandType.StoredProcedure);
+            
             ////////////////////////////////////////////////////
             p.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
             p.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "specid");
@@ -112,8 +117,26 @@ namespace Econom
 
 
             p.adapterinstal();
+            ///
+            p.Dt.Columns["PlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["PosPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["ObrPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["UetPlanObr"].DefaultValue = 0;
+            p.Dt.Columns["LOPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["LOPosPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["LOObrPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["LOUetPlanObr"].DefaultValue = 0;
+            p.Dt.Columns["SPBPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["SPBPosPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["SPBObrPlanTotal"].DefaultValue = 0;
+            p.Dt.Columns["SPBUetPlanObr"].DefaultValue = 0;
+           
+            p.Dt.Columns["YEAR"].DefaultValue = int.Parse(comboxyear.Text.ToString());
+            p.Dt.Columns["DATATEXT"].DefaultValue = comboxmonth.Text.ToString();
+            p.Dt.Columns["DataStart"].DefaultValue = DateTime.Today.ToString();
+            p.Dt.Columns["DataFinish"].DefaultValue = DateTime.Today;
 
-
+            ///
             view = p.GetDataView();
             this.dataGridView1.DataSource = view;
            
@@ -124,10 +147,9 @@ namespace Econom
             comboxdoc.DisplayMember = "DOC_SPEC";
 
            
-            p.Dt.Columns["YEAR"].DefaultValue = int.Parse(comboxyear.Text.ToString());
-            p.Dt.Columns["DATATEXT"].DefaultValue = comboxmonth.Text.ToString();
+           
             SPBLORadioButton.Checked = true;
-
+            Ds = p.Ds;
 
 
 
@@ -298,11 +320,12 @@ namespace Econom
             if (( Row1 != e.RowIndex))
             {
                 Row1 = e.RowIndex;
+               
                 Calcwindows = new PlabCalc(this);
                 Calcwindows.Show();
                 try
                 {
-                    Calcwindows.DataMonthsYearDoc(dataGridView1["DATATEXT", e.RowIndex].Value.ToString(), dataGridView1["YEAR", e.RowIndex].Value.ToString(),
+                    Calcwindows.DataMonthsYearDoc(p.Dt.Rows[ e.RowIndex]["DATATEXT"], p.Dt.Rows[e.RowIndex]["YEAR"],
                 p.Dt.Rows[e.RowIndex]["specid"]);
                     Calcwindows.DataLO(dataGridView1["LOObrPlanTotal", e.RowIndex].Value.ToString(),
                         dataGridView1["LOPOSPLANTOTAL", e.RowIndex].Value.ToString(),
@@ -318,14 +341,21 @@ namespace Econom
                           dataGridView1["LOPlanTotal", e.RowIndex].Value.ToString(),
                           dataGridView1["PlanTotal", e.RowIndex].Value.ToString());
 
+                    Calcwindows.SysDatein(dataGridView1["DATASTART", e.RowIndex].Value, dataGridView1["DataFinish", e.RowIndex].Value);
+
+
+                 // MessageBox.Show(p.Dt.Rows[e.RowIndex]["specid"].ToString());
                 }
                 catch (ArgumentException ex)
                 {
                     MessageBox.Show("введены не коректные значения"+ex.Message);
+
                 }
+                
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка:" + ex.Message);
+                    MessageBox.Show("Ошибка:" + ex.Message+" Строка еще не создана: "+e.RowIndex);
+                    Calcwindows.Close();
                 }
               
 
@@ -341,6 +371,45 @@ namespace Econom
             {
                 Calcwindows.Show();
             }
+        }
+
+        private void comboxdoc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // dataGridView1.DataSource = p.selectdoc(decimal.Parse(comboxdoc.SelectedValue.ToString()));
+            p.Dt.Columns["specid"].DefaultValue = comboxdoc.SelectedValue;
+        }
+
+        private void comboxyear_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            p.Dt.Columns["YEAR"].DefaultValue = comboxyear.SelectedValue;
+        }
+
+        private void comboxmonth_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            p.Dt.Columns["DATATEXT"].DefaultValue = comboxmonth.SelectedValue;
+        }
+
+        private void docbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (docbox.Checked)
+            {
+                dataGridView1.DataSource = p.selectdoc(decimal.Parse(comboxdoc.SelectedValue.ToString()));
+                dataGridView1.Columns["SPECID"].Visible = false;
+                comboxdoc.Enabled = false;
+            }
+            else
+            {
+                dataGridView1.DataSource = p.GetDataView();
+                dataGridView1.Columns["SPECID"].Visible = true;
+                comboxdoc.Enabled = true;
+            }
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Calcwindows = new PlabCalc(this,false);
+            Calcwindows.Show();
         }
     }
     }

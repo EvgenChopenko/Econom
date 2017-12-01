@@ -13,12 +13,14 @@ namespace Econom
     public partial class PlabCalc : Form
     {
 
-        private Plan father = null; 
+        private Plan father = null;
+        private bool flagRed = true;
         public PlabCalc()
         {
             InitializeComponent();
             this.MonthsBox.DataSource = Program.GETMonths();
             this.MonthsYear.DataSource = Program.GETYERS();
+           
         }
 
         public PlabCalc(Plan father)
@@ -26,10 +28,23 @@ namespace Econom
             InitializeComponent();
             this.father = father;
             this.MonthsBox.DataSource = Program.GETMonths();
+            this.flagRed = true;
             this.MonthsYear.DataSource = Program.GETYERS();
-            
+         
+
+
         }
 
+        public PlabCalc(Plan father,bool flagREd)
+        {
+            InitializeComponent();
+            this.father = father;
+            this.MonthsBox.DataSource = Program.GETMonths();
+            this.flagRed = flagREd;
+            this.MonthsYear.DataSource = Program.GETYERS();
+            this.redact.Checked = true;
+
+        }
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -39,6 +54,8 @@ namespace Econom
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.LUTAG9". При необходимости она может быть перемещена или удалена.
             this.lUTAG9TableAdapter.Fill(this.dataSet1.LUTAG9);
+            this.redact.Checked = false;
+            groupBox1.Enabled = false;
 
 
 
@@ -96,12 +113,20 @@ namespace Econom
 
         private void PlabCalc_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.father.Calcwindows = null;
-            this.father.Row1 = -1;
+            try
+            {
+                this.father.Calcwindows = null;
+                this.father.Row1 = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка:"+ ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            returndata(this.father.Ds);
             this.Hide();
 
         }
@@ -111,76 +136,111 @@ namespace Econom
             this.Hide();
         }
 
-        public void DataMonthsYearDoc(string Months,string Year,object doc)
+        public void DataMonthsYearDoc(object Months,object Year,object doc)
         {
-            if (Months != null || Months != "")
+            try
+            {
+                if (Months != null)
+                    //MessageBox.Show(MonthsBox.SelectedValue.ToString()+Months.ToString());
 
-                MonthsBox.Text = Months;
-            if (Year != null || Year != "")
+                   MonthsBox.Text = Months.ToString();
+                if (Year != null )
 
-                this.MonthsYear.Text = Year;
-            if (doc != null)
-                this.DocBox.SelectedValue = doc;
+                     this.MonthsYear.Text = Year.ToString();
+                   // MessageBox.Show(MonthsYear.SelectedValue.ToString());
+                if (doc != null)
+                    this.DocBox.SelectedValue = doc;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Ошибка:" + e.Message);
+            }
 
 
 
 
            
 
-            this.MonthsBox.Enabled = false;
-            this.MonthsYear.Enabled = false;
-            this.DocBox.Enabled = false;
+           
         }
 
         public void DataLO(string obr, string pos, string uet)
         {
-            if (obr is null || obr == "")
-                obr = "0";
-            if (pos is null || pos == "")
-                pos = "0";
-            if (uet is null || uet == "")
-                uet = "0";
+            try
+            {
+                if (obr is null || obr == "")
+                    obr = "0";
+                if (pos is null || pos == "")
+                    pos = "0";
+                if (uet is null || uet == "")
+                    uet = "0";
 
-            LOOBRBOX.Text = obr;
-            LOPOSBOX.Text = pos;
-            LOUETBOX.Text = uet;
+                LOOBRBOX.Text = obr;
+                LOPOSBOX.Text = pos;
+                LOUETBOX.Text = uet;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка:" + e.Message);
+            }
+        
                 
 
          
         }
         public void DataSPB(string obr, string pos, string uet)
         {
-            if (obr is null || obr == "")
-                obr = "0";
-            if (pos is null || pos == "")
-                pos = "0";
-            if (uet is null || uet == "")
-                uet = "0";
+            try
+            {
+                if (obr is null || obr == "")
+                    obr = "0";
+                if (pos is null || pos == "")
+                    pos = "0";
+                if (uet is null || uet == "")
+                    uet = "0";
 
-            SPBOBRBOX.Text = obr;
-            SPBPOSBOX.Text = pos;
-            SPBUETBOX.Text = uet;
+                SPBOBRBOX.Text = obr;
+                SPBPOSBOX.Text = pos;
+                SPBUETBOX.Text = uet;
+            }
+            catch (Exception e){
+                MessageBox.Show("Ошибка:" + e.Message);
+
+            }
+          
 
 
 
         }
         public void DataSPBLO(string obr, string pos, string uet)
-        {if (obr is null || obr == "")
-                obr = "0";
-            if (pos is null || pos == "")
-                pos = "0";
-            if (uet is null || uet == "")
-                uet = "0";
+        {
+            try
+            {
+                if (obr is null || obr == "")
+                    obr = "0";
+                if (pos is null || pos == "")
+                    pos = "0";
+                if (uet is null || uet == "")
+                    uet = "0";
 
 
 
-            SPBLOOBRBOX.Text = obr;
-            SPBLOPOSBOX.Text = pos;
-            SPBLOUETBOX.Text = uet;
+                SPBLOOBRBOX.Text = obr;
+                SPBLOPOSBOX.Text = pos;
+                SPBLOUETBOX.Text = uet;
+            }
+            catch (Exception e)
+                { 
+                MessageBox.Show("Ошибка:"+e.Message);
+            }
+           
         }
 
         public void DataSum(string LO,string SPB, string SPBLO)
         {
+            /*
+             * входные данные суммы доходов едеиниц lo spb spblo и сохранает в textbox 
+             */
             try
             {
                 decimal lo = decimal.Parse(LO);
@@ -203,6 +263,11 @@ namespace Econom
 
 
         }
+        public void SysDatein(object datas ,object dataf)
+        {
+            DateStart.Value = (DateTime)datas;
+            DateFinish.Value = (DateTime)dataf;
+        }
 
 
 
@@ -211,21 +276,79 @@ namespace Econom
         {
             if (this.redact.Checked)
             {
-                this.MonthsBox.Enabled = true;
-                this.MonthsYear.Enabled = true;
-                this.DocBox.Enabled = true;
+                groupBox1.Enabled = true;
             }
             else
             {
 
-                this.MonthsBox.Enabled = false;
-                this.MonthsYear.Enabled = false;
-                this.DocBox.Enabled = false;
+                groupBox1.Enabled = false;
             }
 
         
         }
-    
 
+        public void returndata(DataSet DS,DataGridView dataGrid,int Rowindex)
+        {
+            
+            // DS.Tables["DOCPLAN_ECO"].Rows.Add(DR);
+
+
+
+            if (flagRed)
+               {
+                //DS.Tables[].Rows[21].a
+                dataGrid["specid",Rowindex].Value=
+                      dataGrid["PLANTOTAL", Rowindex].Value =
+                        dataGrid["POSPLANTOTAL", Rowindex].Value =
+                          dataGrid["OBRPLANTOTAL", Rowindex].Value =
+                            dataGrid["UETPLANOBR", Rowindex].Value =
+                              dataGrid["LOPLANTOTAL", Rowindex].Value =
+                                dataGrid["LOPOSPLANTOTAL", Rowindex].Value =
+                                  dataGrid["LOOBRPLANTOTAL", Rowindex].Value =
+                                  dataGrid["LOUETPLANOBR", Rowindex].Value =
+                                  dataGrid["SPBPLANTOTAL", Rowindex].Value =
+                                  dataGrid["SPBPOSPLANTOTAL", Rowindex].Value =
+                                  dataGrid["SPBOBRPLANTOTAL", Rowindex].Value =
+                                  dataGrid["SPBUETPLANOBR", Rowindex].Value =
+                                   dataGrid["YEAR", Rowindex].Value =
+                                  dataGrid["DATATEXT", Rowindex].Value =
+                                   dataGrid["DATASTART", Rowindex].Value =
+                                  dataGrid["DATAFINISH", Rowindex].Value =
+
+               } else
+               {
+                DataRow DR = DS.Tables["DOCPLAN_ECO"].NewRow();
+
+
+
+                DR["specid"] = DocBox.SelectedValue;
+                ///
+                DR["PLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);
+                DR["POSPLANTOTAL"] = decimal.Parse(SPBLOPOSBOX.Text);
+                DR["OBRPLANTOTAL"] = decimal.Parse(SPBLOOBRBOX.Text);
+                DR["UETPLANOBR"] = decimal.Parse(SPBLOUETBOX.Text);
+                ///
+                DR["LOPLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);
+                DR["LOPOSPLANTOTAL"] = decimal.Parse(LOPOSBOX.Text);
+                DR["LOOBRPLANTOTAL"] = decimal.Parse(LOOBRBOX.Text);
+                DR["LOUETPLANOBR"] = decimal.Parse(LOUETBOX.Text);
+                ///
+                DR["SPBPLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);
+                DR["SPBPOSPLANTOTAL"] = decimal.Parse(SPBPOSBOX.Text);
+                DR["SPBOBRPLANTOTAL"] = decimal.Parse(SPBOBRBOX.Text);
+                DR["SPBUETPLANOBR"] = decimal.Parse(SPBUETBOX.Text);
+                ///
+                DR["YEAR"] = int.Parse(MonthsYear.Text);
+                DR["DATATEXT"] = MonthsBox.Text;
+                ////
+                DR["DATASTART"] = DateStart.Value;
+                DR["DATAFINISH"] = DateFinish.Value;
+
+                DS.Tables["DOCPLAN_ECO"].Rows.Add(DR);
+               }
+
+
+         
+        }
+        }
     }
-}

@@ -79,6 +79,18 @@ namespace Econom
 
         }
 
+        public DataView selectdoc(decimal specid)
+        {
+            
+            var view = (from s in base.Dt.AsEnumerable()
+                        where s.Field<decimal>("SPECID") == specid
+                        select s).AsDataView();
+
+            return view;
+
+
+        }
+
        
 
 

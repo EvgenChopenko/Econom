@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlabCalc));
             this.DocBox = new System.Windows.Forms.ComboBox();
+            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Econom.DataSet1();
             this.MonthsBox = new System.Windows.Forms.ComboBox();
             this.MonthsYear = new System.Windows.Forms.ComboBox();
             this.chekDisp = new System.Windows.Forms.CheckBox();
@@ -77,12 +79,16 @@
             this.DispLabelPos = new System.Windows.Forms.Label();
             this.DispLabelUet = new System.Windows.Forms.Label();
             this.DispLabelSum = new System.Windows.Forms.Label();
-            this.dataSet1 = new Econom.DataSet1();
-            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.redact = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DateStart = new System.Windows.Forms.DateTimePicker();
+            this.DateFinish = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DocBox
@@ -93,6 +99,16 @@
             resources.ApplyResources(this.DocBox, "DocBox");
             this.DocBox.Name = "DocBox";
             this.DocBox.ValueMember = "ID";
+            // 
+            // lUTAG9BindingSource
+            // 
+            this.lUTAG9BindingSource.DataMember = "LUTAG9";
+            this.lUTAG9BindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // MonthsBox
             // 
@@ -335,16 +351,6 @@
             resources.ApplyResources(this.DispLabelSum, "DispLabelSum");
             this.DispLabelSum.Name = "DispLabelSum";
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lUTAG9BindingSource
-            // 
-            this.lUTAG9BindingSource.DataMember = "LUTAG9";
-            this.lUTAG9BindingSource.DataSource = this.dataSet1;
-            // 
             // lUTAG9TableAdapter
             // 
             this.lUTAG9TableAdapter.ClearBeforeFill = true;
@@ -356,10 +362,47 @@
             this.redact.UseVisualStyleBackColor = true;
             this.redact.CheckedChanged += new System.EventHandler(this.redact_CheckedChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.DateFinish);
+            this.groupBox1.Controls.Add(this.DateStart);
+            this.groupBox1.Controls.Add(this.DocBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.MonthsBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.MonthsYear);
+            this.groupBox1.Controls.Add(this.label3);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // DateStart
+            // 
+            resources.ApplyResources(this.DateStart, "DateStart");
+            this.DateStart.Name = "DateStart";
+            // 
+            // DateFinish
+            // 
+            resources.ApplyResources(this.DateFinish, "DateFinish");
+            this.DateFinish.Name = "DateFinish";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
             // PlabCalc
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.redact);
             this.Controls.Add(this.DispLabelSum);
             this.Controls.Add(this.DispLabelUet);
@@ -394,9 +437,6 @@
             this.Controls.Add(this.SPBLOOBRBOX);
             this.Controls.Add(this.LOOBRBOX);
             this.Controls.Add(this.SPBOBRBOX);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -405,15 +445,14 @@
             this.Controls.Add(this.DispBoxPos);
             this.Controls.Add(this.DispBoxUet);
             this.Controls.Add(this.chekDisp);
-            this.Controls.Add(this.MonthsYear);
-            this.Controls.Add(this.MonthsBox);
-            this.Controls.Add(this.DocBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "PlabCalc";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlabCalc_FormClosed);
             this.Load += new System.EventHandler(this.PlabCalc_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,5 +511,10 @@
         private System.Windows.Forms.BindingSource lUTAG9BindingSource;
         private DataSet1TableAdapters.LUTAG9TableAdapter lUTAG9TableAdapter;
         private System.Windows.Forms.CheckBox redact;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker DateStart;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker DateFinish;
     }
 }

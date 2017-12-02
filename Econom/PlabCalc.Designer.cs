@@ -68,7 +68,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.SPBLOTOTALMONTHS = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -89,6 +88,15 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.OBRSUMTOTAL = new System.Windows.Forms.TextBox();
+            this.SPBTOTALMONTHSOBR = new System.Windows.Forms.TextBox();
+            this.LOTOTALMONTHSOBR = new System.Windows.Forms.TextBox();
+            this.SPBLOTOTALMONTHSOBR = new System.Windows.Forms.TextBox();
+            this.SPBTOTALMONTHSOBRPOS = new System.Windows.Forms.TextBox();
+            this.LOTOTALMONTHSOBRPOS = new System.Windows.Forms.TextBox();
+            this.SPBLOTOTALMONTHSOBRPOS = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -299,11 +307,6 @@
             resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
             // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
             // SPBLOTOTALMONTHS
             // 
             resources.ApplyResources(this.SPBLOTOTALMONTHS, "SPBLOTOTALMONTHS");
@@ -416,10 +419,64 @@
             resources.ApplyResources(this.OBRSUMTOTAL, "OBRSUMTOTAL");
             this.OBRSUMTOTAL.Name = "OBRSUMTOTAL";
             // 
+            // SPBTOTALMONTHSOBR
+            // 
+            resources.ApplyResources(this.SPBTOTALMONTHSOBR, "SPBTOTALMONTHSOBR");
+            this.SPBTOTALMONTHSOBR.Name = "SPBTOTALMONTHSOBR";
+            // 
+            // LOTOTALMONTHSOBR
+            // 
+            resources.ApplyResources(this.LOTOTALMONTHSOBR, "LOTOTALMONTHSOBR");
+            this.LOTOTALMONTHSOBR.Name = "LOTOTALMONTHSOBR";
+            // 
+            // SPBLOTOTALMONTHSOBR
+            // 
+            resources.ApplyResources(this.SPBLOTOTALMONTHSOBR, "SPBLOTOTALMONTHSOBR");
+            this.SPBLOTOTALMONTHSOBR.Name = "SPBLOTOTALMONTHSOBR";
+            // 
+            // SPBTOTALMONTHSOBRPOS
+            // 
+            resources.ApplyResources(this.SPBTOTALMONTHSOBRPOS, "SPBTOTALMONTHSOBRPOS");
+            this.SPBTOTALMONTHSOBRPOS.Name = "SPBTOTALMONTHSOBRPOS";
+            // 
+            // LOTOTALMONTHSOBRPOS
+            // 
+            resources.ApplyResources(this.LOTOTALMONTHSOBRPOS, "LOTOTALMONTHSOBRPOS");
+            this.LOTOTALMONTHSOBRPOS.Name = "LOTOTALMONTHSOBRPOS";
+            // 
+            // SPBLOTOTALMONTHSOBRPOS
+            // 
+            resources.ApplyResources(this.SPBLOTOTALMONTHSOBRPOS, "SPBLOTOTALMONTHSOBRPOS");
+            this.SPBLOTOTALMONTHSOBRPOS.Name = "SPBLOTOTALMONTHSOBRPOS";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(this.label24, "label24");
+            this.label24.Name = "label24";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.Name = "label25";
+            // 
             // PlabCalc
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.SPBTOTALMONTHSOBRPOS);
+            this.Controls.Add(this.LOTOTALMONTHSOBRPOS);
+            this.Controls.Add(this.SPBLOTOTALMONTHSOBRPOS);
+            this.Controls.Add(this.SPBTOTALMONTHSOBR);
+            this.Controls.Add(this.LOTOTALMONTHSOBR);
+            this.Controls.Add(this.SPBLOTOTALMONTHSOBR);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.OBRSUMTOTAL);
             this.Controls.Add(this.label22);
@@ -435,7 +492,6 @@
             this.Controls.Add(this.LOTOTALMOTHES);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.SPBLOTOTALMONTHS);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -466,7 +522,7 @@
             this.Controls.Add(this.DispBoxPos);
             this.Controls.Add(this.DispBoxUet);
             this.Controls.Add(this.chekDisp);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PlabCalc";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlabCalc_FormClosed);
             this.Load += new System.EventHandler(this.PlabCalc_Load);
@@ -517,7 +573,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox SPBLOTOTALMONTHS;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
@@ -540,5 +595,14 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox OBRSUMTOTAL;
+        private System.Windows.Forms.TextBox SPBTOTALMONTHSOBR;
+        private System.Windows.Forms.TextBox LOTOTALMONTHSOBR;
+        private System.Windows.Forms.TextBox SPBLOTOTALMONTHSOBR;
+        private System.Windows.Forms.TextBox SPBTOTALMONTHSOBRPOS;
+        private System.Windows.Forms.TextBox LOTOTALMONTHSOBRPOS;
+        private System.Windows.Forms.TextBox SPBLOTOTALMONTHSOBRPOS;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
     }
 }

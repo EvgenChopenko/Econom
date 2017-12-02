@@ -242,16 +242,20 @@ namespace Econom
             dataGridView1.Columns["LOPOSPLANTOTAL"].Visible = true;
             dataGridView1.Columns["LOUETPLANOBR"].Visible = true;
             dataGridView1.Columns["LOOBRPLANTOTAL"].Visible = true;
+            dataGridView1.Columns["LOPLANTOTALOBR"].Visible = true;
 
             dataGridView1.Columns["SPBPLANTOTAL"].Visible = false;
             dataGridView1.Columns["SPbPOSPLANTOTAL"].Visible = false;
             dataGridView1.Columns["SPBUETPLANOBR"].Visible = false;
             dataGridView1.Columns["SPBOBRPLANTOTAL"].Visible = false;
+            dataGridView1.Columns["SPBPLANTOTALOBR"].Visible = false;
+
 
             dataGridView1.Columns["PlanTotal"].Visible = false;
             dataGridView1.Columns["PosPlanTotal"].Visible = false;
             dataGridView1.Columns["ObrPlanTotal"].Visible = false;
             dataGridView1.Columns["UetPlanObr"].Visible = false;
+            dataGridView1.Columns["PlanTotalOBR"].Visible = false;
 
         }
 
@@ -261,16 +265,20 @@ namespace Econom
             dataGridView1.Columns["LOPOSPLANTOTAL"].Visible = true;
             dataGridView1.Columns["LOUETPLANOBR"].Visible = true;
             dataGridView1.Columns["LOOBRPLANTOTAL"].Visible = true;
+            dataGridView1.Columns["LOPLANTOTALOBR"].Visible = true;
+
 
             dataGridView1.Columns["SPBPLANTOTAL"].Visible = true;
             dataGridView1.Columns["SPbPOSPLANTOTAL"].Visible = true;
             dataGridView1.Columns["SPBUETPLANOBR"].Visible = true;
             dataGridView1.Columns["SPBOBRPLANTOTAL"].Visible = true;
+            dataGridView1.Columns["SPBPLANTOTALOBR"].Visible = true;
 
             dataGridView1.Columns["PlanTotal"].Visible = true;
             dataGridView1.Columns["PosPlanTotal"].Visible = true;
             dataGridView1.Columns["ObrPlanTotal"].Visible = true;
             dataGridView1.Columns["UetPlanObr"].Visible = true;
+            dataGridView1.Columns["PlanTotalOBR"].Visible = true;
         }
 
         private void SPBLORadioButton_CheckedChanged(object sender, EventArgs e)
@@ -279,16 +287,19 @@ namespace Econom
             dataGridView1.Columns["LOPOSPLANTOTAL"].Visible = false;
             dataGridView1.Columns["LOUETPLANOBR"].Visible = false;
             dataGridView1.Columns["LOOBRPLANTOTAL"].Visible = false;
+            dataGridView1.Columns["LOPLANTOTALOBR"].Visible = false;
 
             dataGridView1.Columns["SPBPLANTOTAL"].Visible = false;
             dataGridView1.Columns["SPbPOSPLANTOTAL"].Visible = false;
             dataGridView1.Columns["SPBUETPLANOBR"].Visible = false;
             dataGridView1.Columns["SPBOBRPLANTOTAL"].Visible = false;
+            dataGridView1.Columns["SPBPLANTOTALOBR"].Visible = false;
 
             dataGridView1.Columns["PlanTotal"].Visible = true;
             dataGridView1.Columns["PosPlanTotal"].Visible = true;
             dataGridView1.Columns["ObrPlanTotal"].Visible = true;
             dataGridView1.Columns["UetPlanObr"].Visible = true;
+            dataGridView1.Columns["PlanTotalOBR"].Visible = true;
         }
 
         private void SPBRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -297,16 +308,20 @@ namespace Econom
             dataGridView1.Columns["LOPOSPLANTOTAL"].Visible = false;
             dataGridView1.Columns["LOUETPLANOBR"].Visible = false;
             dataGridView1.Columns["LOOBRPLANTOTAL"].Visible = false;
+            dataGridView1.Columns["LOPLANTOTALOBR"].Visible = false;
 
             dataGridView1.Columns["SPBPLANTOTAL"].Visible = true;
             dataGridView1.Columns["SPbPOSPLANTOTAL"].Visible = true;
             dataGridView1.Columns["SPBUETPLANOBR"].Visible = true;
             dataGridView1.Columns["SPBOBRPLANTOTAL"].Visible = true;
+            dataGridView1.Columns["SPBPLANTOTALOBR"].Visible = true;
+
 
             dataGridView1.Columns["PlanTotal"].Visible = false;
             dataGridView1.Columns["PosPlanTotal"].Visible = false;
             dataGridView1.Columns["ObrPlanTotal"].Visible = false;
             dataGridView1.Columns["UetPlanObr"].Visible =false;
+            dataGridView1.Columns["PlanTotalOBR"].Visible = false;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -341,6 +356,9 @@ namespace Econom
                     Calcwindows.DataSum(dataGridView1["SPBPlanTotal", e.RowIndex].Value.ToString(),
                           dataGridView1["LOPlanTotal", e.RowIndex].Value.ToString(),
                           dataGridView1["PlanTotal", e.RowIndex].Value.ToString());
+                    Calcwindows.DataSumOBR(dataGridView1["SPBPlanTotalOBR", e.RowIndex].Value.ToString(),
+                          dataGridView1["LOPlanTotalOBR", e.RowIndex].Value.ToString(),
+                          dataGridView1["PlanTotalOBR", e.RowIndex].Value.ToString());
 
                     Calcwindows.SysDatein(dataGridView1["DATASTART", e.RowIndex].Value, dataGridView1["DataFinish", e.RowIndex].Value);
 

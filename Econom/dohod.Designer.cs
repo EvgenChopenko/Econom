@@ -82,6 +82,13 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
+            this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUMDOH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UET = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
@@ -231,6 +238,7 @@
             this.yearBox.Name = "yearBox";
             this.yearBox.Size = new System.Drawing.Size(121, 21);
             this.yearBox.TabIndex = 10;
+            this.yearBox.SelectionChangeCommitted += new System.EventHandler(this.yearBox_SelectionChangeCommitted);
             // 
             // MonthBox
             // 
@@ -251,6 +259,7 @@
             this.MonthBox.Name = "MonthBox";
             this.MonthBox.Size = new System.Drawing.Size(121, 21);
             this.MonthBox.TabIndex = 9;
+            this.MonthBox.SelectionChangeCommitted += new System.EventHandler(this.MonthBox_SelectionChangeCommitted);
             // 
             // ex_oracle
             // 
@@ -291,6 +300,14 @@
             // 
             this.datageidlo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datageidlo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datageidlo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.keyid,
+            this.SUMDOH,
+            this.Obr,
+            this.POS,
+            this.QTY,
+            this.UET,
+            this.specid});
             this.datageidlo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datageidlo.Location = new System.Drawing.Point(3, 3);
             this.datageidlo.Name = "datageidlo";
@@ -575,6 +592,55 @@
             // 
             this.lUTAG9TableAdapter.ClearBeforeFill = true;
             // 
+            // keyid
+            // 
+            this.keyid.DataPropertyName = "KEYID";
+            this.keyid.HeaderText = "keyid";
+            this.keyid.Name = "keyid";
+            this.keyid.ReadOnly = true;
+            this.keyid.Visible = false;
+            // 
+            // SUMDOH
+            // 
+            this.SUMDOH.DataPropertyName = "SUMDOH";
+            this.SUMDOH.HeaderText = "Сумма Дохода ";
+            this.SUMDOH.Name = "SUMDOH";
+            // 
+            // Obr
+            // 
+            this.Obr.DataPropertyName = "Obr";
+            this.Obr.HeaderText = "Кол-Во Обращение ";
+            this.Obr.Name = "Obr";
+            // 
+            // POS
+            // 
+            this.POS.DataPropertyName = "Pos";
+            this.POS.HeaderText = "Кол-во Посещений ";
+            this.POS.Name = "POS";
+            // 
+            // QTY
+            // 
+            this.QTY.DataPropertyName = "QTY";
+            this.QTY.HeaderText = "кол-во услуг";
+            this.QTY.Name = "QTY";
+            // 
+            // UET
+            // 
+            this.UET.DataPropertyName = "UET";
+            this.UET.HeaderText = "Кол-во УЕТ";
+            this.UET.Name = "UET";
+            // 
+            // specid
+            // 
+            this.specid.DataPropertyName = "SPECID";
+            this.specid.DataSource = this.lUTAG9BindingSource;
+            this.specid.DisplayMember = "DOC_SPEC";
+            this.specid.HeaderText = "Доктор";
+            this.specid.Name = "specid";
+            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.specid.ValueMember = "ID";
+            // 
             // dohod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,5 +724,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uetspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dopuetspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDspblo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUMDOH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Obr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn POS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UET;
+        private System.Windows.Forms.DataGridViewComboBoxColumn specid;
     }
 }

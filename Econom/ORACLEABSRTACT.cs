@@ -224,33 +224,113 @@ namespace Econom
         //--------------------------------------------------------------------------------------------
         public void AddInsertParametr(string oracleparametr, object value)
         {
-            this.adapter.InsertCommand.Parameters.AddWithValue(oracleparametr, value);
+            
+            try
+            {
+                if (this.adapter.InsertCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.InsertCommand.Parameters.AddWithValue(oracleparametr, value);
+                }
+                else
+                {
+                    this.adapter.InsertCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
 
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, string value)
         {
-            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                if (this.adapter.InsertCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+                else
+                {
+                    this.adapter.InsertCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
-        public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, int value)
+            public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, int value)
         {
-            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                if (this.adapter.InsertCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+                else
+                {
+                    this.adapter.InsertCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, object value)
         {
-            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                if (this.adapter.InsertCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+                else
+                {
+                    this.adapter.InsertCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, DateTime value)
         {
-            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                if (this.adapter.InsertCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+                else
+                {
+                    this.adapter.InsertCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
 
         public void AddInsertParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
         {
-            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+            if (this.adapter.InsertCommand.Parameters.IndexOf(oracleparametr) == -1)
+            {
+                this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+            }
+            else
+            {
+                throw new Exception("Такой компонент уже есть среди параметров");
+            }
+           
         }
-        //-----------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------------------------
         public void AddDeletParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
         {
             this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);

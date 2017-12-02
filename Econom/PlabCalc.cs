@@ -81,6 +81,14 @@ namespace Econom
             this.LOTOTALMOTHES.Text = a.insumMonts(ONESUMBOX, LOPOSBOX).ToString();
             this.SPBLOTOTALMONTHS.Text = a.insumMonts(ONESUMBOX, SPBLOPOSBOX).ToString();
 
+            this.SPBTOTALMONTHSOBR.Text = a.insumMonts(OBRSUMTOTAL, SPBOBRBOX).ToString();
+            this.LOTOTALMONTHSOBR.Text = a.insumMonts(OBRSUMTOTAL, LOOBRBOX).ToString();
+            this.SPBLOTOTALMONTHSOBR.Text = a.insumMonts(OBRSUMTOTAL, SPBLOOBRBOX).ToString();
+
+            this.SPBTOTALMONTHSOBRPOS.Text = a.insum(SPBTOTALMONTHS, SPBTOTALMONTHSOBR).ToString();
+            this.LOTOTALMONTHSOBRPOS.Text = a.insum(LOTOTALMOTHES, LOTOTALMONTHSOBR).ToString();
+            this.SPBLOTOTALMONTHSOBRPOS.Text = a.insum(SPBLOTOTALMONTHS, SPBLOTOTALMONTHSOBR).ToString();
+
 
 
 
@@ -144,25 +152,20 @@ namespace Econom
             try
             {
                 if (Months != null)
-                    //MessageBox.Show(MonthsBox.SelectedValue.ToString()+Months.ToString());
+                   
 
                    MonthsBox.Text = Months.ToString();
                 if (Year != null )
 
                      this.MonthsYear.Text = Year.ToString();
-                   // MessageBox.Show(MonthsYear.SelectedValue.ToString());
+                 
                 if (doc != null)
                     this.DocBox.SelectedValue = doc;
             }
             catch(Exception e)
             {
                 MessageBox.Show("Ошибка:" + e.Message);
-            }
-
-
-
-
-           
+            }        
 
            
         }
@@ -276,6 +279,35 @@ namespace Econom
             this.RowIndex = RowIndex;
         }
 
+        public void DataSumOBR(string LO, string SPB, string SPBLO)
+        {
+            /*
+             * входные данные суммы доходов едеиниц lo spb spblo и сохранает в textbox ха обращения 
+             */
+            try
+            {
+                decimal lo = decimal.Parse(LO);
+                decimal spb = decimal.Parse(SPB);
+                decimal spblo = decimal.Parse(SPBLO);
+                decimal sum = lo + spb + spblo;
+                if (sum == lo || sum == spb || sum == spblo)
+                    OBRSUMTOTAL.Text = sum.ToString();
+                if ((sum == lo + spb && sum != lo && sum != spb) || (sum == spblo + lo && sum != lo && sum != spblo) || (sum == spb + spblo && spblo != sum && sum != spb))
+                    OBRSUMTOTAL.Text = ((sum) / 2).ToString();
+                if (lo > 0 && spb > 0 && spblo > 0)
+                    OBRSUMTOTAL.Text = (sum / 3).ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Введите цифры в поля сумм" + e.Message);
+            }
+
+
+
+
+        }
+
+
 
 
 
@@ -322,6 +354,9 @@ namespace Econom
                 ////
                 dataGrid["DATASTART", Rowindex].Value = DateStart.Value;
                 dataGrid["DATAFINISH", Rowindex].Value = DateFinish.Value;
+                dataGrid["PLANTOTALOBR",RowIndex].Value = decimal.Parse(OBRSUMTOTAL.Text);
+                dataGrid["LOPLANTOTALOBR",RowIndex].Value = decimal.Parse(OBRSUMTOTAL.Text);
+                dataGrid["SPBPLANTOTALOBR", RowIndex].Value = decimal.Parse(OBRSUMTOTAL.Text);
 
 
             } else
@@ -330,16 +365,19 @@ namespace Econom
                 DR["specid"] = DocBox.SelectedValue;
                 ///
                 DR["PLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);
+                DR["PLANTOTALOBR"] = decimal.Parse(OBRSUMTOTAL.Text);
                 DR["POSPLANTOTAL"] = decimal.Parse(SPBLOPOSBOX.Text);
                 DR["OBRPLANTOTAL"] = decimal.Parse(SPBLOOBRBOX.Text);
                 DR["UETPLANOBR"] = decimal.Parse(SPBLOUETBOX.Text);
                 ///
                 DR["LOPLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);
+                DR["LOPLANTOTALOBR"] = decimal.Parse(OBRSUMTOTAL.Text);
                 DR["LOPOSPLANTOTAL"] = decimal.Parse(LOPOSBOX.Text);
                 DR["LOOBRPLANTOTAL"] = decimal.Parse(LOOBRBOX.Text);
                 DR["LOUETPLANOBR"] = decimal.Parse(LOUETBOX.Text);
                 ///
                 DR["SPBPLANTOTAL"] = decimal.Parse(ONESUMBOX.Text);
+                DR["SPBPLANTOTALOBR"] = decimal.Parse(OBRSUMTOTAL.Text);
                 DR["SPBPOSPLANTOTAL"] = decimal.Parse(SPBPOSBOX.Text);
                 DR["SPBOBRPLANTOTAL"] = decimal.Parse(SPBOBRBOX.Text);
                 DR["SPBUETPLANOBR"] = decimal.Parse(SPBUETBOX.Text);

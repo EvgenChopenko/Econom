@@ -30,26 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATATEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YEAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Econom.DataSet1();
-            this.SPBPosPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SPBOBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SPBUETPLANOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SPBPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOPOSPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOOBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOUETPLANOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POSPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UetPlanObr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATASTART = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOCIDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -74,6 +56,27 @@
             this.MonthsYear = new System.Windows.Forms.CheckBox();
             this.yearbox = new System.Windows.Forms.CheckBox();
             this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
+            this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATATEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YEAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SPBPosPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBOBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBUETPLANOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBPlanTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOPOSPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOOBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOUETPLANOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POSPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBRPLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UetPlanObr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLANTOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATASTART = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataFinish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOPLANTOTALOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SPBPLANTOTALOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLANTOTALOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -110,7 +113,10 @@
             this.UetPlanObr,
             this.PLANTOTAL,
             this.DATASTART,
-            this.DataFinish});
+            this.DataFinish,
+            this.LOPLANTOTALOBR,
+            this.SPBPLANTOTALOBR,
+            this.PLANTOTALOBR});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -118,43 +124,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
-            // 
-            // keyid
-            // 
-            this.keyid.DataPropertyName = "keyid";
-            this.keyid.HeaderText = "keyid ";
-            this.keyid.Name = "keyid";
-            this.keyid.Visible = false;
-            this.keyid.Width = 60;
-            // 
-            // DATATEXT
-            // 
-            this.DATATEXT.DataPropertyName = "DATATEXT";
-            this.DATATEXT.HeaderText = "Месяц";
-            this.DATATEXT.Name = "DATATEXT";
-            this.DATATEXT.ReadOnly = true;
-            this.DATATEXT.Width = 65;
-            // 
-            // YEAR
-            // 
-            this.YEAR.DataPropertyName = "YEAR";
-            this.YEAR.HeaderText = "ГОД";
-            this.YEAR.Name = "YEAR";
-            this.YEAR.ReadOnly = true;
-            this.YEAR.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.YEAR.Width = 55;
-            // 
-            // specid
-            // 
-            this.specid.DataPropertyName = "SPECID";
-            this.specid.DataSource = this.lUTAG9BindingSource;
-            this.specid.DisplayMember = "DOC_SPEC";
-            this.specid.HeaderText = "Специальность";
-            this.specid.Name = "specid";
-            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.specid.ValueMember = "ID";
-            this.specid.Width = 110;
             // 
             // lUTAG9BindingSource
             // 
@@ -165,112 +134,6 @@
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // SPBPosPlanTotal
-            // 
-            this.SPBPosPlanTotal.DataPropertyName = "SPBPosPlanTotal";
-            this.SPBPosPlanTotal.HeaderText = "СПБ+РФ кол-посещений";
-            this.SPBPosPlanTotal.Name = "SPBPosPlanTotal";
-            this.SPBPosPlanTotal.Visible = false;
-            this.SPBPosPlanTotal.Width = 159;
-            // 
-            // SPBOBRPLANTOTAL
-            // 
-            this.SPBOBRPLANTOTAL.DataPropertyName = "SPBOBRPLANTOTAL";
-            this.SPBOBRPLANTOTAL.HeaderText = "СПБ+РФ кол-во обращений";
-            this.SPBOBRPLANTOTAL.Name = "SPBOBRPLANTOTAL";
-            this.SPBOBRPLANTOTAL.Visible = false;
-            this.SPBOBRPLANTOTAL.Width = 174;
-            // 
-            // SPBUETPLANOBR
-            // 
-            this.SPBUETPLANOBR.DataPropertyName = "SPBUETPLANOBR";
-            this.SPBUETPLANOBR.HeaderText = "СПБ+РФ кол-во ует";
-            this.SPBUETPLANOBR.Name = "SPBUETPLANOBR";
-            this.SPBUETPLANOBR.Visible = false;
-            this.SPBUETPLANOBR.Width = 133;
-            // 
-            // SPBPlanTotal
-            // 
-            this.SPBPlanTotal.DataPropertyName = "SPBPlanTotal";
-            this.SPBPlanTotal.HeaderText = "СПБ +РФ Плановая стоимость";
-            this.SPBPlanTotal.Name = "SPBPlanTotal";
-            this.SPBPlanTotal.Visible = false;
-            this.SPBPlanTotal.Width = 191;
-            // 
-            // LOPOSPLANTOTAL
-            // 
-            this.LOPOSPLANTOTAL.DataPropertyName = "LOPOSPLANTOTAL";
-            this.LOPOSPLANTOTAL.HeaderText = "ЛО кол-во Посещений ";
-            this.LOPOSPLANTOTAL.Name = "LOPOSPLANTOTAL";
-            this.LOPOSPLANTOTAL.Visible = false;
-            this.LOPOSPLANTOTAL.Width = 149;
-            // 
-            // LOOBRPLANTOTAL
-            // 
-            this.LOOBRPLANTOTAL.DataPropertyName = "LOOBRPLANTOTAL";
-            this.LOOBRPLANTOTAL.HeaderText = "ЛО кол-во Оброщений";
-            this.LOOBRPLANTOTAL.Name = "LOOBRPLANTOTAL";
-            this.LOOBRPLANTOTAL.Visible = false;
-            this.LOOBRPLANTOTAL.Width = 146;
-            // 
-            // LOUETPLANOBR
-            // 
-            this.LOUETPLANOBR.DataPropertyName = "LOUETPLANOBR";
-            this.LOUETPLANOBR.HeaderText = "ЛО кол-во УЕТ";
-            this.LOUETPLANOBR.Name = "LOUETPLANOBR";
-            this.LOUETPLANOBR.Visible = false;
-            this.LOUETPLANOBR.Width = 109;
-            // 
-            // LOPLANTOTAL
-            // 
-            this.LOPLANTOTAL.DataPropertyName = "LOPLANTOTAL";
-            this.LOPLANTOTAL.HeaderText = "ЛО Плановая Стоимость ";
-            this.LOPLANTOTAL.Name = "LOPLANTOTAL";
-            this.LOPLANTOTAL.Visible = false;
-            this.LOPLANTOTAL.Width = 162;
-            // 
-            // POSPLANTOTAL
-            // 
-            this.POSPLANTOTAL.DataPropertyName = "PosPlanTotal";
-            this.POSPLANTOTAL.HeaderText = "СПБ+РФ +ЛО кол-во Посещений ";
-            this.POSPLANTOTAL.Name = "POSPLANTOTAL";
-            this.POSPLANTOTAL.Width = 204;
-            // 
-            // OBRPLANTOTAL
-            // 
-            this.OBRPLANTOTAL.DataPropertyName = "OBRPLANTOTAL";
-            this.OBRPLANTOTAL.HeaderText = "СПБ +РФ+ЛО кол-во Обращений";
-            this.OBRPLANTOTAL.Name = "OBRPLANTOTAL";
-            this.OBRPLANTOTAL.Width = 201;
-            // 
-            // UetPlanObr
-            // 
-            this.UetPlanObr.DataPropertyName = "UetPlanObr";
-            this.UetPlanObr.HeaderText = "СПБ + РФ+ЛО кол-во УЕТ";
-            this.UetPlanObr.Name = "UetPlanObr";
-            this.UetPlanObr.Width = 167;
-            // 
-            // PLANTOTAL
-            // 
-            this.PLANTOTAL.DataPropertyName = "PLANTOTAL";
-            this.PLANTOTAL.HeaderText = "СПБ+РФ +ЛО Плановая стоимость";
-            this.PLANTOTAL.Name = "PLANTOTAL";
-            this.PLANTOTAL.Width = 213;
-            // 
-            // DATASTART
-            // 
-            this.DATASTART.DataPropertyName = "DATASTART";
-            this.DATASTART.HeaderText = "Дата начала месяца ";
-            this.DATASTART.Name = "DATASTART";
-            this.DATASTART.Width = 140;
-            // 
-            // DataFinish
-            // 
-            this.DataFinish.DataPropertyName = "DataFinish";
-            this.DataFinish.HeaderText = "Дата Окончания Месяца";
-            this.DataFinish.Name = "DataFinish";
-            this.DataFinish.Width = 158;
             // 
             // button1
             // 
@@ -489,6 +352,170 @@
             // 
             this.lUTAG9TableAdapter.ClearBeforeFill = true;
             // 
+            // keyid
+            // 
+            this.keyid.DataPropertyName = "keyid";
+            this.keyid.HeaderText = "keyid ";
+            this.keyid.Name = "keyid";
+            this.keyid.Visible = false;
+            this.keyid.Width = 60;
+            // 
+            // DATATEXT
+            // 
+            this.DATATEXT.DataPropertyName = "DATATEXT";
+            this.DATATEXT.HeaderText = "Месяц";
+            this.DATATEXT.Name = "DATATEXT";
+            this.DATATEXT.ReadOnly = true;
+            this.DATATEXT.Width = 65;
+            // 
+            // YEAR
+            // 
+            this.YEAR.DataPropertyName = "YEAR";
+            this.YEAR.HeaderText = "ГОД";
+            this.YEAR.Name = "YEAR";
+            this.YEAR.ReadOnly = true;
+            this.YEAR.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.YEAR.Width = 55;
+            // 
+            // specid
+            // 
+            this.specid.DataPropertyName = "SPECID";
+            this.specid.DataSource = this.lUTAG9BindingSource;
+            this.specid.DisplayMember = "DOC_SPEC";
+            this.specid.HeaderText = "Специальность";
+            this.specid.Name = "specid";
+            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.specid.ValueMember = "ID";
+            this.specid.Width = 110;
+            // 
+            // SPBPosPlanTotal
+            // 
+            this.SPBPosPlanTotal.DataPropertyName = "SPBPosPlanTotal";
+            this.SPBPosPlanTotal.HeaderText = "СПБ+РФ кол-посещений";
+            this.SPBPosPlanTotal.Name = "SPBPosPlanTotal";
+            this.SPBPosPlanTotal.Visible = false;
+            this.SPBPosPlanTotal.Width = 159;
+            // 
+            // SPBOBRPLANTOTAL
+            // 
+            this.SPBOBRPLANTOTAL.DataPropertyName = "SPBOBRPLANTOTAL";
+            this.SPBOBRPLANTOTAL.HeaderText = "СПБ+РФ кол-во обращений";
+            this.SPBOBRPLANTOTAL.Name = "SPBOBRPLANTOTAL";
+            this.SPBOBRPLANTOTAL.Visible = false;
+            this.SPBOBRPLANTOTAL.Width = 174;
+            // 
+            // SPBUETPLANOBR
+            // 
+            this.SPBUETPLANOBR.DataPropertyName = "SPBUETPLANOBR";
+            this.SPBUETPLANOBR.HeaderText = "СПБ+РФ кол-во ует";
+            this.SPBUETPLANOBR.Name = "SPBUETPLANOBR";
+            this.SPBUETPLANOBR.Visible = false;
+            this.SPBUETPLANOBR.Width = 133;
+            // 
+            // SPBPlanTotal
+            // 
+            this.SPBPlanTotal.DataPropertyName = "SPBPlanTotal";
+            this.SPBPlanTotal.HeaderText = "Стоимость Одного Посещения СПБ+РФ";
+            this.SPBPlanTotal.Name = "SPBPlanTotal";
+            this.SPBPlanTotal.Visible = false;
+            this.SPBPlanTotal.Width = 238;
+            // 
+            // LOPOSPLANTOTAL
+            // 
+            this.LOPOSPLANTOTAL.DataPropertyName = "LOPOSPLANTOTAL";
+            this.LOPOSPLANTOTAL.HeaderText = "ЛО кол-во Посещений ";
+            this.LOPOSPLANTOTAL.Name = "LOPOSPLANTOTAL";
+            this.LOPOSPLANTOTAL.Visible = false;
+            this.LOPOSPLANTOTAL.Width = 149;
+            // 
+            // LOOBRPLANTOTAL
+            // 
+            this.LOOBRPLANTOTAL.DataPropertyName = "LOOBRPLANTOTAL";
+            this.LOOBRPLANTOTAL.HeaderText = "ЛО кол-во Оброщений";
+            this.LOOBRPLANTOTAL.Name = "LOOBRPLANTOTAL";
+            this.LOOBRPLANTOTAL.Visible = false;
+            this.LOOBRPLANTOTAL.Width = 146;
+            // 
+            // LOUETPLANOBR
+            // 
+            this.LOUETPLANOBR.DataPropertyName = "LOUETPLANOBR";
+            this.LOUETPLANOBR.HeaderText = "ЛО кол-во УЕТ";
+            this.LOUETPLANOBR.Name = "LOUETPLANOBR";
+            this.LOUETPLANOBR.Visible = false;
+            this.LOUETPLANOBR.Width = 109;
+            // 
+            // LOPLANTOTAL
+            // 
+            this.LOPLANTOTAL.DataPropertyName = "LOPLANTOTAL";
+            this.LOPLANTOTAL.HeaderText = "Стоимость Одного Посещения ЛО";
+            this.LOPLANTOTAL.Name = "LOPLANTOTAL";
+            this.LOPLANTOTAL.Visible = false;
+            this.LOPLANTOTAL.Width = 208;
+            // 
+            // POSPLANTOTAL
+            // 
+            this.POSPLANTOTAL.DataPropertyName = "PosPlanTotal";
+            this.POSPLANTOTAL.HeaderText = "СПБ+РФ +ЛО кол-во Посещений ";
+            this.POSPLANTOTAL.Name = "POSPLANTOTAL";
+            this.POSPLANTOTAL.Width = 204;
+            // 
+            // OBRPLANTOTAL
+            // 
+            this.OBRPLANTOTAL.DataPropertyName = "OBRPLANTOTAL";
+            this.OBRPLANTOTAL.HeaderText = "СПБ +РФ+ЛО кол-во Обращений";
+            this.OBRPLANTOTAL.Name = "OBRPLANTOTAL";
+            this.OBRPLANTOTAL.Width = 201;
+            // 
+            // UetPlanObr
+            // 
+            this.UetPlanObr.DataPropertyName = "UetPlanObr";
+            this.UetPlanObr.HeaderText = "СПБ + РФ+ЛО кол-во УЕТ";
+            this.UetPlanObr.Name = "UetPlanObr";
+            this.UetPlanObr.Width = 167;
+            // 
+            // PLANTOTAL
+            // 
+            this.PLANTOTAL.DataPropertyName = "PLANTOTAL";
+            this.PLANTOTAL.HeaderText = "Стоимость одного Посешения СПБ+ЛО+РФ";
+            this.PLANTOTAL.Name = "PLANTOTAL";
+            this.PLANTOTAL.Width = 257;
+            // 
+            // DATASTART
+            // 
+            this.DATASTART.DataPropertyName = "DATASTART";
+            this.DATASTART.HeaderText = "Дата начала месяца ";
+            this.DATASTART.Name = "DATASTART";
+            this.DATASTART.Width = 140;
+            // 
+            // DataFinish
+            // 
+            this.DataFinish.DataPropertyName = "DataFinish";
+            this.DataFinish.HeaderText = "Дата Окончания Месяца";
+            this.DataFinish.Name = "DataFinish";
+            this.DataFinish.Width = 158;
+            // 
+            // LOPLANTOTALOBR
+            // 
+            this.LOPLANTOTALOBR.DataPropertyName = "LOPLANTOTALOBR";
+            this.LOPLANTOTALOBR.HeaderText = "Стоимость Обращений ЛО";
+            this.LOPLANTOTALOBR.Name = "LOPLANTOTALOBR";
+            this.LOPLANTOTALOBR.Width = 168;
+            // 
+            // SPBPLANTOTALOBR
+            // 
+            this.SPBPLANTOTALOBR.DataPropertyName = "SPBPLANTOTALOBR";
+            this.SPBPLANTOTALOBR.HeaderText = "Стоимость Одного Обращения СПБ";
+            this.SPBPLANTOTALOBR.Name = "SPBPLANTOTALOBR";
+            this.SPBPLANTOTALOBR.Width = 214;
+            // 
+            // PLANTOTALOBR
+            // 
+            this.PLANTOTALOBR.DataPropertyName = "PLANTOTALOBR";
+            this.PLANTOTALOBR.HeaderText = "Стоимость одного Обращения СПБ+ЛО+РФ";
+            this.PLANTOTALOBR.Name = "PLANTOTALOBR";
+            this.PLANTOTALOBR.Width = 258;
+            // 
             // Plan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,6 +571,11 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource lUTAG9BindingSource;
         private DataSet1TableAdapters.LUTAG9TableAdapter lUTAG9TableAdapter;
+        private System.Windows.Forms.GroupBox BoxRadio;
+        private System.Windows.Forms.RadioButton ALLRadioButton;
+        private System.Windows.Forms.RadioButton LORadioButton;
+        private System.Windows.Forms.RadioButton SPBLORadioButton;
+        private System.Windows.Forms.RadioButton SPBRadioButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyid;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATATEXT;
         private System.Windows.Forms.DataGridViewTextBoxColumn YEAR;
@@ -562,10 +594,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PLANTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATASTART;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataFinish;
-        private System.Windows.Forms.GroupBox BoxRadio;
-        private System.Windows.Forms.RadioButton ALLRadioButton;
-        private System.Windows.Forms.RadioButton LORadioButton;
-        private System.Windows.Forms.RadioButton SPBLORadioButton;
-        private System.Windows.Forms.RadioButton SPBRadioButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOPLANTOTALOBR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SPBPLANTOTALOBR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PLANTOTALOBR;
     }
 }

@@ -14,6 +14,7 @@ namespace Econom
 {
     public partial class renouncement : Form
     {
+      
         private Home father=null;
         private Calcultion calcultionLO;
         private Calcultion calcultionSPB;
@@ -164,6 +165,7 @@ group by get_specdocid(v.num)";
             selectspb = new renouncementset(ConectString, "MED", "INV_TABL_spb");
             selectALL = new renouncementset(ConectString, "MED", "INV_TABL_ALL");
 //--------------------------------------------------------------------------------------------------------------
+            
             selectLO.setselectcomand(sqlselectLO, CommandType.Text);
             selectLO.AddSelectParametr(":Month", this.MonthBox.Text);
             selectLO.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
@@ -289,20 +291,31 @@ group by get_specdocid(v.num)";
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
-            selectLO.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.Text;
-            selectLO.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.Text;
-            selectLO.Dt.Clear();
-            selectLO.adapterinstal();
+            try
+            {
+                selectLO.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.SelectedValue;
+                selectLO.Dt.Clear();
+                selectLO.adapterinstal();
 
-            selectspb.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.Text;
-            selectspb.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.Text;
-            selectspb.Dt.Clear();
-            selectspb.adapterinstal();
 
-            selectALL.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.Text;
-            selectALL.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.Text;
-            selectALL.Dt.Clear();
-            selectALL.adapterinstal();
+                selectspb.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.SelectedValue;
+                selectspb.Dt.Clear();
+                selectspb.adapterinstal();
+
+
+                selectALL.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.SelectedValue;
+                selectALL.Dt.Clear();
+                selectALL.adapterinstal();
+            }catch (ArgumentException ex)
+            {
+                MessageBox.Show("Не верный входной параметр: " + ex.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
+           
+            
 
         }
 
@@ -452,6 +465,36 @@ group by get_specdocid(v.num)";
                 this.father.Enabled = true;
                 this.father.Renouncement = null;
             }
+        }
+
+        private void yearBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                selectLO.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.SelectedValue;
+                selectLO.AddInsertParametr("tYEAR", OracleType.Number,12,this.yearBox.SelectedValue);
+                selectLO.Dt.Clear();
+                selectLO.adapterinstal();
+
+                selectspb.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.SelectedValue;
+
+                selectspb.Dt.Clear();
+                selectspb.adapterinstal();
+
+                selectALL.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.SelectedValue;
+
+                selectALL.Dt.Clear();
+                selectALL.adapterinstal();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Не верный входной параметр: " + ex.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
+
         }
     }
 }

@@ -260,7 +260,19 @@ namespace Econom
             return 0;
         }
 
-      //  public void 
+        public decimal insum(TextBox a,TextBox b)
+        {
+            parsestodec(a.Text, b.Text);
+
+            if (A != 0 && B != 0)
+            {
+                return A + B;
+            }
+
+
+
+            return 0;
+        }
 
         }
 

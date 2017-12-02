@@ -41,7 +41,8 @@ namespace Econom
                                         and DP.DATATEXT = :Month 
                                         and DP.YEAR = :year";
 
-        private string SqlDohLO = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
+        private string SqlDohLO = @"
+select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
@@ -155,22 +156,22 @@ group by get_specdocid(v.num)";
 
             DohTablLO.setselectcomand(sqlselectLO, CommandType.Text);
             DohTablLO.AddSelectParametr(":Month", this.MonthBox.Text);
-            DohTablLO.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            DohTablLO.AddSelectParametr(":year", OracleType.Number, 5, yearBox.SelectedValue);
 
             //---------------------------------------------------------------------------------
 
             DohTablLO.setinsertcomand(sqlinsert, CommandType.StoredProcedure);
             DohTablLO.AddInsertParametr("tcountry", OracleType.VarChar, 5, "LO");
             DohTablLO.AddInsertParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            DohTablLO.AddInsertParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            DohTablLO.AddInsertParametrGrid("tSUMDOH", OracleType.Number, 12, "SUMDOH");
             DohTablLO.AddInsertParametrGrid("tPOS", OracleType.Number, 12, "POS");
             DohTablLO.AddInsertParametrGrid("tOBR", OracleType.Number, 12, "OBR");
             DohTablLO.AddInsertParametrGrid("tQTY",OracleType.Number,12,"QTY");
             DohTablLO.AddInsertParametrGrid("tUET", OracleType.Number, 12, "UET");
             DohTablLO.AddInsertParametr("tdatas", OracleType.DateTime, 6,DateTime.Today);
             DohTablLO.AddInsertParametr("tdatef", OracleType.DateTime, 6, DateTime.Today);
-            DohTablLO.AddInsertParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            DohTablLO.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+           // DohTablLO.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            //DohTablLO.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
             DohTablLO.AddInsertParametr("v_cunt", OracleType.Number, 5, 0);
 
             DohTablLO.setdeletcomand(sqldelet, CommandType.StoredProcedure);
@@ -181,13 +182,13 @@ group by get_specdocid(v.num)";
             DohTablLO.AddUpdateParametr("tcountry", OracleType.VarChar, 5, "LO");
             DohTablLO.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
             DohTablLO.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            DohTablLO.AddUpdateParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            DohTablLO.AddUpdateParametrGrid("tSUMDOH", OracleType.Number, 12, "SUMDOH");
             DohTablLO.AddUpdateParametrGrid("tPOS", OracleType.Number, 12, "POS");
             DohTablLO.AddUpdateParametrGrid("tOBR", OracleType.Number, 12, "OBR");
             DohTablLO.AddUpdateParametrGrid("tQTY", OracleType.Number, 12, "QTY");
             DohTablLO.AddUpdateParametrGrid("tUET", OracleType.Number, 12, "UET");
-            DohTablLO.AddUpdateParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            DohTablLO.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+          //  DohTablLO.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+           // DohTablLO.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
 
 
 
@@ -199,19 +200,19 @@ group by get_specdocid(v.num)";
 
             DohTablSPB.setselectcomand(sqlselectSPB, CommandType.Text);
             DohTablSPB.AddSelectParametr(":Month", this.MonthBox.Text);
-            DohTablSPB.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            DohTablSPB.AddSelectParametr(":year", OracleType.Number, 5, yearBox.SelectedValue);
             //------------------------------------------------------------------------------------------------------------------
             DohTablSPB.setinsertcomand(sqlinsert, CommandType.StoredProcedure);
             DohTablSPB.AddInsertParametr("tcountry", OracleType.VarChar, 5, "RF");
             DohTablSPB.AddInsertParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            DohTablSPB.AddInsertParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            DohTablSPB.AddInsertParametrGrid("tSUMDOH", OracleType.Number, 12, "SUMDOH");
             DohTablSPB.AddInsertParametrGrid("tPOS", OracleType.Number, 12, "POS");
             DohTablSPB.AddInsertParametrGrid("tOBR", OracleType.Number, 12, "OBR");
             DohTablSPB.AddInsertParametrGrid("tUET", OracleType.Number, 12, "UET");
             DohTablSPB.AddInsertParametr("tdatas", OracleType.DateTime, 6, DateTime.Today);
             DohTablSPB.AddInsertParametr("tdatef", OracleType.DateTime, 6, DateTime.Today);
-            DohTablSPB.AddInsertParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            DohTablSPB.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+           // DohTablSPB.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+           // DohTablSPB.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
             DohTablSPB.AddInsertParametr("v_cunt", OracleType.Number, 5, 0);
 
             DohTablSPB.setdeletcomand(sqldelet, CommandType.StoredProcedure);
@@ -222,13 +223,13 @@ group by get_specdocid(v.num)";
             DohTablSPB.AddUpdateParametr("tcountry", OracleType.VarChar, 5, "RF");
             DohTablSPB.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
             DohTablSPB.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            DohTablSPB.AddUpdateParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            DohTablSPB.AddUpdateParametrGrid("tSUMDOH", OracleType.Number, 12, "SUMDOH");
             DohTablSPB.AddUpdateParametrGrid("tPOS", OracleType.Number, 12, "POS");
             DohTablSPB.AddUpdateParametrGrid("tOBR", OracleType.Number, 12, "OBR");
             DohTablSPB.AddUpdateParametrGrid("tQTY", OracleType.Number, 12, "QTY");
             DohTablSPB.AddUpdateParametrGrid("tUET", OracleType.Number, 12, "UET");
-            DohTablSPB.AddUpdateParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            DohTablSPB.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+          ///  DohTablSPB.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+           // DohTablSPB.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
 
 
             DohTablSPB.adapterinstal();
@@ -238,20 +239,20 @@ group by get_specdocid(v.num)";
             ///
             DohTablALL.setselectcomand(sqlselectALL, CommandType.Text);
             DohTablALL.AddSelectParametr(":Month", this.MonthBox.Text);
-            DohTablALL.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            DohTablALL.AddSelectParametr(":year", OracleType.Number, 5, yearBox.SelectedValue);
 
             //--------------------------------------------------------------------------------------------------------------------------------------------------------
             DohTablALL.setinsertcomand(sqlinsert, CommandType.StoredProcedure);
             DohTablALL.AddInsertParametr("tcountry", OracleType.VarChar, 5, "ALL");
             DohTablALL.AddInsertParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            DohTablALL.AddInsertParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            DohTablALL.AddInsertParametrGrid("tSUMDOH", OracleType.Number, 12, "SUMDOH");
             DohTablALL.AddInsertParametrGrid("tPOS", OracleType.Number, 12, "POS");
             DohTablALL.AddInsertParametrGrid("tOBR", OracleType.Number, 12, "OBR");
             DohTablALL.AddInsertParametrGrid("tUET", OracleType.Number, 12, "UET");
             DohTablALL.AddInsertParametr("tdatas", OracleType.DateTime, 6, DateTime.Today);
             DohTablALL.AddInsertParametr("tdatef", OracleType.DateTime, 6, DateTime.Today);
-            DohTablALL.AddInsertParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            DohTablALL.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+          //  DohTablALL.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+          //  DohTablALL.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
             DohTablALL.AddInsertParametr("v_cunt", OracleType.Number, 5, 0);
 
             DohTablALL.setdeletcomand(sqldelet, CommandType.StoredProcedure);
@@ -262,13 +263,13 @@ group by get_specdocid(v.num)";
             DohTablALL.AddUpdateParametr("tcountry", OracleType.VarChar, 5, "ALL");
             DohTablALL.AddUpdateParametrGrid("tkeyid", OracleType.Number, 12, "keyid");
             DohTablALL.AddUpdateParametrGrid("tspecid", OracleType.Number, 12, "SPECID");
-            DohTablALL.AddUpdateParametrGrid("tSUMVOZ", OracleType.Number, 12, "SUMVOZ");
+            DohTablALL.AddUpdateParametrGrid("tSUMDOH", OracleType.Number, 12, "SUMDOH");
             DohTablALL.AddUpdateParametrGrid("tPOS", OracleType.Number, 12, "POS");
             DohTablALL.AddUpdateParametrGrid("tOBR", OracleType.Number, 12, "OBR");
             DohTablALL.AddUpdateParametrGrid("tQTY", OracleType.Number, 12, "QTY");
             DohTablALL.AddUpdateParametrGrid("tUET", OracleType.Number, 12, "UET");
-            DohTablALL.AddUpdateParametr("tYEAR", OracleType.Number, 5, (int.Parse(yearBox.Text)));
-            DohTablALL.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.Text.ToString());
+           // DohTablALL.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+          //  DohTablALL.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
 
 
 
@@ -295,12 +296,28 @@ group by get_specdocid(v.num)";
 
         private void button1_Click(object sender, EventArgs e)
         {
+             DohTablALL.AddUpdateParametr("tYear", OracleType.Number, 12, yearBox.SelectedValue);
+             DohTablALL.AddInsertParametr("tYear", OracleType.Number, 12, yearBox.SelectedValue);
+             DohTablSPB.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            DohTablSPB.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+              DohTablLO.AddUpdateParametr("tYear", OracleType.Number, 12, yearBox.SelectedValue);
+             DohTablLO.AddInsertParametr("tYear", OracleType.Number, 12, yearBox.SelectedValue);
+              DohTablSPB.AddUpdateParametr("tYear", OracleType.Number, 12, yearBox.SelectedValue);
+            DohTablSPB.AddInsertParametr("tYear", OracleType.Number, 12, yearBox.SelectedValue);
+             DohTablLO.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            DohTablLO.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            DohTablSPB.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+             DohTablSPB.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+
+
+
             DohTablLO.UpdateDB();
             DohTablALL.UpdateDB();
             DohTablSPB.UpdateDB();
-            this.Hide();
+           
             father.Enabled = true;
             father.Show();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -336,12 +353,12 @@ group by get_specdocid(v.num)";
             ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
             ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
             long iMaxLO = DohTablLO.maxkeid(DohTablLO.Ds.Tables["inv_income_tabl_LO"], "keyid");
-            //"System.Int32"
+            
 
 
             long iMaxSPB = DohTablSPB.maxkeid(DohTablSPB.Ds.Tables["inv_income_tabl_SPB"], "keyid");
             long iMaxALL = DohTablALL.maxkeid(DohTablALL.Ds.Tables["inv_income_tabl_ALL"], "keyid");
-           // MessageBox.Show("" + iMaxALL + iMaxLO + iMaxSPB);
+           
             LO.dataColumn("keyid", "System.Int32", iMaxLO, 1);
             SPB.dataColumn("keyid", "System.Int32", iMaxSPB, 1);
             ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
@@ -366,6 +383,48 @@ group by get_specdocid(v.num)";
             }
             
             
+        }
+
+        private void MonthBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+           
+            DohTablALL.AddSelectParametr(":Month", this.MonthBox.SelectedValue);
+            DohTablALL.Dt.Clear();
+
+         
+            DohTablSPB.AddSelectParametr(":Month", this.MonthBox.SelectedValue);
+            DohTablSPB.Dt.Clear();
+
+          
+            DohTablLO.AddSelectParametr(":Month", this.MonthBox.SelectedValue);
+            DohTablLO.Dt.Clear();
+
+
+            DohTablLO.adapterinstal();
+            DohTablSPB.adapterinstal();
+            DohTablALL.adapterinstal();
+
+        }
+
+        private void yearBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+            DohTablALL.AddSelectParametr(":year", this.yearBox.SelectedValue);
+            DohTablALL.Dt.Clear();
+
+         
+            DohTablSPB.AddSelectParametr(":year", this.yearBox.SelectedValue);
+            DohTablSPB.Dt.Clear();
+          
+        
+            DohTablLO.AddSelectParametr(":year", this.yearBox.SelectedValue);
+            DohTablLO.Dt.Clear();
+
+
+            DohTablLO.adapterinstal();
+            DohTablSPB.adapterinstal();
+            DohTablALL.adapterinstal();
         }
     }
 }

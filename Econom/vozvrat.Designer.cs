@@ -251,6 +251,7 @@
             this.MonthBox.Name = "MonthBox";
             this.MonthBox.Size = new System.Drawing.Size(121, 21);
             this.MonthBox.TabIndex = 9;
+            this.MonthBox.SelectionChangeCommitted += new System.EventHandler(this.MonthBox_SelectionChangeCommitted);
             // 
             // ex_oracle
             // 

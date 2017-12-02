@@ -373,5 +373,10 @@ group by get_specdocid(v.num)";
                 father.Vozvrat = null;
             }
         }
+
+        private void MonthBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
     }
 }

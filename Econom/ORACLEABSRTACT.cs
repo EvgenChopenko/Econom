@@ -236,6 +236,10 @@ namespace Econom
         {
             this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
         }
+        public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, object value)
+        {
+            this.adapter.InsertCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+        }
 
         public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, DateTime value)
         {

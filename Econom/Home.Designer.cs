@@ -171,12 +171,14 @@
             this.toExelToolStripMenuItem.Name = "toExelToolStripMenuItem";
             this.toExelToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.toExelToolStripMenuItem.Text = "to_Exel";
+            this.toExelToolStripMenuItem.Click += new System.EventHandler(this.toExelToolStripMenuItem_Click);
             // 
             // exeltoLOToolStripMenuItem
             // 
             this.exeltoLOToolStripMenuItem.Name = "exeltoLOToolStripMenuItem";
             this.exeltoLOToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.exeltoLOToolStripMenuItem.Text = "LO_to_exel";
+            this.exeltoLOToolStripMenuItem.Click += new System.EventHandler(this.exeltoLOToolStripMenuItem_Click);
             // 
             // sPBtoexelToolStripMenuItem
             // 

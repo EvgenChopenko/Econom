@@ -529,5 +529,15 @@ where
             this.lUTAG9TableAdapter.Fill(this.dataSet1.LUTAG9);
 
         }
+
+        private void toExelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exeltoLOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("HOME",datageidlo);
+        }
     }
 }

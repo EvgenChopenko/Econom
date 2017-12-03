@@ -32,7 +32,8 @@ namespace Econom
             this.yearBox.DataSource = Program.GETYERS();
             this.father = father;
         }
-        private string sqlComandlointobill = @" select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
+        private string sqlComandlointobill = @" 
+select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num, i.keyid))as qty ,
@@ -44,7 +45,8 @@ where v.KEYID = i.VISITID
  and i.AGRID !=435
 and i.REFUSE_STATUS in (1,2)
 group by get_specdocid(v.num)";
-        private string sqlComandspbintibill = @"select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
+        private string sqlComandspbintibill = @"
+select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num, i.keyid))as qty ,
@@ -56,7 +58,8 @@ where v.KEYID = i.VISITID
  and i.AGRID = 435
 and i.REFUSE_STATUS in (1,2)
 group by get_specdocid(v.num)";
-        private string sqlComandlospbrfintobill = @"select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
+        private string sqlComandlospbrfintobill = @"
+select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
 count(distinct v.dat) as pos,
 count(distinct v.num) as obr,
 sum(get_QTYUSL(v.num, i.keyid))as qty ,
@@ -159,13 +162,14 @@ group by get_specdocid(v.num)";
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.LUTAG9". При необходимости она может быть перемещена или удалена.
             this.lUTAG9TableAdapter.Fill(this.dataSet1.LUTAG9);
             //  this.ex_oracle.Visible = false;
-            calcultionLO = new Calcultion(datageidlo);
-            calcultionSPB = new Calcultion(datagridspbrf);
+           
             selectLO = new renouncementset(ConectString, "MED", "INV_TABL_LO");
             selectspb = new renouncementset(ConectString, "MED", "INV_TABL_spb");
             selectALL = new renouncementset(ConectString, "MED", "INV_TABL_ALL");
-//--------------------------------------------------------------------------------------------------------------
-            
+            //--------------------------------------------------------------------------------------------------------------
+            calcultionLO = new Calcultion(datageidlo);
+            calcultionSPB = new Calcultion(datagridspbrf);
+
             selectLO.setselectcomand(sqlselectLO, CommandType.Text);
             selectLO.AddSelectParametr(":Month", this.MonthBox.Text);
             selectLO.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
@@ -285,8 +289,7 @@ group by get_specdocid(v.num)";
         {
 
         }
-        //datagridspbrf
-        //datagridspbrflo
+       
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -294,16 +297,22 @@ group by get_specdocid(v.num)";
             try
             {
                 selectLO.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.SelectedValue;
+                selectLO.AddInsertParametr("tMonth", OracleType.Number, 12, this.MonthBox.SelectedValue);
+                selectLO.AddUpdateParametr("tMonth", OracleType.Number, 12, this.MonthBox.SelectedValue);
                 selectLO.Dt.Clear();
                 selectLO.adapterinstal();
 
 
                 selectspb.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.SelectedValue;
+                selectspb.AddInsertParametr("tMonth", OracleType.Number, 12, this.MonthBox.SelectedValue);
+                selectspb.AddUpdateParametr("tMonth", OracleType.Number, 12, this.MonthBox.SelectedValue);
                 selectspb.Dt.Clear();
                 selectspb.adapterinstal();
 
 
                 selectALL.Adapter.SelectCommand.Parameters[":Month"].Value = this.MonthBox.SelectedValue;
+                selectALL.AddInsertParametr("tMonth", OracleType.Number, 12, this.MonthBox.SelectedValue);
+                selectALL.AddUpdateParametr("tMonth", OracleType.Number, 12, this.MonthBox.SelectedValue);
                 selectALL.Dt.Clear();
                 selectALL.adapterinstal();
             }catch (ArgumentException ex)
@@ -473,16 +482,19 @@ group by get_specdocid(v.num)";
             {
                 selectLO.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.SelectedValue;
                 selectLO.AddInsertParametr("tYEAR", OracleType.Number,12,this.yearBox.SelectedValue);
+                selectLO.AddUpdateParametr("tYEAR", OracleType.Number, 12, this.yearBox.SelectedValue);
                 selectLO.Dt.Clear();
                 selectLO.adapterinstal();
 
                 selectspb.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.SelectedValue;
-
+                selectspb.AddInsertParametr("tYEAR", OracleType.Number, 12, this.yearBox.SelectedValue);
+                selectspb.AddUpdateParametr("tYEAR", OracleType.Number, 12, this.yearBox.SelectedValue);
                 selectspb.Dt.Clear();
                 selectspb.adapterinstal();
 
                 selectALL.Adapter.SelectCommand.Parameters[":year"].Value = this.yearBox.SelectedValue;
-
+                selectALL.AddInsertParametr("tYEAR", OracleType.Number, 12, this.yearBox.SelectedValue);
+                selectALL.AddUpdateParametr("tYEAR", OracleType.Number, 12, this.yearBox.SelectedValue);
                 selectALL.Dt.Clear();
                 selectALL.adapterinstal();
             }

@@ -13,21 +13,18 @@ namespace Econom
     { private OracleDataAdapter adapter;
         public renouncementset(string connectionString, string sqlcommand, string nameDB, string nameTabel) : base(connectionString, sqlcommand, nameDB, nameTabel)
         {
-            this.adapter = base.Adapter;
+            //
            
         }
         public renouncementset(string connectionString, string nameDB, string nameTabel) : base(connectionString,nameDB, nameTabel)
         {
-           // this.adapter = base.Adapter;
+            
 
         }
 
         public OracleDataAdapter ada { get => adapter; set => adapter = value; }
 
-        public void filter (string year,string Month, string sqlcommand)
-        {
-         
-        }
+       
 
         public  long maxkeid(DataTable dt, string name)
         {

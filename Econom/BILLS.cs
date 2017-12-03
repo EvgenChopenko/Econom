@@ -19,7 +19,11 @@ namespace Econom
         {
             InitializeComponent();
         }
-        private string sqlcomand = "SELECT DAT,b.BUHCODE||' '||ag.TEXT as TEXT, b.AMOUNT,b.code,b.AGRID,b.keyid , TO_CHAR( b.BGNDAT ||' - '|| b.ENDDAT) as datfull from bill b, AGR ag where b.AGRID= ag.keyid(+)";
+        private string sqlcomand = @"SELECT DAT,b.BUHCODE||' '||ag.TEXT as TEXT, 
+b.AMOUNT,b.code,b.AGRID,b.keyid , 
+TO_CHAR( b.BGNDAT ||' - '|| b.ENDDAT) as datfull 
+from bill b, AGR ag where b.AGRID= ag.keyid(+) 
+and ag.FINANCE=5";
         private string connectionString = ConfigurationManager.ConnectionStrings["Econom.Properties.Settings.OracleString"].ConnectionString;
         private void BILLS_Load(object sender, EventArgs e)
         {
@@ -58,7 +62,7 @@ namespace Econom
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // MessageBox.Show(bill.TOKEYID(this.dataGridView1, "ADD", "keyid"));
+          
 
             renouncements.call(bill.TOKEYID(this.dataGridView1, "ADD", "keyid"));
             this.Close();

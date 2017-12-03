@@ -649,7 +649,7 @@
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
             this.Name = "dohod";
-            this.Text = "vozvrat";
+            this.Text = "Выгрузка Доходов ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.dohod_FormClosed);
             this.Load += new System.EventHandler(this.vozvrat_Load);
             this.groupBox1.ResumeLayout(false);

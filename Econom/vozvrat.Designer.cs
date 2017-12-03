@@ -82,6 +82,13 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
+            this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.UET = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUMVOZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
@@ -117,7 +124,7 @@
             this.groupBox1.Size = new System.Drawing.Size(736, 116);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Меню";
             // 
             // button2
             // 
@@ -292,6 +299,14 @@
             // 
             this.datageidlo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datageidlo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datageidlo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.keyid,
+            this.specid,
+            this.UET,
+            this.QTY,
+            this.SUMVOZ,
+            this.OBR,
+            this.POS});
             this.datageidlo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datageidlo.Location = new System.Drawing.Point(3, 3);
             this.datageidlo.Name = "datageidlo";
@@ -576,6 +591,55 @@
             // 
             this.lUTAG9TableAdapter.ClearBeforeFill = true;
             // 
+            // keyid
+            // 
+            this.keyid.DataPropertyName = "keyid";
+            this.keyid.HeaderText = "KEYID";
+            this.keyid.Name = "keyid";
+            this.keyid.ReadOnly = true;
+            this.keyid.Visible = false;
+            // 
+            // specid
+            // 
+            this.specid.DataPropertyName = "specid";
+            this.specid.DataSource = this.lUTAG9BindingSource;
+            this.specid.DisplayMember = "DOC_SPEC";
+            this.specid.HeaderText = "Доктор";
+            this.specid.Name = "specid";
+            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.specid.ValueMember = "ID";
+            // 
+            // UET
+            // 
+            this.UET.DataPropertyName = "UET";
+            this.UET.HeaderText = "Кол-во Ует";
+            this.UET.Name = "UET";
+            // 
+            // QTY
+            // 
+            this.QTY.DataPropertyName = "QTY";
+            this.QTY.HeaderText = "Кол-во Услуг";
+            this.QTY.Name = "QTY";
+            // 
+            // SUMVOZ
+            // 
+            this.SUMVOZ.DataPropertyName = "SUMVOZ";
+            this.SUMVOZ.HeaderText = "Сумма Возврата";
+            this.SUMVOZ.Name = "SUMVOZ";
+            // 
+            // OBR
+            // 
+            this.OBR.DataPropertyName = "OBR";
+            this.OBR.HeaderText = "Кол-во Обращений ";
+            this.OBR.Name = "OBR";
+            // 
+            // POS
+            // 
+            this.POS.DataPropertyName = "POS";
+            this.POS.HeaderText = "Кол-во Посещений";
+            this.POS.Name = "POS";
+            // 
             // vozvrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,7 +648,7 @@
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
             this.Name = "vozvrat";
-            this.Text = "vozvrat";
+            this.Text = "Выгрузка возвратов";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.vozvrat_FormClosed);
             this.Load += new System.EventHandler(this.vozvrat_Load);
             this.groupBox1.ResumeLayout(false);
@@ -659,5 +723,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uetspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dopuetspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDspblo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyid;
+        private System.Windows.Forms.DataGridViewComboBoxColumn specid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UET;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUMVOZ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OBR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn POS;
     }
 }

@@ -43,44 +43,56 @@ namespace Econom
 
         public ORACLEABSRTACT(string connectionString, string sqlcommand, string nameDB, string nameTabel)
         {
-            this.nameTabel = nameTabel;
-            this.nameDB = nameDB;
-            this.sqlcommand = sqlcommand;
-            this.ds = new DataSet(nameDB);
-            this.dt = new DataTable(nameTabel);
-            this.ds.Tables.Add(this.dt);
-            this.connectionString = connectionString;
-
-
-            this.conect = new OracleConnection(this.connectionString);
-
-
-            this.adapter = new OracleDataAdapter(this.sqlcommand, this.conect);
-
-            this.adapter.Fill(this.ds.Tables[nameTabel]);
-            commmmm = new OracleCommandBuilder(this.adapter);
+            try
+            {
+                this.nameTabel = nameTabel;
+                this.nameDB = nameDB;
+                this.sqlcommand = sqlcommand;
+                this.ds = new DataSet(nameDB);
+                this.dt = new DataTable(nameTabel);
+                this.ds.Tables.Add(this.dt);
+                this.connectionString = connectionString;
+                this.conect = new OracleConnection(this.connectionString);
+                this.adapter = new OracleDataAdapter(this.sqlcommand, this.conect);
+                this.adapter.Fill(this.ds.Tables[nameTabel]);
+                commmmm = new OracleCommandBuilder(this.adapter);
+            }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show("Передоно значение null " + e.Message);
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Передан неверный аргумент " + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка " + e.Message);
+            }
+            
 
 
         }
 
         public ORACLEABSRTACT(string connectionString, string nameDB, string nameTabel)
         {
-            this.nameTabel = nameTabel;
-            this.nameDB = nameDB;
-            // this.sqlcommand = sqlcommand;
-            this.ds = new DataSet(nameDB);
-            this.dt = new DataTable(nameTabel);
-            this.ds.Tables.Add(this.dt);
-            this.connectionString = connectionString;
+            try
+            {
+                this.nameTabel = nameTabel;
+                this.nameDB = nameDB;
+                this.ds = new DataSet(nameDB);
+                this.dt = new DataTable(nameTabel);
+                this.ds.Tables.Add(this.dt);
+                this.connectionString = connectionString;
+                this.conect = new OracleConnection(this.connectionString);
+                this.adapter = new OracleDataAdapter();
+            }catch (Exception e)
+            {
+                MessageBox.Show("Ошибка в формирование соедениния " + e.Message);
+            }
+           
 
-
-            this.conect = new OracleConnection(this.connectionString);
-
-
-            this.adapter = new OracleDataAdapter();
-
-            //  this.adapter.Fill(this.ds.Tables[nameTabel]);
-            //  commmmm = new OracleCommandBuilder(this.adapter);
+            
 
 
         }
@@ -104,35 +116,77 @@ namespace Econom
 
         public void adapterSet(OracleConnection conect)
         {
-            this.adapter = new OracleDataAdapter(this.sqlcommand, conect);
+            try
+            {
+                this.adapter = new OracleDataAdapter(this.sqlcommand, conect);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Ошибка создания адаптера "+e.Message);
+            }
+            
 
         }
         public void adapterSet(OracleDataAdapter ada)
         {
-            this.adapter = ada;
+            try
+            {
+                this.adapter = ada;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Не верно переданный Адаптер " + e.Message);
+            }
+            
 
         }
         public DataView GetDataView()
         {
-            DataView view = new DataView();
-            view = this.ds.Tables[nameTabel].AsDataView();
-            return view;
+            try
+            {
+                DataView view = new DataView();
+                view = this.ds.Tables[nameTabel].AsDataView();
+                return view;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка " + e.Message);
+                return null;
+            }
+           
+
         }
         public virtual void UpdateDB()
         {
 
 
+            try
+            {
+                ds.EndInit();
 
-            ds.EndInit();
-
-            this.adapter.Update(ds.Tables[this.nameTabel]);
+                this.adapter.Update(ds.Tables[this.nameTabel]);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
 
 
         }
 
         public DataTable getTabel()
         {
-            return ds.Tables[nameTabel];
+            try
+            {
+                return ds.Tables[nameTabel];
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+          
         }
         public void endinit()
         {
@@ -150,17 +204,30 @@ namespace Econom
 
         public void setselectcomand(string sqlcommand, CommandType CommandType)
         {
-            this.sqlselect = sqlcommand;
-            select = new OracleCommand(sqlcommand, this.conect);
-            select.CommandType = CommandType.Text;
-            Adapter.SelectCommand = select;
+            try
+            {
+                this.sqlselect = sqlcommand;
+                select = new OracleCommand(sqlcommand, this.conect);
+                select.CommandType = CommandType.Text;
+                Adapter.SelectCommand = select;
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+           
         }
 
         public void AddSelectParametr(string oracleparametr, OracleType datatype, int length, object value)
         {
             try
             {
-                this.adapter.SelectCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                if (this.adapter.SelectCommand.Parameters.IndexOf(oracleparametr) == -1){
+                    this.adapter.SelectCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+                
+                else{
+                    this.adapter.SelectCommand.Parameters[oracleparametr].Value = value;
+                }
             }
             catch (Exception e)
             {
@@ -170,38 +237,112 @@ namespace Econom
         }
         public void AddSelectParametr(string oracleparametr, object value)
         {
-            this.adapter.SelectCommand.Parameters.AddWithValue(oracleparametr, value);
+          //  this.adapter.SelectCommand.Parameters.AddWithValue(oracleparametr, value);
+
+            try
+            {
+                if (this.adapter.SelectCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.SelectCommand.Parameters.AddWithValue(oracleparametr, value);
+                }
+
+                else
+                {
+                    this.adapter.SelectCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка типа днанных" + e.Message);
+            }
         }
 
-        public void addselecParametr(string oracleparametr, OracleType datatype, int length, string value)
+        public void AddSelectParametr(string oracleparametr, OracleType datatype, int length, string value)
         {
-            this.adapter.SelectCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                if (this.adapter.SelectCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.SelectCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+
+                else
+                {
+                    this.adapter.SelectCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка типа днанных" + e.Message);
+            }
         }
         public void setupdatecomand(string sqlcommand, CommandType CommandType)
         {
-            this.sqlupdate = sqlcommand;
-            update = new OracleCommand(sqlcommand, this.conect);
-            update.CommandType = CommandType;
-            Adapter.UpdateCommand = update;
+            try
+            {
+                this.sqlupdate = sqlcommand;
+                update = new OracleCommand(sqlcommand, this.conect);
+                update.CommandType = CommandType;
+                Adapter.UpdateCommand = update;
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Ошибка переданного параметра" + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: "+e.Message);
+            }
+           
         }
         public void setinsertcomand(string sqlcommand, CommandType CommandType)
         {
-            this.sqlinsert = sqlcommand;
+            try
+            {
+                this.sqlinsert = sqlcommand;
             insert = new OracleCommand(sqlcommand, this.conect);
             insert.CommandType = CommandType;
             Adapter.InsertCommand = insert;
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Ошибка переданного параметра" + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
         }
         public void setdeletcomand(string sqlcommand, CommandType CommandType)
         {
-            this.sqldelet = sqlcommand;
+            try
+            {
+                this.sqldelet = sqlcommand;
             delet = new OracleCommand(sqlcommand, this.conect);
             delet.CommandType = CommandType;
             Adapter.DeleteCommand = delet;
         }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Ошибка переданного параметра" + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: "+e.Message);
+            }
+        }
         public void adapterinstal()
         {
+            try
+            {
             this.adapter.Fill(this.ds.Tables[nameTabel]);
-            //  commmmm = new OracleCommandBuilder(this.adapter);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Ошибка:" + e.Message);
+            }
+            
+            
         }
         public long maxkeid(DataTable dt, string name)
         {
@@ -261,7 +402,7 @@ namespace Econom
                 MessageBox.Show(e.Message);
             }
         }
-            public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, int value)
+        public void AddInsertParametr(string oracleparametr, OracleType datatype, int length, int value)
         {
             try
             {
@@ -333,57 +474,113 @@ namespace Econom
             //-----------------------------------------------------------------------------------------------------------
         public void AddDeletParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
         {
-            this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+            try
+            {
+                this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Не верный входной параметр! " + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
+            
         }
         public void AddDeletParametr(string oracleparametr, OracleType datatype, int length, string value)
         {
-            this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                this.adapter.DeleteCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Не верный входной параметр! " + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
         }
 
         public void AddUpdateParametrGrid(string oracleparametr, OracleType datatype, int length, string TabelGrid)
         {
-            this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+            try
+            {
+                this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length, TabelGrid);
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Не верный входной параметр! " + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
         }
         public void AddUpdateParametr(string oracleparametr, OracleType datatype, int length, object value)
         {
-            this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+            try
+            {
+                if (this.adapter.UpdateCommand.Parameters.IndexOf(oracleparametr) == -1)
+                {
+                    this.adapter.UpdateCommand.Parameters.Add(oracleparametr, datatype, length).Value = value;
+                }
+                else
+                {
+                    this.adapter.UpdateCommand.Parameters[oracleparametr].Value = value;
+                }
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Не верный входной параметр! " + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
         }
-        /*
-        public long maxkeid(DataTable dt, string name)
-        {
-
-            var table = dt;
-            var colum = name;
-            var iMax = table.Select().Any() ? (decimal)table.Select().Max(p => p[colum]) : 0;
-            return (long)iMax;
-        }*/
+       
 
         public void dataColumn(string Columnname, string systype, long Imax, int step)
         {
-            DataColumn column = new DataColumn();
-            column.ColumnName = Columnname;
-            column.DataType = System.Type.GetType(systype);
-            column.AutoIncrement = true;
-            column.AutoIncrementSeed = (long)Imax + 1;
-            column.AutoIncrementStep = step;
-
-
-            this.Dt.Columns.Add(column);
+            try
+            {
+                DataColumn column = new DataColumn();
+                column.ColumnName = Columnname;
+                column.DataType = System.Type.GetType(systype);
+                column.AutoIncrement = true;
+                column.AutoIncrementSeed = (long)Imax + 1;
+                column.AutoIncrementStep = step;
+                this.Dt.Columns.Add(column);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+           
         }
 
         public void load(DataTable DT, string TabelName)
         {
-            int counter = (int)DT.Rows.Count;
-            // MessageBox.Show(DT.Rows[1].ItemArray.ToString());
-
-            if (counter > 0)
+            try
             {
-                for (int i = 0; i < (counter); i++)
-                {
+                int counter = (int)DT.Rows.Count;
 
-                    this.Ds.Tables[TabelName].Rows.Add(DT.Rows[i].ItemArray);
+                if (counter > 0)
+                {
+                    for (int i = 0; i < (counter); i++)
+                    {
+
+                        this.Ds.Tables[TabelName].Rows.Add(DT.Rows[i].ItemArray);
+                    }
                 }
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
+            
 
         }
     }

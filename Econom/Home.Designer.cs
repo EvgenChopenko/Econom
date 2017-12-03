@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.выгрузкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.доходыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +78,9 @@
             this.DOCPLAN_ECOIDspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bills = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataSet1 = new Econom.DataSet1();
+            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.menuStrip1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
@@ -86,6 +90,8 @@
             this.tabLOspbrf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.Bills.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -114,21 +120,21 @@
             // доходыToolStripMenuItem
             // 
             this.доходыToolStripMenuItem.Name = "доходыToolStripMenuItem";
-            this.доходыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.доходыToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.доходыToolStripMenuItem.Text = "Доходы";
             this.доходыToolStripMenuItem.Click += new System.EventHandler(this.доходыToolStripMenuItem_Click);
             // 
             // возвратыToolStripMenuItem
             // 
             this.возвратыToolStripMenuItem.Name = "возвратыToolStripMenuItem";
-            this.возвратыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.возвратыToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.возвратыToolStripMenuItem.Text = "Возвраты";
             this.возвратыToolStripMenuItem.Click += new System.EventHandler(this.возвратыToolStripMenuItem_Click);
             // 
             // отказыToolStripMenuItem
             // 
             this.отказыToolStripMenuItem.Name = "отказыToolStripMenuItem";
-            this.отказыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.отказыToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.отказыToolStripMenuItem.Text = "Отказы";
             this.отказыToolStripMenuItem.Click += new System.EventHandler(this.отказыToolStripMenuItem_Click);
             // 
@@ -143,7 +149,7 @@
             // планToolStripMenuItem1
             // 
             this.планToolStripMenuItem1.Name = "планToolStripMenuItem1";
-            this.планToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.планToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.планToolStripMenuItem1.Text = "План";
             this.планToolStripMenuItem1.Click += new System.EventHandler(this.планToolStripMenuItem1_Click);
             // 
@@ -482,6 +488,20 @@
             this.listBox1.Size = new System.Drawing.Size(861, 357);
             this.listBox1.TabIndex = 0;
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lUTAG9BindingSource
+            // 
+            this.lUTAG9BindingSource.DataMember = "LUTAG9";
+            this.lUTAG9BindingSource.DataSource = this.dataSet1;
+            // 
+            // lUTAG9TableAdapter
+            // 
+            this.lUTAG9TableAdapter.ClearBeforeFill = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,6 +512,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tab.ResumeLayout(false);
@@ -502,6 +523,8 @@
             this.tabLOspbrf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.Bills.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,5 +581,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDspblo;
         private System.Windows.Forms.TabPage Bills;
         private System.Windows.Forms.ListBox listBox1;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource lUTAG9BindingSource;
+        private DataSet1TableAdapters.LUTAG9TableAdapter lUTAG9TableAdapter;
     }
 }

@@ -238,6 +238,7 @@
             this.yearBox.Name = "yearBox";
             this.yearBox.Size = new System.Drawing.Size(121, 21);
             this.yearBox.TabIndex = 10;
+            this.yearBox.SelectedIndexChanged += new System.EventHandler(this.yearBox_SelectedIndexChanged);
             // 
             // MonthBox
             // 

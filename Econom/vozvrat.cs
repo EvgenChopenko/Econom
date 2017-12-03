@@ -53,7 +53,7 @@ where v.KEYID = i.VISITID
  and b.NOTE LIKE '%отказы%' 
  and i.STATUS not in (1,2) and
 b.dat between :DATES and :DATEF
-and i.AGRID != 435
+and  i.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1 and g.keyid !=435)
 group by get_specdocid(v.num)";
         private string SqlVozSPB = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
 count(distinct v.dat) as pos,
@@ -80,7 +80,8 @@ where v.KEYID = i.VISITID
  and i.BILLID = b.KEYID 
  and b.NOTE LIKE '%отказы%' 
  and i.STATUS not in (1,2) and
-b.dat between :DATES and :DATEF
+b.dat between :DATES and :DATEF and
+ i.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1)
 group by get_specdocid(v.num)";
 
         private string sqlinsert = @"Int_REF_Inv_TABL";
@@ -376,7 +377,50 @@ group by get_specdocid(v.num)";
 
         private void MonthBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            VozTablALL.AddSelectParametr(":Month", this.MonthBox.Text);
+            VozTablALL.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            VozTablALL.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            VozTablALL.Dt.Clear();
 
+            VozTablSPB.AddSelectParametr(":Month", this.MonthBox.Text);
+            VozTablSPB.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            VozTablSPB.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            VozTablSPB.Dt.Clear();
+
+            VozTablLO.AddSelectParametr(":Month", this.MonthBox.Text);
+            VozTablLO.AddUpdateParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            VozTablLO.AddInsertParametr("tMonth", OracleType.NVarChar, 255, MonthBox.SelectedValue);
+            VozTablLO.Dt.Clear();
+
+
+            VozTablLO.adapterinstal();
+            VozTablSPB.adapterinstal();
+            VozTablALL.adapterinstal();
+        }
+
+        private void yearBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            VozTablALL.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            VozTablALL.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            VozTablALL.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            VozTablALL.Dt.Clear();
+
+            VozTablSPB.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            VozTablSPB.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            VozTablSPB.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            VozTablSPB.Dt.Clear();
+
+            VozTablLO.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            VozTablLO.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            VozTablLO.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+
+            VozTablLO.Dt.Clear();
+
+
+            VozTablLO.adapterinstal();
+            VozTablSPB.adapterinstal();
+            VozTablALL.adapterinstal();
         }
     }
 }

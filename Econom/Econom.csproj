@@ -89,6 +89,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Homeset.cs" />
     <Compile Include="ORACLEABSRTACT.cs" />
     <Compile Include="PlabCalc.cs">
       <SubType>Form</SubType>

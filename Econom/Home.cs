@@ -1025,6 +1025,106 @@ where
  doc.YEAR=:YEAR and
  doc.DATATEXT=:MONTHS
  group by  0, 'Итоги фин.план', null";
+// Свод Узкие специалисты 
+private string sqlsvodselect_US= @"
+select 
+'Консультативно-диагностический центр' as SpecId,
+sum(NVL(RFINCOME.SUMDOH,0)-NVL(RF.SUMOTK,0)+NVL(RFREF.SUMVOZ,0)) as SumSPb,
+sum(NVL(LOINCOME.SUMDOH,0)-NVL(LO.SUMOTK,0)+NVL(LOREF.SUMVOZ,0))  as SumLO,
+sum(NVL(ALLINCOME.SUMDOH,0)-NVL(ALLT.SUMOTK,0)+NVL(ALLREF.SUMVOZ,0))  as SumRefAndVoz
+from
+DOCPLAN_ECO doc FULL JOIN INV_TABL_ALL ALLT on ALLT.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_ALL ALLREF on ALLREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_ALL ALLINCOME on ALLINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL RF on RF.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_RF RFREF on RFREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_RF RFINCOME on RFINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL LO on LO.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_LO LOREF on LOREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_LO LOINCOME on LOINCOME.DOCPLAN_ECOID=doc.KEYID
+where doc.SPECID in(select DISTINCT DD.SPECID from DOCDEP DD where DD.DEPID in (311)) and 
+doc.YEAR=:YEAR and
+doc.DATATEXT=:MONTHS
+group by 'Консультативно-диагностический центр'
+            ";
+
+        // Свод СТОМА 
+        private string sqlsvodselect_STOMA = @"
+select 
+'Детская стоматологическая поликлиника' as SpecId,
+sum(NVL(RFINCOME.SUMDOH,0)-NVL(RF.SUMOTK,0)+NVL(RFREF.SUMVOZ,0)) as SumSPb,
+sum(NVL(LOINCOME.SUMDOH,0)-NVL(LO.SUMOTK,0)+NVL(LOREF.SUMVOZ,0))  as SumLO,
+sum(NVL(ALLINCOME.SUMDOH,0)-NVL(ALLT.SUMOTK,0)+NVL(ALLREF.SUMVOZ,0))  as SumRefAndVoz
+from
+DOCPLAN_ECO doc FULL JOIN INV_TABL_ALL ALLT on ALLT.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_ALL ALLREF on ALLREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_ALL ALLINCOME on ALLINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL RF on RF.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_RF RFREF on RFREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_RF RFINCOME on RFINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL LO on LO.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_LO LOREF on LOREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_LO LOINCOME on LOINCOME.DOCPLAN_ECOID=doc.KEYID
+where doc.SPECID in(select DISTINCT DD.SPECID from DOCDEP DD where DD.DEPID in (313)) and 
+doc.YEAR=:YEAR and
+doc.DATATEXT=:MONTHS
+group by 'Детская стоматологическая поликлиника'
+
+";
+        // Свод ДИагностический Центр
+        private string sqlsvodselect_DC = @"
+select 
+'Диагностический центр(МРТ)' as SpecId,
+sum(NVL(RFINCOME.SUMDOH,0)-NVL(RF.SUMOTK,0)+NVL(RFREF.SUMVOZ,0)) as SumSPb,
+sum(NVL(LOINCOME.SUMDOH,0)-NVL(LO.SUMOTK,0)+NVL(LOREF.SUMVOZ,0))  as SumLO,
+sum(NVL(ALLINCOME.SUMDOH,0)-NVL(ALLT.SUMOTK,0)+NVL(ALLREF.SUMVOZ,0))  as SumRefAndVoz
+from
+DOCPLAN_ECO doc FULL JOIN INV_TABL_ALL ALLT on ALLT.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_ALL ALLREF on ALLREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_ALL ALLINCOME on ALLINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL RF on RF.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_RF RFREF on RFREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_RF RFINCOME on RFINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL LO on LO.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_LO LOREF on LOREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_LO LOINCOME on LOINCOME.DOCPLAN_ECOID=doc.KEYID
+where doc.SPECID in(select DISTINCT DD.SPECID from DOCDEP DD where DD.DEPID in (312,348,349,358,350,347,346)) and 
+doc.YEAR=:YEAR and
+doc.DATATEXT=:MONTHS
+group by 'Диагностический центр(МРТ)'
+";
+
+        // Свод ДИагностический Центр
+        private string sqlsvodselect_total = @"
+select 
+'Итоги:' as SpecId,
+sum(NVL(RFINCOME.SUMDOH,0)-NVL(RF.SUMOTK,0)+NVL(RFREF.SUMVOZ,0)) as SumSPb,
+sum(NVL(LOINCOME.SUMDOH,0)-NVL(LO.SUMOTK,0)+NVL(LOREF.SUMVOZ,0))  as SumLO,
+sum(NVL(ALLINCOME.SUMDOH,0)-NVL(ALLT.SUMOTK,0)+NVL(ALLREF.SUMVOZ,0))  as SumRefAndVoz
+from
+DOCPLAN_ECO doc FULL JOIN INV_TABL_ALL ALLT on ALLT.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_ALL ALLREF on ALLREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_ALL ALLINCOME on ALLINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL RF on RF.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_RF RFREF on RFREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_RF RFINCOME on RFINCOME.DOCPLAN_ECOID=doc.KEYID
+
+FULL JOIN INV_TABL_ALL LO on LO.DOCPLAN_ECOID =doc.KEYID 
+FULL JOIN INV_REF_TABL_LO LOREF on LOREF.DOCPLAN_ECOID = doc.KEYID
+FULL JOIN INV_INCOME_TABL_LO LOINCOME on LOINCOME.DOCPLAN_ECOID=doc.KEYID
+where doc.SPECID in(select DISTINCT DD.SPECID from DOCDEP DD where DD.DEPID in (312,348,349,358,350,347,346)) and 
+doc.YEAR=:YEAR and
+doc.DATATEXT=:MONTHS
+group by 'Итоги:'
+";
+
         private string tMonths="";
         private int tYera=0;
        private DatForm Time = null;
@@ -1034,6 +1134,8 @@ where
         private Homeset SPBselect = null;
         private Homeset ALL = null;
         private Homeset ALLselect = null;
+        private Homeset SVOD = null;
+        private Homeset SVODselect = null;
         private dohod dohod=null;
         private vozvrat vozvrat = null;
         private renouncement renouncement = null;
@@ -1083,6 +1185,14 @@ where
             ALLselect.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
             ALLselect.adapterinstal();
 
+            //svodselectdc
+            SVODselect = new Homeset(ConectString, "MED", "SVODPOS");
+            SVODselect.setselectcomand(sqlsvodselect_DC, CommandType.Text);
+            SVODselect.AddSelectParametr(":MONTHS", tMonths);
+            SVODselect.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
+            SVODselect.adapterinstal();
+            
+
             //lo--Start 
             LO = new Homeset(ConectString, "MED", "LO");
             LO.setselectcomand(sqlloselectUS, CommandType.Text);
@@ -1107,6 +1217,30 @@ where
             ALL.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
             ALL.adapterinstal();
             ALL.load(ALLselect.Dt, "ALL");
+
+            //SVOD--start
+            SVOD = new Homeset(ConectString, "MED", " SVOD");
+            SVOD.setselectcomand(sqlsvodselect_US, CommandType.Text);
+            SVOD.AddSelectParametr(":MONTHS", tMonths);
+            SVOD.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
+            SVOD.adapterinstal();
+            SVOD.load(SVODselect.Dt, " SVOD");
+
+            //svodselectSTOMA
+            SVODselect = new Homeset(ConectString, "MED", "SVODPOS");
+            SVODselect.setselectcomand(sqlsvodselect_STOMA, CommandType.Text);
+            SVODselect.AddSelectParametr(":MONTHS", tMonths);
+            SVODselect.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
+            SVODselect.adapterinstal();
+            SVOD.load(SVODselect.Dt, " SVOD");
+
+            //svodselectTOtal
+            SVODselect = new Homeset(ConectString, "MED", "SVODPOS");
+            SVODselect.setselectcomand(sqlsvodselect_total, CommandType.Text);
+            SVODselect.AddSelectParametr(":MONTHS", tMonths);
+            SVODselect.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
+            SVODselect.adapterinstal();
+            SVOD.load(SVODselect.Dt, " SVOD");
 
             //LO-usrefadzon 
             LOselect = new Homeset(ConectString, "MED", "LOPOS");
@@ -1303,6 +1437,8 @@ where
             datageidlo.DataSource = LO.GetDataView();
             datagridspbrf.DataSource = SPB.GetDataView();
             datagridspbrflo.DataSource = ALL.GetDataView();
+            datagridsvod.DataSource = SVOD.GetDataView();
+
 
             // datageidlo.Rows[two].ReadOnly = true;sqlloselectDCrefandvoz
 
@@ -1384,7 +1520,33 @@ where
 
         private void exeltoLOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TO_EXEL a = new TO_EXEL("HOME",datageidlo);
+            TO_EXEL a = new TO_EXEL("ЛО " + tMonths.ToString() + " " + tYera.ToString(), datageidlo);
+        }
+
+        private void sPBtoexelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("СПБ " + tMonths.ToString() + " " + tYera.ToString(), datagridspbrf);
+        }
+
+        private void datageidlo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void sPBLOtoexelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("CПБ+РФ+ЛО " + tMonths.ToString() + " " + tYera.ToString(), datagridspbrflo);
+        }
+
+        private void таблицаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("Свод "+ tMonths.ToString()+" "+tYera.ToString(), datagridsvod);
+        
+    }
+
+        private void выгрузитьВсёToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("ЛО " + tMonths.ToString() + " " + tYera.ToString(), datageidlo, "СПБ " + tMonths.ToString() + " " + tYera.ToString(), datagridspbrf, "CПБ+РФ+ЛО " + tMonths.ToString() + " " + tYera.ToString(), datagridspbrflo, "Свод " + tMonths.ToString() + " " + tYera.ToString(), datagridsvod);
         }
     }
 }

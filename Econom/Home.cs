@@ -1118,8 +1118,8 @@ FULL JOIN INV_INCOME_TABL_RF RFINCOME on RFINCOME.DOCPLAN_ECOID=doc.KEYID
 
 FULL JOIN INV_TABL_ALL LO on LO.DOCPLAN_ECOID =doc.KEYID 
 FULL JOIN INV_REF_TABL_LO LOREF on LOREF.DOCPLAN_ECOID = doc.KEYID
-FULL JOIN INV_INCOME_TABL_LO LOINCOME on LOINCOME.DOCPLAN_ECOID=doc.KEYID
-where doc.SPECID in(select DISTINCT DD.SPECID from DOCDEP DD where DD.DEPID in (312,348,349,358,350,347,346)) and 
+FULL JOIN INV_INCOME_TABL_LO LOINCOME on LOINCOME.DOCPLAN_ECOID=doc.KEYID 
+where  
 doc.YEAR=:YEAR and
 doc.DATATEXT=:MONTHS
 group by 'Итоги:'
@@ -1219,12 +1219,12 @@ group by 'Итоги:'
             ALL.load(ALLselect.Dt, "ALL");
 
             //SVOD--start
-            SVOD = new Homeset(ConectString, "MED", " SVOD");
+            SVOD = new Homeset(ConectString, "MED", "SVOD");
             SVOD.setselectcomand(sqlsvodselect_US, CommandType.Text);
             SVOD.AddSelectParametr(":MONTHS", tMonths);
             SVOD.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
             SVOD.adapterinstal();
-            SVOD.load(SVODselect.Dt, " SVOD");
+            SVOD.load(SVODselect.Dt, "SVOD");
 
             //svodselectSTOMA
             SVODselect = new Homeset(ConectString, "MED", "SVODPOS");
@@ -1232,7 +1232,7 @@ group by 'Итоги:'
             SVODselect.AddSelectParametr(":MONTHS", tMonths);
             SVODselect.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
             SVODselect.adapterinstal();
-            SVOD.load(SVODselect.Dt, " SVOD");
+            SVOD.load(SVODselect.Dt, "SVOD");
 
             //svodselectTOtal
             SVODselect = new Homeset(ConectString, "MED", "SVODPOS");
@@ -1240,7 +1240,7 @@ group by 'Итоги:'
             SVODselect.AddSelectParametr(":MONTHS", tMonths);
             SVODselect.AddSelectParametr(":YEAR", OracleType.Number, 5, tYera);
             SVODselect.adapterinstal();
-            SVOD.load(SVODselect.Dt, " SVOD");
+            SVOD.load(SVODselect.Dt, "SVOD");
 
             //LO-usrefadzon 
             LOselect = new Homeset(ConectString, "MED", "LOPOS");

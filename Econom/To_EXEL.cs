@@ -10,7 +10,8 @@ namespace Econom
 {
     class TO_EXEL
     {
-
+        private int widtg = 0;
+        private int a1 = 0;
         public TO_EXEL(string name, DataGridView dataGridView)
         {
             DataGridView data = dataGridView;
@@ -21,21 +22,80 @@ namespace Econom
             ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
             //ap = dataGridView1.DataSource
+            //  ExcelApp.Visible = true;
+            export(ExcelWorkSheet, dataGridView);
             ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
             ExcelWorkSheet.Name = name;
+            
+            ExcelApp.Visible = true;
+        }
+
+        private void export(Excel.Worksheet ExcelWorkSheet,DataGridView data )
+        {
+            ExcelWorkSheet.Cells.HorizontalAlignment = Excel.Constants.xlCenter;
+            ExcelWorkSheet.Cells.VerticalAlignment = Excel.Constants.xlCenter;
+            ExcelWorkSheet.Cells.Borders.Color = 3;
+
+
             for (int i = 1; i < data.Columns.Count + 1; i++)
             {
                 ExcelWorkSheet.Cells[1, i] = data.Columns[i - 1].HeaderText;
+                ExcelWorkSheet.Range["A1", ExcelWorkSheet.Cells[1, i]].WrapText = true;
             }
-            for (int i = 0; i < data.Rows.Count - 1; i++)
+           
+
+            for (int i = 0; i < data.Rows.Count; i++)
             {
                 for (int j = 0; j < data.Columns.Count; j++)
                 {
-                    ExcelWorkSheet.Cells[i + 2, j + 1] = data.Rows[i].Cells[j].Value.ToString();
+                    try
+                    {
+                        ExcelWorkSheet.Cells[i + 2, j + 1] = data.Rows[i].Cells[j].Value.ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка передачи данных в эксель");
+                       
+                    }
+                    try
+                    {
+                        if (ExcelWorkSheet.Cells[i + 2, j + 1].ColumnWidth < data.Rows[i].Cells[j].Value.ToString().Length && widtg< data.Rows[i].Cells[j].Value.ToString().Length)
+                        {
+                           
+                            widtg = data.Rows[i].Cells[j].Value.ToString().Length;
+                          
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка задание длины ");
+
+                    }
+
+                    ExcelWorkSheet.Cells[i + 2, j + 1].ColumnWidth = widtg;
+
+
+                    try
+                    {
+                        if (j == 0)
+                        {
+                            if(a1< data.Rows[i].Cells[j].Value.ToString().Length)
+                            {
+                                a1 = data.Rows[i].Cells[j].Value.ToString().Length;
+                            }
+                            ExcelWorkSheet.Range["A2", ExcelWorkSheet.Cells[i + 2, j + 1]].ColumnWidth =  a1;
+                            ExcelWorkSheet.Range["A2", ExcelWorkSheet.Cells[i + 2, j + 1]].HorizontalAlignment = Excel.Constants.xlLeft;
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка выравнивания первого столбца");
+                    }
+                   
+
+
                 }
             }
-
-            ExcelApp.Visible = true;
         }
 
         public TO_EXEL(string lo, DataGridView datalov,string spb, DataGridView dataspbv, string spblo
@@ -54,67 +114,27 @@ namespace Econom
             Excel.Worksheet ExcelWorksvod;
             ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
             ExcelWorkBook.Sheets.Add();
+            ExcelWorkBook.Sheets.Add();
             ExcelWorklo = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
             //ap = dataGridView1.DataSource
            // ExcelWorklo = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
             ExcelWorklo.Name = lo;
-            for (int i = 1; i < datalo.Columns.Count + 1; i++)
-            {
-                ExcelWorklo.Cells[1, i] = datalo.Columns[i - 1].HeaderText;
-            }
-            for (int i = 0; i < datalo.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < datalo.Columns.Count; j++)
-                {
-                    ExcelWorklo.Cells[i + 2, j + 1] = datalo.Rows[i].Cells[j].Value.ToString();
-                }
-            }
-           // ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
-           // ExcelWorklo= (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
-            //ap = dataGridView1.DataSource
+            export(ExcelWorklo, datalo);
+
             ExcelWorkspb = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(2);
             ExcelWorkspb.Name = spb;
-            for (int i = 1; i < dataspb.Columns.Count + 1; i++)
-            {
-                ExcelWorkspb.Cells[1, i] = dataspb.Columns[i - 1].HeaderText;
-            }
-            for (int i = 0; i < dataspb.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < dataspb.Columns.Count; j++)
-                {
-                    ExcelWorkspb.Cells[i + 2, j + 1] = dataspb.Rows[i].Cells[j].Value.ToString();
-                }
-            }
+            export(ExcelWorkspb, dataspb);
+           
 
             ExcelWorkspblo = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(3);
             ExcelWorkspblo.Name = spblo;
-            for (int i = 1; i < dataspblo.Columns.Count + 1; i++)
-            {
-                ExcelWorkspblo.Cells[1, i] = dataspblo.Columns[i - 1].HeaderText;
-            }
-            for (int i = 0; i < dataspblo.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < dataspblo.Columns.Count; j++)
-                {
-                    ExcelWorkspblo.Cells[i + 2, j + 1] = dataspblo.Rows[i].Cells[j].Value.ToString();
-                }
-            }
 
+            export(ExcelWorkspblo, dataspblo);
             // ExcelWorksvod = (Excel.Worksheet)ExcelWorkBook.Worksheets.
             ExcelWorksvod = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(4);
             ExcelWorksvod.Name = svod;
-            for (int i = 1; i < datasvod.Columns.Count + 1; i++)
-            {
-                ExcelWorksvod.Cells[1, i] = datasvod.Columns[i - 1].HeaderText;
-            }
-            for (int i = 0; i < datasvod.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < datasvod.Columns.Count; j++)
-                {
-                    ExcelWorksvod.Cells[i + 2, j + 1] = datasvod.Rows[i].Cells[j].Value.ToString();
-                }
-            }
-            
+            export(ExcelWorksvod, datasvod);
+
             ExcelApp.Visible = true;
         }
     }

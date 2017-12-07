@@ -46,12 +46,6 @@
             this.tab = new System.Windows.Forms.TabControl();
             this.tabLO = new System.Windows.Forms.TabPage();
             this.datageidlo = new System.Windows.Forms.DataGridView();
-            this.tabspbrf = new System.Windows.Forms.TabPage();
-            this.tabLOspbrf = new System.Windows.Forms.TabPage();
-            this.Bills = new System.Windows.Forms.TabPage();
-            this.dataSet1 = new Econom.DataSet1();
-            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.specid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.One = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlanPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +69,7 @@
             this.QtyOtk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumOtk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.efect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrf = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +94,7 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLOspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrflo = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,23 +119,27 @@
             this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bills = new System.Windows.Forms.TabPage();
             this.datagridsvod = new System.Windows.Forms.DataGridView();
             this.DepName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumLO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumRefAndVoz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSet1 = new Econom.DataSet1();
+            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.menuStrip1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).BeginInit();
             this.tabspbrf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
             this.tabLOspbrf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.Bills.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridsvod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridsvod)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -168,21 +168,21 @@
             // доходыToolStripMenuItem
             // 
             this.доходыToolStripMenuItem.Name = "доходыToolStripMenuItem";
-            this.доходыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.доходыToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.доходыToolStripMenuItem.Text = "Доходы";
             this.доходыToolStripMenuItem.Click += new System.EventHandler(this.доходыToolStripMenuItem_Click);
             // 
             // возвратыToolStripMenuItem
             // 
             this.возвратыToolStripMenuItem.Name = "возвратыToolStripMenuItem";
-            this.возвратыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.возвратыToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.возвратыToolStripMenuItem.Text = "Возвраты";
             this.возвратыToolStripMenuItem.Click += new System.EventHandler(this.возвратыToolStripMenuItem_Click);
             // 
             // отказыToolStripMenuItem
             // 
             this.отказыToolStripMenuItem.Name = "отказыToolStripMenuItem";
-            this.отказыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.отказыToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.отказыToolStripMenuItem.Text = "Отказы";
             this.отказыToolStripMenuItem.Click += new System.EventHandler(this.отказыToolStripMenuItem_Click);
             // 
@@ -197,7 +197,7 @@
             // планToolStripMenuItem1
             // 
             this.планToolStripMenuItem1.Name = "планToolStripMenuItem1";
-            this.планToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.планToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.планToolStripMenuItem1.Text = "План";
             this.планToolStripMenuItem1.Click += new System.EventHandler(this.планToolStripMenuItem1_Click);
             // 
@@ -316,52 +316,6 @@
             this.datageidlo.Size = new System.Drawing.Size(861, 357);
             this.datageidlo.TabIndex = 0;
             this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
-            // 
-            // tabspbrf
-            // 
-            this.tabspbrf.Controls.Add(this.datagridspbrf);
-            this.tabspbrf.Location = new System.Drawing.Point(4, 22);
-            this.tabspbrf.Name = "tabspbrf";
-            this.tabspbrf.Padding = new System.Windows.Forms.Padding(3);
-            this.tabspbrf.Size = new System.Drawing.Size(867, 363);
-            this.tabspbrf.TabIndex = 1;
-            this.tabspbrf.Text = "СПБ+РФ";
-            this.tabspbrf.UseVisualStyleBackColor = true;
-            // 
-            // tabLOspbrf
-            // 
-            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
-            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
-            this.tabLOspbrf.Name = "tabLOspbrf";
-            this.tabLOspbrf.Size = new System.Drawing.Size(867, 363);
-            this.tabLOspbrf.TabIndex = 2;
-            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
-            this.tabLOspbrf.UseVisualStyleBackColor = true;
-            // 
-            // Bills
-            // 
-            this.Bills.Controls.Add(this.datagridsvod);
-            this.Bills.Location = new System.Drawing.Point(4, 22);
-            this.Bills.Name = "Bills";
-            this.Bills.Padding = new System.Windows.Forms.Padding(3);
-            this.Bills.Size = new System.Drawing.Size(867, 363);
-            this.Bills.TabIndex = 3;
-            this.Bills.Text = "Счета";
-            this.Bills.UseVisualStyleBackColor = true;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lUTAG9BindingSource
-            // 
-            this.lUTAG9BindingSource.DataMember = "LUTAG9";
-            this.lUTAG9BindingSource.DataSource = this.dataSet1;
-            // 
-            // lUTAG9TableAdapter
-            // 
-            this.lUTAG9TableAdapter.ClearBeforeFill = true;
             // 
             // specid
             // 
@@ -501,6 +455,17 @@
             this.efect.DataPropertyName = "efect";
             this.efect.HeaderText = "% вып. фин. плана";
             this.efect.Name = "efect";
+            // 
+            // tabspbrf
+            // 
+            this.tabspbrf.Controls.Add(this.datagridspbrf);
+            this.tabspbrf.Location = new System.Drawing.Point(4, 22);
+            this.tabspbrf.Name = "tabspbrf";
+            this.tabspbrf.Padding = new System.Windows.Forms.Padding(3);
+            this.tabspbrf.Size = new System.Drawing.Size(867, 363);
+            this.tabspbrf.TabIndex = 1;
+            this.tabspbrf.Text = "СПБ+РФ";
+            this.tabspbrf.UseVisualStyleBackColor = true;
             // 
             // datagridspbrf
             // 
@@ -677,6 +642,16 @@
             this.dataGridViewTextBoxColumn23.HeaderText = "% вып. фин. плана";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             // 
+            // tabLOspbrf
+            // 
+            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
+            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
+            this.tabLOspbrf.Name = "tabLOspbrf";
+            this.tabLOspbrf.Size = new System.Drawing.Size(867, 363);
+            this.tabLOspbrf.TabIndex = 2;
+            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
+            this.tabLOspbrf.UseVisualStyleBackColor = true;
+            // 
             // datagridspbrflo
             // 
             this.datagridspbrflo.AllowUserToAddRows = false;
@@ -852,8 +827,20 @@
             this.dataGridViewTextBoxColumn46.HeaderText = "% вып. фин. плана";
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
             // 
+            // Bills
+            // 
+            this.Bills.Controls.Add(this.datagridsvod);
+            this.Bills.Location = new System.Drawing.Point(4, 22);
+            this.Bills.Name = "Bills";
+            this.Bills.Padding = new System.Windows.Forms.Padding(3);
+            this.Bills.Size = new System.Drawing.Size(867, 363);
+            this.Bills.TabIndex = 3;
+            this.Bills.Text = "Счета";
+            this.Bills.UseVisualStyleBackColor = true;
+            // 
             // datagridsvod
             // 
+            this.datagridsvod.AllowUserToAddRows = false;
             this.datagridsvod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridsvod.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DepName,
@@ -890,6 +877,20 @@
             this.SumRefAndVoz.HeaderText = "Итого с учетом отказов и возвратов";
             this.SumRefAndVoz.Name = "SumRefAndVoz";
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lUTAG9BindingSource
+            // 
+            this.lUTAG9BindingSource.DataMember = "LUTAG9";
+            this.lUTAG9BindingSource.DataSource = this.dataSet1;
+            // 
+            // lUTAG9TableAdapter
+            // 
+            this.lUTAG9TableAdapter.ClearBeforeFill = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,13 +908,13 @@
             this.tabLO.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).EndInit();
             this.tabspbrf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
             this.tabLOspbrf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.Bills.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridsvod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridsvod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

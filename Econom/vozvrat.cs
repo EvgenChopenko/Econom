@@ -42,8 +42,8 @@ namespace Econom
                                         and DP.YEAR = :year";
 
         private string SqlVozLO = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
 sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
@@ -51,13 +51,13 @@ from invoice i, visit v,BILL b
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
  and b.NOTE LIKE '%отказы%' 
- and i.STATUS not in (1,2) and
+ and
 b.dat between :DATES and :DATEF
-and  i.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1 and g.keyid !=435)
+and  b.AGRID in (select g.keyid from agr g where g.keyid != 435 and  g.finance = 5 and g.STATUS =1)
 group by get_specdocid(v.num)";
         private string SqlVozSPB = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
 sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
@@ -65,13 +65,13 @@ from invoice i, visit v,BILL b
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
  and b.NOTE LIKE '%отказы%' 
- and i.STATUS not in (1,2) and
+ and
 b.dat between :DATES and :DATEF
-and i.AGRID = 435
+and b.AGRID = 435
 group by get_specdocid(v.num)";
         private string SqlVozALL = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMVOZ,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
 sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
@@ -79,9 +79,9 @@ from invoice i, visit v,BILL b
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
  and b.NOTE LIKE '%отказы%' 
- and i.STATUS not in (1,2) and
+  and
 b.dat between :DATES and :DATEF and
- i.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1)
+ b.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1)
 group by get_specdocid(v.num)";
 
         private string sqlinsert = @"Int_REF_Inv_TABL";

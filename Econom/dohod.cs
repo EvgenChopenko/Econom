@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EconomLibrary;
 
 namespace Econom
 {
@@ -42,47 +43,46 @@ namespace Econom
                                         and DP.YEAR = :year";
 
         private string SqlDohLO = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
 sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
 from invoice i, visit v,BILL b 
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
- and b.NOTE NOT LIKE '%отказы%' 
- and i.STATUS not in (1,2) and
-b.dat between :DATES and :DATEF and
- i.AGRID in (select g.keyid from agr g where g.keyid != 435 and  g.finance = 5 and g.STATUS =1)
+ and (b.NOTE is null or b.NOTE NOT LIKE '%отказы%')
+ and b.dat between :DATES and :DATEF and
+ b.AGRID in (select g.keyid from agr g where g.keyid != 435 and  g.finance = 5 and g.STATUS =1)
 group by get_specdocid(v.num)";
         private string SqlDohSPB = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
 sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
 from invoice i, visit v,BILL b 
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
- and b.NOTE NOT LIKE '%отказы%' 
- and i.STATUS not in (1,2) and
-b.dat between :DATES and :DATEF
-and i.AGRID = 435
+ and (b.NOTE is null or b.NOTE NOT LIKE '%отказы%') 
+ and b.dat between :DATES and :DATEF
+and b.AGRID = 435
 group by get_specdocid(v.num)";
         private string SqlDohALL = @"select sum(get_invoisesumaomuntvoz(b.keyid,v.num,i.keyid)) as SUMDOH,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
 sum(get_QTYUSL(v.num,i.keyid))as qty ,
 sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
 from invoice i, visit v,BILL b 
 where v.KEYID = i.VISITID 
  and i.BILLID = b.KEYID 
- and b.NOTE NOT LIKE '%отказы%' 
- and i.STATUS not in (1,2) and
-b.dat between :DATES and :DATEF and
- i.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1)
+ and (b.NOTE is null or b.NOTE NOT LIKE '%отказы%')
+  and b.dat between :DATES and :DATEF and
+ b.AGRID in (select g.keyid from agr g where g.finance = 5 and g.STATUS =1)
 group by get_specdocid(v.num)";
+
+        // and i.STATUS in (0) нужно будет добавить когда будет стационар ! 
 
         private string sqlinsert = @"Int_income_Inv_TABL";
         private string sqlupdate = @"UPT_income_INV_TABL";
@@ -104,8 +104,8 @@ group by get_specdocid(v.num)";
 
         private void scan_Click(object sender, EventArgs e)
         {
-            Scan scan = new Scan(ConectString, "MED", "DOCPLAN");
-           scan.setselectcomand(sqlscan, CommandType.Text);
+            Scan scan = new Scan(EconomLibrary.BD.Connection_GET, "MED", "DOCPLAN");
+           scan.setselectcomand(EconomLibrary.Select.Select_Scan());
             scan.AddSelectParametr(":Moths", this.MonthBox.Text);
             scan.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
             scan.adapterinstal();
@@ -299,13 +299,7 @@ group by get_specdocid(v.num)";
 
             
 
-            DohTablLO.UpdateDB();
-            DohTablALL.UpdateDB();
-            DohTablSPB.UpdateDB();
-           
-            father.Enabled = true;
-            father.Show();
-            this.Hide();
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -321,6 +315,8 @@ group by get_specdocid(v.num)";
             }
         }
 
+      
+
         private void ex_oracle_Click(object sender, EventArgs e)
         {
 
@@ -329,6 +325,30 @@ group by get_specdocid(v.num)";
             Vozvratset LO = new Vozvratset(ConectString, "MED", "LO");
             Vozvratset SPB = new Vozvratset(ConectString, "MED", "SPB");
             Vozvratset ALL = new Vozvratset(ConectString, "MED", "ALL");
+
+
+
+            Vozvratset TotalLO = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHLO");
+   
+            TotalLO.setselectcomand(EconomLibrary.Select.SelectTotalDohod_LO());
+            TotalLO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            TotalLO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            TotalLO.adapterinstal();
+
+            Vozvratset TotalSPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
+
+            TotalSPB.setselectcomand(EconomLibrary.Select.SelectTotalDohod_SPB());
+            TotalSPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            TotalSPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            TotalSPB.adapterinstal();
+
+            Vozvratset TotalALL = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
+
+            TotalALL.setselectcomand(EconomLibrary.Select.SelectTotalDohod_ALL());
+            TotalALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            TotalALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            TotalALL.adapterinstal();
+
             LO.setselectcomand(SqlDohLO, CommandType.Text);
             LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
             LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
@@ -352,14 +372,18 @@ group by get_specdocid(v.num)";
             ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
 
 
-
+           
             SPB.adapterinstal();
             LO.adapterinstal();
             ALL.adapterinstal();
 
+            LOBoxTotal.Text = (TotalLO.Dt.Rows[0][0].ToString()).ToString();
+            SPBBoxTotal.Text = TotalSPB.Dt.Rows[0][0].ToString();
+            ALLBoxTotal.Text = TotalALL.Dt.Rows[0][0].ToString();
             DohTablALL.load(ALL.Dt, "inv_income_tabl_ALL");
             DohTablSPB.load(SPB.Dt, "inv_income_tabl_SPB");
             DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+            
         }
 
         private void dohod_FormClosed(object sender, FormClosedEventArgs e)
@@ -427,6 +451,49 @@ group by get_specdocid(v.num)";
             DohTablLO.adapterinstal();
             DohTablSPB.adapterinstal();
             DohTablALL.adapterinstal();
+        }
+
+        private void toExelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("ЛО " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), datageidlo);
+        }
+
+        private void lOToExelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sPBToExelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("СПБ " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), datagridspbrf);
+        }
+
+        private void dohod_SizeChanged(object sender, EventArgs e)
+        {
+            tab.Height = (this.Height - groupBox1.Height) - menuStrip1.Height;
+            tab.Width = (this.Width-this.Padding.Right)-10;
+            groupBox1.Width = this.Width - this.Padding.Right-10;//проверь
+        }
+
+        private void sPBLOToExelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("СПБ+ло+рФ " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), datagridspbrflo);
+        }
+
+        private void lOToExelToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            TO_EXEL a = new TO_EXEL("ЛО " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), datageidlo);
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DohTablLO.UpdateDB();
+            DohTablALL.UpdateDB();
+            DohTablSPB.UpdateDB();
+
+            father.Enabled = true;
+            father.Show();
+            this.Hide();
         }
     }
 }

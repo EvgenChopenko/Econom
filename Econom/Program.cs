@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EconomLibrary;
+
 
 namespace Econom
 {
@@ -17,9 +20,10 @@ namespace Econom
         [STAThread]
         static void Main()
         {
-            
 
-            
+            EconomLibrary.BD.NameBD = "MED";
+            EconomLibrary.BD.ConnectionStrings = ConfigurationManager.ConnectionStrings["Econom.Properties.Settings.OracleString"].ConnectionString;
+         EconomLibrary.BD.InicialConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            

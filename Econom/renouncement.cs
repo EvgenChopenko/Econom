@@ -34,10 +34,10 @@ namespace Econom
         }
         private string sqlComandlointobill = @" 
 select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
-sum(get_QTYUSL(v.num, i.keyid))as qty ,
-sum(get_UETINNUM(v.num, i.PATSERVID)) as uet,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
+sum(get_QTYUSL(v.num,i.keyid))as qty ,
+sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
 from invoice i, visit v
 where v.KEYID = i.VISITID 
@@ -47,10 +47,10 @@ and i.REFUSE_STATUS in (1,2)
 group by get_specdocid(v.num)";
         private string sqlComandspbintibill = @"
 select sum(get_invoisesumaomunt(i.BILLID, v.num, i.keyid)) as SumOtk,
-count(distinct v.dat) as pos,
-count(distinct v.num) as obr,
-sum(get_QTYUSL(v.num, i.keyid))as qty ,
-sum(get_UETINNUM(v.num, i.PATSERVID)) as uet,
+count( distinct v.num) as Obr,
+count(distinct v.keyid) as Pos,
+sum(get_QTYUSL(v.num,i.keyid))as qty ,
+sum(get_UETINNUM(v.num,i.PATSERVID)) as uet,
 get_specdocid(v.num) as specid
 from invoice i, visit v
 where v.KEYID = i.VISITID 

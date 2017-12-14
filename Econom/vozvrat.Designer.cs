@@ -46,61 +46,49 @@
             this.tab = new System.Windows.Forms.TabControl();
             this.tabLO = new System.Windows.Forms.TabPage();
             this.datageidlo = new System.Windows.Forms.DataGridView();
-            this.tabspbrf = new System.Windows.Forms.TabPage();
-            this.datagridspbrf = new System.Windows.Forms.DataGridView();
-            this.keyidspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpecIdspb = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new Econom.DataSet1();
-            this.SumOtkSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopotkspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOPQTYSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBRSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopOBRSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POSSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopPOSSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UETSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopUETspb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCPLAN_ECOIDSPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabLOspbrf = new System.Windows.Forms.TabPage();
-            this.datagridspbrflo = new System.Windows.Forms.DataGridView();
-            this.keyidspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpecIdspblo = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.sumotkspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopotkspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopqtyspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obrspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopobrspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopposspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uetspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dopuetspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCPLAN_ECOIDspblo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bills = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.lUTAG9BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Econom.DataSet1();
             this.UET = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUMVOZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabspbrf = new System.Windows.Forms.TabPage();
+            this.tabLOspbrf = new System.Windows.Forms.TabPage();
+            this.Bills = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
+            this.datagridspbrf = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datagridspbrflo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).BeginInit();
-            this.tabspbrf.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            this.tabspbrf.SuspendLayout();
             this.tabLOspbrf.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.Bills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -315,283 +303,6 @@
             this.datageidlo.TabIndex = 0;
             this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
             // 
-            // tabspbrf
-            // 
-            this.tabspbrf.Controls.Add(this.datagridspbrf);
-            this.tabspbrf.Location = new System.Drawing.Point(4, 22);
-            this.tabspbrf.Name = "tabspbrf";
-            this.tabspbrf.Padding = new System.Windows.Forms.Padding(3);
-            this.tabspbrf.Size = new System.Drawing.Size(728, 195);
-            this.tabspbrf.TabIndex = 1;
-            this.tabspbrf.Text = "СПБ+РФ";
-            this.tabspbrf.UseVisualStyleBackColor = true;
-            // 
-            // datagridspbrf
-            // 
-            this.datagridspbrf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridspbrf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridspbrf.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.keyidspb,
-            this.SpecIdspb,
-            this.SumOtkSPB,
-            this.dopotkspb,
-            this.QTYSPB,
-            this.DOPQTYSPB,
-            this.OBRSPB,
-            this.dopOBRSPB,
-            this.POSSPB,
-            this.dopPOSSPB,
-            this.UETSPB,
-            this.dopUETspb,
-            this.DOCPLAN_ECOIDSPB});
-            this.datagridspbrf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridspbrf.Location = new System.Drawing.Point(3, 3);
-            this.datagridspbrf.Name = "datagridspbrf";
-            this.datagridspbrf.Size = new System.Drawing.Size(722, 189);
-            this.datagridspbrf.TabIndex = 1;
-            // 
-            // keyidspb
-            // 
-            this.keyidspb.DataPropertyName = "keyid";
-            this.keyidspb.HeaderText = "KEYID";
-            this.keyidspb.Name = "keyidspb";
-            this.keyidspb.Visible = false;
-            // 
-            // SpecIdspb
-            // 
-            this.SpecIdspb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SpecIdspb.DataPropertyName = "SpecId";
-            this.SpecIdspb.DataSource = this.lUTAG9BindingSource;
-            this.SpecIdspb.DisplayMember = "DOC_SPEC";
-            this.SpecIdspb.HeaderText = "Доктор";
-            this.SpecIdspb.Name = "SpecIdspb";
-            this.SpecIdspb.ReadOnly = true;
-            this.SpecIdspb.ValueMember = "ID";
-            // 
-            // lUTAG9BindingSource
-            // 
-            this.lUTAG9BindingSource.DataMember = "LUTAG9";
-            this.lUTAG9BindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // SumOtkSPB
-            // 
-            this.SumOtkSPB.DataPropertyName = "SumVoz";
-            this.SumOtkSPB.HeaderText = "Сумма Возврата";
-            this.SumOtkSPB.Name = "SumOtkSPB";
-            // 
-            // dopotkspb
-            // 
-            this.dopotkspb.HeaderText = "Доп.Сумма";
-            this.dopotkspb.Name = "dopotkspb";
-            this.dopotkspb.Visible = false;
-            // 
-            // QTYSPB
-            // 
-            this.QTYSPB.DataPropertyName = "QTY";
-            this.QTYSPB.HeaderText = "КОЛ-во Услуг";
-            this.QTYSPB.Name = "QTYSPB";
-            // 
-            // DOPQTYSPB
-            // 
-            this.DOPQTYSPB.HeaderText = "ДопУслуги";
-            this.DOPQTYSPB.Name = "DOPQTYSPB";
-            this.DOPQTYSPB.Visible = false;
-            // 
-            // OBRSPB
-            // 
-            this.OBRSPB.DataPropertyName = "OBR";
-            this.OBRSPB.HeaderText = "Кол-Во Оброщений ";
-            this.OBRSPB.Name = "OBRSPB";
-            // 
-            // dopOBRSPB
-            // 
-            this.dopOBRSPB.HeaderText = "Доп.Оброшений";
-            this.dopOBRSPB.Name = "dopOBRSPB";
-            this.dopOBRSPB.Visible = false;
-            // 
-            // POSSPB
-            // 
-            this.POSSPB.DataPropertyName = "POS";
-            this.POSSPB.HeaderText = "Кол-во Посещений ";
-            this.POSSPB.Name = "POSSPB";
-            // 
-            // dopPOSSPB
-            // 
-            this.dopPOSSPB.HeaderText = "Доп Посеще.";
-            this.dopPOSSPB.Name = "dopPOSSPB";
-            this.dopPOSSPB.Visible = false;
-            // 
-            // UETSPB
-            // 
-            this.UETSPB.DataPropertyName = "UET";
-            this.UETSPB.HeaderText = "Кол-во УЕТ";
-            this.UETSPB.Name = "UETSPB";
-            // 
-            // dopUETspb
-            // 
-            this.dopUETspb.HeaderText = "Доп.УЕТ";
-            this.dopUETspb.Name = "dopUETspb";
-            this.dopUETspb.Visible = false;
-            // 
-            // DOCPLAN_ECOIDSPB
-            // 
-            this.DOCPLAN_ECOIDSPB.DataPropertyName = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOIDSPB.HeaderText = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOIDSPB.Name = "DOCPLAN_ECOIDSPB";
-            this.DOCPLAN_ECOIDSPB.Visible = false;
-            // 
-            // tabLOspbrf
-            // 
-            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
-            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
-            this.tabLOspbrf.Name = "tabLOspbrf";
-            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
-            this.tabLOspbrf.TabIndex = 2;
-            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
-            this.tabLOspbrf.UseVisualStyleBackColor = true;
-            // 
-            // datagridspbrflo
-            // 
-            this.datagridspbrflo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridspbrflo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridspbrflo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.keyidspblo,
-            this.SpecIdspblo,
-            this.sumotkspblo,
-            this.dopotkspblo,
-            this.qtyspblo,
-            this.dopqtyspblo,
-            this.obrspblo,
-            this.dopobrspblo,
-            this.posspblo,
-            this.dopposspblo,
-            this.uetspblo,
-            this.dopuetspblo,
-            this.DOCPLAN_ECOIDspblo});
-            this.datagridspbrflo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridspbrflo.Location = new System.Drawing.Point(0, 0);
-            this.datagridspbrflo.Name = "datagridspbrflo";
-            this.datagridspbrflo.Size = new System.Drawing.Size(728, 195);
-            this.datagridspbrflo.TabIndex = 1;
-            // 
-            // keyidspblo
-            // 
-            this.keyidspblo.DataPropertyName = "keyid";
-            this.keyidspblo.HeaderText = "KEYID";
-            this.keyidspblo.Name = "keyidspblo";
-            this.keyidspblo.Visible = false;
-            // 
-            // SpecIdspblo
-            // 
-            this.SpecIdspblo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SpecIdspblo.DataPropertyName = "SpecId";
-            this.SpecIdspblo.DataSource = this.lUTAG9BindingSource;
-            this.SpecIdspblo.DisplayMember = "DOC_SPEC";
-            this.SpecIdspblo.HeaderText = "Доктор";
-            this.SpecIdspblo.Name = "SpecIdspblo";
-            this.SpecIdspblo.ValueMember = "ID";
-            // 
-            // sumotkspblo
-            // 
-            this.sumotkspblo.DataPropertyName = "SumVoz";
-            this.sumotkspblo.HeaderText = "Сумма Возврата";
-            this.sumotkspblo.Name = "sumotkspblo";
-            // 
-            // dopotkspblo
-            // 
-            this.dopotkspblo.HeaderText = "Доп.Сумма";
-            this.dopotkspblo.Name = "dopotkspblo";
-            this.dopotkspblo.Visible = false;
-            // 
-            // qtyspblo
-            // 
-            this.qtyspblo.DataPropertyName = "QTY";
-            this.qtyspblo.HeaderText = "КОЛ-во Услуг";
-            this.qtyspblo.Name = "qtyspblo";
-            // 
-            // dopqtyspblo
-            // 
-            this.dopqtyspblo.HeaderText = "Доп.Услуга";
-            this.dopqtyspblo.Name = "dopqtyspblo";
-            this.dopqtyspblo.Visible = false;
-            // 
-            // obrspblo
-            // 
-            this.obrspblo.DataPropertyName = "OBR";
-            this.obrspblo.HeaderText = "Кол-Во Оброщений ";
-            this.obrspblo.Name = "obrspblo";
-            // 
-            // dopobrspblo
-            // 
-            this.dopobrspblo.HeaderText = "Доп.Оброщ";
-            this.dopobrspblo.Name = "dopobrspblo";
-            this.dopobrspblo.Visible = false;
-            // 
-            // posspblo
-            // 
-            this.posspblo.DataPropertyName = "POS";
-            this.posspblo.HeaderText = "Кол-во Посещений ";
-            this.posspblo.Name = "posspblo";
-            // 
-            // dopposspblo
-            // 
-            this.dopposspblo.HeaderText = "Доп.Посеще";
-            this.dopposspblo.Name = "dopposspblo";
-            this.dopposspblo.Visible = false;
-            // 
-            // uetspblo
-            // 
-            this.uetspblo.DataPropertyName = "UET";
-            this.uetspblo.HeaderText = "Кол-во УЕТ";
-            this.uetspblo.Name = "uetspblo";
-            // 
-            // dopuetspblo
-            // 
-            this.dopuetspblo.HeaderText = "Доп.Ует";
-            this.dopuetspblo.Name = "dopuetspblo";
-            this.dopuetspblo.Visible = false;
-            // 
-            // DOCPLAN_ECOIDspblo
-            // 
-            this.DOCPLAN_ECOIDspblo.DataPropertyName = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOIDspblo.HeaderText = "DOCPLAN_ECOID";
-            this.DOCPLAN_ECOIDspblo.Name = "DOCPLAN_ECOIDspblo";
-            this.DOCPLAN_ECOIDspblo.Visible = false;
-            // 
-            // Bills
-            // 
-            this.Bills.Controls.Add(this.listBox1);
-            this.Bills.Location = new System.Drawing.Point(4, 22);
-            this.Bills.Name = "Bills";
-            this.Bills.Padding = new System.Windows.Forms.Padding(3);
-            this.Bills.Size = new System.Drawing.Size(728, 195);
-            this.Bills.TabIndex = 3;
-            this.Bills.Text = "Счета";
-            this.Bills.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(722, 189);
-            this.listBox1.TabIndex = 0;
-            // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // lUTAG9TableAdapter
-            // 
-            this.lUTAG9TableAdapter.ClearBeforeFill = true;
-            // 
             // keyid
             // 
             this.keyid.DataPropertyName = "keyid";
@@ -610,6 +321,16 @@
             this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.specid.ValueMember = "ID";
+            // 
+            // lUTAG9BindingSource
+            // 
+            this.lUTAG9BindingSource.DataMember = "LUTAG9";
+            this.lUTAG9BindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // UET
             // 
@@ -641,6 +362,190 @@
             this.POS.HeaderText = "Кол-во Посещений";
             this.POS.Name = "POS";
             // 
+            // tabspbrf
+            // 
+            this.tabspbrf.Controls.Add(this.datagridspbrf);
+            this.tabspbrf.Location = new System.Drawing.Point(4, 22);
+            this.tabspbrf.Name = "tabspbrf";
+            this.tabspbrf.Padding = new System.Windows.Forms.Padding(3);
+            this.tabspbrf.Size = new System.Drawing.Size(728, 195);
+            this.tabspbrf.TabIndex = 1;
+            this.tabspbrf.Text = "СПБ+РФ";
+            this.tabspbrf.UseVisualStyleBackColor = true;
+            // 
+            // tabLOspbrf
+            // 
+            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
+            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
+            this.tabLOspbrf.Name = "tabLOspbrf";
+            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
+            this.tabLOspbrf.TabIndex = 2;
+            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
+            this.tabLOspbrf.UseVisualStyleBackColor = true;
+            // 
+            // Bills
+            // 
+            this.Bills.Controls.Add(this.listBox1);
+            this.Bills.Location = new System.Drawing.Point(4, 22);
+            this.Bills.Name = "Bills";
+            this.Bills.Padding = new System.Windows.Forms.Padding(3);
+            this.Bills.Size = new System.Drawing.Size(728, 195);
+            this.Bills.TabIndex = 3;
+            this.Bills.Text = "Счета";
+            this.Bills.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(722, 189);
+            this.listBox1.TabIndex = 0;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // lUTAG9TableAdapter
+            // 
+            this.lUTAG9TableAdapter.ClearBeforeFill = true;
+            // 
+            // datagridspbrf
+            // 
+            this.datagridspbrf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridspbrf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridspbrf.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewComboBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.datagridspbrf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridspbrf.Location = new System.Drawing.Point(3, 3);
+            this.datagridspbrf.Name = "datagridspbrf";
+            this.datagridspbrf.Size = new System.Drawing.Size(722, 189);
+            this.datagridspbrf.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "keyid";
+            this.dataGridViewTextBoxColumn1.HeaderText = "KEYID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataPropertyName = "specid";
+            this.dataGridViewComboBoxColumn1.DataSource = this.lUTAG9BindingSource;
+            this.dataGridViewComboBoxColumn1.DisplayMember = "DOC_SPEC";
+            this.dataGridViewComboBoxColumn1.HeaderText = "Доктор";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewComboBoxColumn1.ValueMember = "ID";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "UET";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Кол-во Ует";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "QTY";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Кол-во Услуг";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "SUMVOZ";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Сумма Возврата";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "OBR";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Кол-во Обращений ";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "POS";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Кол-во Посещений";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // datagridspbrflo
+            // 
+            this.datagridspbrflo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridspbrflo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridspbrflo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewComboBoxColumn2,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.datagridspbrflo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridspbrflo.Location = new System.Drawing.Point(0, 0);
+            this.datagridspbrflo.Name = "datagridspbrflo";
+            this.datagridspbrflo.Size = new System.Drawing.Size(728, 195);
+            this.datagridspbrflo.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "keyid";
+            this.dataGridViewTextBoxColumn7.HeaderText = "KEYID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewComboBoxColumn2
+            // 
+            this.dataGridViewComboBoxColumn2.DataPropertyName = "specid";
+            this.dataGridViewComboBoxColumn2.DataSource = this.lUTAG9BindingSource;
+            this.dataGridViewComboBoxColumn2.DisplayMember = "DOC_SPEC";
+            this.dataGridViewComboBoxColumn2.HeaderText = "Доктор";
+            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
+            this.dataGridViewComboBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewComboBoxColumn2.ValueMember = "ID";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "UET";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Кол-во Ует";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "QTY";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Кол-во Услуг";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "SUMVOZ";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Сумма Возврата";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "OBR";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Кол-во Обращений ";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "POS";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Кол-во Посещений";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
             // vozvrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,14 +562,14 @@
             this.tab.ResumeLayout(false);
             this.tabLO.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).EndInit();
-            this.tabspbrf.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            this.tabspbrf.ResumeLayout(false);
             this.tabLOspbrf.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.Bills.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -676,9 +581,7 @@
         private System.Windows.Forms.TabPage tabLO;
         private System.Windows.Forms.DataGridView datageidlo;
         private System.Windows.Forms.TabPage tabspbrf;
-        private System.Windows.Forms.DataGridView datagridspbrf;
         private System.Windows.Forms.TabPage tabLOspbrf;
-        private System.Windows.Forms.DataGridView datagridspbrflo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox mathcheck;
         private System.Windows.Forms.Label label2;
@@ -698,32 +601,6 @@
         private System.Windows.Forms.BindingSource lUTAG9BindingSource;
         private DataSet1TableAdapters.LUTAG9TableAdapter lUTAG9TableAdapter;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyidspb;
-        private System.Windows.Forms.DataGridViewComboBoxColumn SpecIdspb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SumOtkSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopotkspb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QTYSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DOPQTYSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OBRSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopOBRSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn POSSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopPOSSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UETSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopUETspb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDSPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyidspblo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn SpecIdspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumotkspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopotkspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtyspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopqtyspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn obrspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopobrspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopposspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uetspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dopuetspblo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DOCPLAN_ECOIDspblo;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyid;
         private System.Windows.Forms.DataGridViewComboBoxColumn specid;
         private System.Windows.Forms.DataGridViewTextBoxColumn UET;
@@ -731,5 +608,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SUMVOZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn OBR;
         private System.Windows.Forms.DataGridViewTextBoxColumn POS;
+        private System.Windows.Forms.DataGridView datagridspbrf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridView datagridspbrflo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
     }
 }

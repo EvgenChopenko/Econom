@@ -97,6 +97,26 @@ namespace Econom
 
         }
 
+        public ORACLEABSRTACT(OracleConnection connect, string nameDB, string nameTabel)
+        {
+            try
+            {
+                this.nameTabel = nameTabel;
+                this.nameDB = nameDB;
+                this.ds = new DataSet(nameDB);
+                this.dt = new DataTable(nameTabel);
+                this.ds.Tables.Add(this.dt);
+                this.connectionString = connect.ConnectionString;
+                this.conect = connect;
+                this.adapter = new OracleDataAdapter();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка в формирование соедениния " + e.Message);
+            }
+
+            }
+
 
 
         public OracleDataAdapter adapterGet()
@@ -217,6 +237,42 @@ namespace Econom
            
         }
 
+        public void setselectcomand(OracleCommand command)
+        {
+            try
+            {
+
+                select = command;
+               //select.Connection = this.conect;
+              
+                Adapter.SelectCommand = select;
+                
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        public void setselectcomand(OracleCommand command, OracleConnection connection)
+        {
+            try
+            {
+
+                select = command;
+                select.Connection = connection;
+
+                Adapter.SelectCommand = select;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
         public void AddSelectParametr(string oracleparametr, OracleType datatype, int length, object value)
         {
             try
@@ -331,6 +387,9 @@ namespace Econom
                 MessageBox.Show("Ошибка: "+e.Message);
             }
         }
+
+
+
         public void adapterinstal()
         {
             try
@@ -361,6 +420,17 @@ namespace Econom
                         select c.Field<decimal>(colum)).Count();
             return (int)iMax;
         }
+
+        public string One()
+        {
+
+            // var table = dt;
+            
+            var iMax = (from c in dt.AsEnumerable()
+                        select c.Field<decimal>(0)).Max().ToString();
+            return iMax;
+        }
+
 
         //--------------------------------------------------------------------------------------------
         public void AddInsertParametr(string oracleparametr, object value)

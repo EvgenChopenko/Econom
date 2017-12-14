@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OracleClient;
 
 namespace Econom
 {
@@ -11,6 +12,10 @@ namespace Econom
     {
        
         public Scan(string connectionString, string nameDB, string nameTabel) : base(connectionString, nameDB, nameTabel)
+        {
+        }
+
+        public Scan(OracleConnection connect, string nameDB, string nameTabel) : base(connect, nameDB, nameTabel)
         {
         }
 

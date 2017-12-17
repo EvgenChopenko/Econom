@@ -94,18 +94,21 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLO = new System.Windows.Forms.TabPage();
             this.datageidlo = new System.Windows.Forms.DataGridView();
-            this.UET = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Obr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUMDOH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridDohUS = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.DataGridSromaDoh = new System.Windows.Forms.DataGridView();
+            this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dohsum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -126,6 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDohUS)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridSromaDoh)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -728,66 +732,17 @@
             this.datageidlo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.keyid,
             this.specid,
-            this.SUMDOH,
-            this.Obr,
-            this.POS,
-            this.QTY,
-            this.UET});
+            this.dohsum,
+            this.obr,
+            this.pos,
+            this.qty,
+            this.uet});
             this.datageidlo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datageidlo.Location = new System.Drawing.Point(3, 3);
             this.datageidlo.Name = "datageidlo";
             this.datageidlo.Size = new System.Drawing.Size(722, 228);
             this.datageidlo.TabIndex = 0;
             this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
-            // 
-            // UET
-            // 
-            this.UET.DataPropertyName = "UET";
-            this.UET.HeaderText = "Кол-во УЕТ";
-            this.UET.Name = "UET";
-            // 
-            // QTY
-            // 
-            this.QTY.DataPropertyName = "QTY";
-            this.QTY.HeaderText = "кол-во услуг";
-            this.QTY.Name = "QTY";
-            // 
-            // POS
-            // 
-            this.POS.DataPropertyName = "Pos";
-            this.POS.HeaderText = "Кол-во Посещений ";
-            this.POS.Name = "POS";
-            // 
-            // Obr
-            // 
-            this.Obr.DataPropertyName = "Obr";
-            this.Obr.HeaderText = "Кол-Во Обращение ";
-            this.Obr.Name = "Obr";
-            // 
-            // SUMDOH
-            // 
-            this.SUMDOH.DataPropertyName = "SUMDOH";
-            this.SUMDOH.HeaderText = "Сумма Дохода ";
-            this.SUMDOH.Name = "SUMDOH";
-            // 
-            // specid
-            // 
-            this.specid.DataPropertyName = "SPECID";
-            this.specid.DataSource = this.lUTAG9BindingSource;
-            this.specid.DisplayMember = "DOC_SPEC";
-            this.specid.HeaderText = "Доктор";
-            this.specid.Name = "specid";
-            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.specid.ValueMember = "ID";
-            // 
-            // keyid
-            // 
-            this.keyid.DataPropertyName = "KEYID";
-            this.keyid.HeaderText = "keyid";
-            this.keyid.Name = "keyid";
-            this.keyid.ReadOnly = true;
-            this.keyid.Visible = false;
             // 
             // tab
             // 
@@ -844,11 +799,82 @@
             this.DataGridSromaDoh.Size = new System.Drawing.Size(722, 228);
             this.DataGridSromaDoh.TabIndex = 0;
             // 
+            // keyid
+            // 
+            this.keyid.DataPropertyName = "keyid";
+            this.keyid.HeaderText = "keyid";
+            this.keyid.Name = "keyid";
+            this.keyid.Visible = false;
+            // 
+            // specid
+            // 
+            this.specid.DataPropertyName = "specid";
+            this.specid.DataSource = this.lUTAG9BindingSource;
+            this.specid.DisplayMember = "DOC_SPEC";
+            this.specid.HeaderText = "specid";
+            this.specid.Name = "specid";
+            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.specid.ValueMember = "ID";
+            // 
+            // dohsum
+            // 
+            this.dohsum.DataPropertyName = "sumdoh";
+            this.dohsum.HeaderText = "Сумма Доход";
+            this.dohsum.Name = "dohsum";
+            // 
+            // obr
+            // 
+            this.obr.DataPropertyName = "obr";
+            this.obr.HeaderText = "obr";
+            this.obr.Name = "obr";
+            // 
+            // pos
+            // 
+            this.pos.DataPropertyName = "pos";
+            this.pos.HeaderText = "pos";
+            this.pos.Name = "pos";
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "qty";
+            this.qty.Name = "qty";
+            // 
+            // uet
+            // 
+            this.uet.DataPropertyName = "uet";
+            this.uet.HeaderText = "uet";
+            this.uet.Name = "uet";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 390);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1003, 22);
+            this.statusStrip1.TabIndex = 23;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
             // dohod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 412);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
@@ -879,6 +905,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDohUS)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridSromaDoh)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -951,17 +979,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.TabPage tabLO;
         private System.Windows.Forms.DataGridView datageidlo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyid;
-        private System.Windows.Forms.DataGridViewComboBoxColumn specid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SUMDOH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Obr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn POS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UET;
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridDohUS;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView DataGridSromaDoh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyid;
+        private System.Windows.Forms.DataGridViewComboBoxColumn specid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dohsum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn obr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uet;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

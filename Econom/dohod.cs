@@ -7,6 +7,7 @@ using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EconomLibrary;
@@ -117,7 +118,10 @@ group by get_specdocid(v.num)";
             this.scan.Enabled = false;
             this.MonthBox.Enabled = false;
             this.yearBox.Enabled = false;
-            
+
+            SelectParametrsList();
+
+
             if (count > 0)
             {
                 ///
@@ -366,9 +370,9 @@ group by get_specdocid(v.num)";
             try
             {
                 EconomLibrary.BD.Connection_GET.Open();
-                comd.Parameters.Add("tparametrs", OracleType.NVarChar, 20).Value= "aa";
-                comd.Parameters.Add("tMONTHS", OracleType.NVarChar, 14).Value="Zydfhm";
-                comd.Parameters.Add("tYEAR", OracleType.Number, 50).Value= 2016;
+                comd.Parameters.Add("tparametrs", OracleType.NVarChar, 2000).Value= atr;
+                comd.Parameters.Add("tMONTHS", OracleType.NVarChar, 14).Value=MonthBox.SelectedValue;
+                comd.Parameters.Add("tYEAR", OracleType.Number, 50).Value= yearBox.SelectedValue;
                 comd.Parameters.Add("fun", OracleType.Number, 50).Value= 0;
                 comd.Parameters.Add("p_keyid", OracleType.Number, 50).Value=0;
                 MessageBox.Show(comd.Parameters[0].Value.ToString());
@@ -376,43 +380,91 @@ group by get_specdocid(v.num)";
             }
             catch (Exception ex)
             {
-                //  errorMessage(ex, "CreateBO");
+               
                 MessageBox.Show("Ошибка"+ex.Message);
             }
             finally
             {
                 EconomLibrary.BD.Connection_GET.Close();
             }
-            /* Vozvratset Bills = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "Bills");
-             //dates,datef
-             Bills.setselectcomand("select * from BILLSDOHOD_PARAMETRS", CommandType.Text);
-             Bills.setinsertcomand(EconomLibrary.Update.UpdateListScheta_ALL_NOMAS());
-             Bills.AddInsertParametr("tparametrs", OracleType.NVarChar, 200,atr);
-             Bills.AddInsertParametr("tMONTHS", OracleType.VarChar, 10,MonthBox.SelectedValue);
-             Bills.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
-             Bills.AddInsertParametr("fun", OracleType.Number, 5,0);
-            // Bills.AddInsertParametr(" p_keyid", OracleType.Number, 5,0);
-             Bills.adapterinstal();
-            DataRow a = Bills.Dt.NewRow();
-             /*parametrs NVARCHAR2(2000) NOT NULL,
- MONTHS VARCHAR2(255) NOT NULL,
- YEAR*/
-            /*  a["parametrs"] = atr;
-              a["MONTHS"] = MonthBox.SelectedValue;
-              a["YEAR"] = yearBox.SelectedValue;
+        
+        }
 
-              Bills.Dt.Rows.Add(a);
-              Bills.UpdateDB();
-              DataGridSromaDoh.DataSource = Bills.GetDataView();*/
+        /*SelectParametrsList*/
+
+
+
+        private void SelectParametrsList()
+        {/*Ищим созданные счета и возвращаем их*/
+
+            Vozvratset Atribute = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHLO");
+            Atribute.setselectcomand(EconomLibrary.Select.SelectParametrsList());
+            Atribute.AddSelectParametr(":MONTHS", OracleType.NChar, 255, MonthBox.SelectedValue);
+            Atribute.AddSelectParametr(":YEAR", OracleType.Number, 5, yearBox.SelectedValue);
+            Atribute.adapterinstal();
+           atr= Atribute.Dt.Rows[0]["PARAMETRS"].ToString();
+
+        }
+
+
+        /* SelectSqlDoh_NOMASH_LO(string atr) запрос доходов с сохронение в ds дохода ЛО+ очистка*/
+        private void SelectSqlDoh_NOMASH_LO()
+        {          
+             DohTablLO.DeletRows();             
+             Vozvratset LO = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "LO");
+             LO.setselectcomand(EconomLibrary.Select.SelectSqlDoh_NOMASH_LO(atr));            
+             LO.adapterinstal();
+             DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+
+        }
+        private void SelectSqlDoh_NOMASH_SPB()
+        {
+            DohTablSPB.DeletRows();
+            Vozvratset SPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "SPB");
+            SPB.setselectcomand(EconomLibrary.Select.SelectSqlDoh_NOMASH_SPB(atr));
+            SPB.adapterinstal();
+            DohTablSPB.load(SPB.Dt, "inv_income_tabl_SPB");
+
+        }
+        private void SelectSqlDoh_NOMASH_ALL()
+        {
+            DohTablALL.DeletRows();
+            Vozvratset ALL = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "ALL");
+            ALL.setselectcomand(EconomLibrary.Select.SelectSqlDoh_NOMASH_ALL(atr));
+            ALL.adapterinstal();
+            DohTablALL.load(ALL.Dt, "inv_income_tabl_ALL");
+
+        }
+
+        
+
+        private void fun()
+        {
+            TotalLORun();
+            toolStripProgressBar1.Value=5;
+            TotalSPBRun();
+            toolStripProgressBar1.Value = 10;
+            DoH_US_ALL();
+            toolStripProgressBar1.Value = 15;
+            DoH_STOMA_ALL();
+            toolStripProgressBar1.Value = 25;
+            Save_Bills_ALL();
+            toolStripProgressBar1.Value = 35;
+            // SelectParametrsList();
+            SelectSqlDoh_NOMASH_LO();
+            toolStripProgressBar1.Value = 55;
+            SelectSqlDoh_NOMASH_SPB();
+            toolStripProgressBar1.Value = 65;
+            SelectSqlDoh_NOMASH_ALL();
+            toolStripProgressBar1.Value = 100;
         }
 
         public void run()
         {
-            TotalLORun();
-            TotalSPBRun();
-            DoH_US_ALL();
-            DoH_STOMA_ALL();
-            Save_Bills_ALL();
+            Thread thread = new Thread(fun);
+          
+            thread.Start();
+            //  fun();
         }
 
 

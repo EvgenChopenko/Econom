@@ -724,5 +724,12 @@ namespace Econom
 
 
         }
+        public void DeletRows()
+        {
+            for (int i = 0; i < this.Dt.Rows.Count; i++)
+            {
+                this.Dt.Rows[i].Delete();
+            }
+        }
     }
 }

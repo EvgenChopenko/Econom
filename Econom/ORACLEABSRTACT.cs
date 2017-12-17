@@ -351,6 +351,26 @@ namespace Econom
             }
            
         }
+
+        public void setupdatecomand(OracleCommand command)
+        {
+            try
+            {
+                this.sqlupdate = command.CommandText;
+                update = command;
+                
+                Adapter.UpdateCommand = update;
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Ошибка переданного параметра" + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
+
+        }
         public void setinsertcomand(string sqlcommand, CommandType CommandType)
         {
             try
@@ -359,6 +379,25 @@ namespace Econom
             insert = new OracleCommand(sqlcommand, this.conect);
             insert.CommandType = CommandType;
             Adapter.InsertCommand = insert;
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Ошибка переданного параметра" + e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка: " + e.Message);
+            }
+        }
+
+        public void setinsertcomand(OracleCommand command)
+        {
+            try
+            {
+                this.sqlinsert = command.CommandText;
+                insert = command;
+                
+                Adapter.InsertCommand = insert;
             }
             catch (ArgumentException e)
             {
@@ -642,7 +681,6 @@ namespace Econom
                 {
                     for (int i = 0; i < (counter); i++)
                     {
-
                         this.Ds.Tables[TabelName].Rows.Add(DT.Rows[i].ItemArray);
                     }
                 }
@@ -651,6 +689,39 @@ namespace Econom
                 MessageBox.Show(e.Message);
             }
             
+
+        }
+
+       public string ListKeyidTostring(string name)
+        {
+            try
+            {
+                string keyid = "";
+                int colum = dt.Columns.IndexOf(name);
+               
+                if (colum != -1)
+                {
+                    for (int i = 0; i < dt.Rows.Count-1; i++)
+                    {
+                        keyid = keyid + dt.Rows[i][colum].ToString() + ",";
+                   
+                }
+                    
+                }
+            
+                return keyid.TrimEnd(',');
+
+           }
+           catch
+            {
+               MessageBox.Show("Ошибка передачи параметра");
+           }
+
+           return "";
+
+
+
+
 
         }
     }

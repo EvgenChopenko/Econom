@@ -16,6 +16,7 @@ namespace Econom
     
     public partial class dohod : Form
     {
+        private string atr="";
         private Home father;
         private dohodset DohTablLO;
         private dohodset DohTablSPB;
@@ -87,6 +88,8 @@ group by get_specdocid(v.num)";
         private string sqlinsert = @"Int_income_Inv_TABL";
         private string sqlupdate = @"UPT_income_INV_TABL";
         private string sqldelet= @"Delincome_TABL";
+
+        public string Atr { get => atr; set => atr = value; }
 
         public dohod()
         {
@@ -315,75 +318,160 @@ group by get_specdocid(v.num)";
             }
         }
 
-      
+      private void TotalLORun()
+        {
+            Vozvratset TotalLO = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHLO");
+
+            TotalLO.setselectcomand(EconomLibrary.Select.SelectListScheta_LO(Atr));
+            TotalLO.adapterinstal();
+            SchetaLO.DataSource = TotalLO.GetDataView();
+        }
+
+        private void TotalSPBRun()
+        {
+            Vozvratset TotalSPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
+
+            TotalSPB.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB(Atr));
+            TotalSPB.adapterinstal();
+            SchetaSPB.DataSource = TotalSPB.GetDataView();
+        }
+
+        private void DoH_US_ALL()
+        {
+            Vozvratset TotalSPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
+
+            TotalSPB.setselectcomand(EconomLibrary.Select.SelectCommandsDoH_US_ALL(Atr));
+            TotalSPB.adapterinstal();
+            dataGridDohUS.DataSource = TotalSPB.GetDataView();
+
+
+
+        }
+
+        private void DoH_STOMA_ALL()
+        {
+            Vozvratset TotalSPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
+
+            TotalSPB.setselectcomand(EconomLibrary.Select.SelectCommandsDoH_STOMA_ALL(Atr));
+            TotalSPB.adapterinstal();
+            DataGridSromaDoh.DataSource = TotalSPB.GetDataView();
+        }
+
+        private void Save_Bills_ALL()
+        {
+
+            OracleCommand comd = new OracleCommand(EconomLibrary.UpdateOracle.UpdateDohodParametrs_GET, EconomLibrary.BD.Connection_GET);
+            comd.CommandType = CommandType.StoredProcedure;
+            MessageBox.Show(EconomLibrary.UpdateOracle.UpdateDohodParametrs_GET);
+            try
+            {
+                EconomLibrary.BD.Connection_GET.Open();
+                comd.Parameters.Add("tparametrs", OracleType.NVarChar, 20).Value= "aa";
+                comd.Parameters.Add("tMONTHS", OracleType.NVarChar, 14).Value="Zydfhm";
+                comd.Parameters.Add("tYEAR", OracleType.Number, 50).Value= 2016;
+                comd.Parameters.Add("fun", OracleType.Number, 50).Value= 0;
+                comd.Parameters.Add("p_keyid", OracleType.Number, 50).Value=0;
+                MessageBox.Show(comd.Parameters[0].Value.ToString());
+                comd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //  errorMessage(ex, "CreateBO");
+                MessageBox.Show("Ошибка"+ex.Message);
+            }
+            finally
+            {
+                EconomLibrary.BD.Connection_GET.Close();
+            }
+            /* Vozvratset Bills = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "Bills");
+             //dates,datef
+             Bills.setselectcomand("select * from BILLSDOHOD_PARAMETRS", CommandType.Text);
+             Bills.setinsertcomand(EconomLibrary.Update.UpdateListScheta_ALL_NOMAS());
+             Bills.AddInsertParametr("tparametrs", OracleType.NVarChar, 200,atr);
+             Bills.AddInsertParametr("tMONTHS", OracleType.VarChar, 10,MonthBox.SelectedValue);
+             Bills.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
+             Bills.AddInsertParametr("fun", OracleType.Number, 5,0);
+            // Bills.AddInsertParametr(" p_keyid", OracleType.Number, 5,0);
+             Bills.adapterinstal();
+            DataRow a = Bills.Dt.NewRow();
+             /*parametrs NVARCHAR2(2000) NOT NULL,
+ MONTHS VARCHAR2(255) NOT NULL,
+ YEAR*/
+            /*  a["parametrs"] = atr;
+              a["MONTHS"] = MonthBox.SelectedValue;
+              a["YEAR"] = yearBox.SelectedValue;
+
+              Bills.Dt.Rows.Add(a);
+              Bills.UpdateDB();
+              DataGridSromaDoh.DataSource = Bills.GetDataView();*/
+        }
+
+        public void run()
+        {
+            TotalLORun();
+            TotalSPBRun();
+            DoH_US_ALL();
+            DoH_STOMA_ALL();
+            Save_Bills_ALL();
+        }
+
 
         private void ex_oracle_Click(object sender, EventArgs e)
         {
+          
+
+            /*
+                        Vozvratset LO = new Vozvratset(ConectString, "MED", "LO");
+                        Vozvratset SPB = new Vozvratset(ConectString, "MED", "SPB");
+                        Vozvratset ALL = new Vozvratset(ConectString, "MED", "ALL");
 
 
 
-            Vozvratset LO = new Vozvratset(ConectString, "MED", "LO");
-            Vozvratset SPB = new Vozvratset(ConectString, "MED", "SPB");
-            Vozvratset ALL = new Vozvratset(ConectString, "MED", "ALL");
+                        Vozvratset TotalALL = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
+
+                        TotalALL.setselectcomand(EconomLibrary.Select.SelectTotalDohod_ALL());
+                        TotalALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+                        TotalALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+                        TotalALL.adapterinstal();
+
+                        LO.setselectcomand(SqlDohLO, CommandType.Text);
+                        LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+                        LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+
+                        SPB.setselectcomand(SqlDohSPB, CommandType.Text);
+                        SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+                        SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+
+                        ALL.setselectcomand(SqlDohALL, CommandType.Text);
+                        ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+                        ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+                        long iMaxLO = DohTablLO.maxkeid(DohTablLO.Ds.Tables["inv_income_tabl_LO"], "keyid");
 
 
 
-            Vozvratset TotalLO = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHLO");
-   
-            TotalLO.setselectcomand(EconomLibrary.Select.SelectTotalDohod_LO());
-            TotalLO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            TotalLO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-            TotalLO.adapterinstal();
+                        long iMaxSPB = DohTablSPB.maxkeid(DohTablSPB.Ds.Tables["inv_income_tabl_SPB"], "keyid");
+                        long iMaxALL = DohTablALL.maxkeid(DohTablALL.Ds.Tables["inv_income_tabl_ALL"], "keyid");
 
-            Vozvratset TotalSPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
-
-            TotalSPB.setselectcomand(EconomLibrary.Select.SelectTotalDohod_SPB());
-            TotalSPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            TotalSPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-            TotalSPB.adapterinstal();
-
-            Vozvratset TotalALL = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "DOHSPB");
-
-            TotalALL.setselectcomand(EconomLibrary.Select.SelectTotalDohod_ALL());
-            TotalALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            TotalALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-            TotalALL.adapterinstal();
-
-            LO.setselectcomand(SqlDohLO, CommandType.Text);
-            LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-
-            SPB.setselectcomand(SqlDohSPB, CommandType.Text);
-            SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-
-            ALL.setselectcomand(SqlDohALL, CommandType.Text);
-            ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-            long iMaxLO = DohTablLO.maxkeid(DohTablLO.Ds.Tables["inv_income_tabl_LO"], "keyid");
-            
+                        LO.dataColumn("keyid", "System.Int32", iMaxLO, 1);
+                        SPB.dataColumn("keyid", "System.Int32", iMaxSPB, 1);
+                        ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
 
 
-            long iMaxSPB = DohTablSPB.maxkeid(DohTablSPB.Ds.Tables["inv_income_tabl_SPB"], "keyid");
-            long iMaxALL = DohTablALL.maxkeid(DohTablALL.Ds.Tables["inv_income_tabl_ALL"], "keyid");
-           
-            LO.dataColumn("keyid", "System.Int32", iMaxLO, 1);
-            SPB.dataColumn("keyid", "System.Int32", iMaxSPB, 1);
-            ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
 
+                        SPB.adapterinstal();
+                        LO.adapterinstal();
+                        ALL.adapterinstal();
 
-           
-            SPB.adapterinstal();
-            LO.adapterinstal();
-            ALL.adapterinstal();
+                        LOBoxTotal.Text = (TotalLO.Dt.Rows[0][0].ToString()).ToString();
+                        SPBBoxTotal.Text = TotalSPB.Dt.Rows[0][0].ToString();
+                        ALLBoxTotal.Text = TotalALL.Dt.Rows[0][0].ToString();
+                        DohTablALL.load(ALL.Dt, "inv_income_tabl_ALL");
+                        DohTablSPB.load(SPB.Dt, "inv_income_tabl_SPB");
+                        DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+                        */
 
-            LOBoxTotal.Text = (TotalLO.Dt.Rows[0][0].ToString()).ToString();
-            SPBBoxTotal.Text = TotalSPB.Dt.Rows[0][0].ToString();
-            ALLBoxTotal.Text = TotalALL.Dt.Rows[0][0].ToString();
-            DohTablALL.load(ALL.Dt, "inv_income_tabl_ALL");
-            DohTablSPB.load(SPB.Dt, "inv_income_tabl_SPB");
-            DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
-            
+            ListDohodSchet LDS = new ListDohodSchet(dates,datef,this);
+            LDS.Show();
         }
 
         private void dohod_FormClosed(object sender, FormClosedEventArgs e)

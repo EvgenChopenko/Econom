@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bill.Designer.cs">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </Compile>
     <Compile Include="BILLS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,12 @@
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Homeset.cs" />
+    <Compile Include="ListDohodSchet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListDohodSchet.Designer.cs">
+      <DependentUpon>ListDohodSchet.cs</DependentUpon>
+    </Compile>
     <Compile Include="ORACLEABSRTACT.cs" />
     <Compile Include="PlabCalc.cs">
       <SubType>Form</SubType>
@@ -140,6 +152,9 @@
     </Compile>
     <Compile Include="dohodset.cs" />
     <Compile Include="vozvratset.cs" />
+    <EmbeddedResource Include="Bill.resx">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BILLS.resx">
       <DependentUpon>BILLS.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListDohodSchet.resx">
+      <DependentUpon>ListDohodSchet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlabCalc.resx">
       <DependentUpon>PlabCalc.cs</DependentUpon>

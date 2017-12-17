@@ -26,9 +26,9 @@ namespace Econom
          EconomLibrary.BD.InicialConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
-            Application.Run(new Home());
-         
+
+             Application.Run(new Home());
+           // Application.Run(new ListDohodSchet());
 
 
         }

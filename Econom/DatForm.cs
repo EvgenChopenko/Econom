@@ -14,6 +14,7 @@ namespace Econom
 
     public partial class DatForm : Form
     {   private  Home father =null;
+        private Form1 fatherRevise_Form = null;
         public DatForm()
         {
             InitializeComponent();
@@ -22,6 +23,12 @@ namespace Econom
         {
             InitializeComponent();
             this.father = father;
+        }
+
+        public DatForm(Form1 father)
+        {
+            InitializeComponent();
+            this.fatherRevise_Form = father;
         }
 
         private void DatForm_Load(object sender, EventArgs e)

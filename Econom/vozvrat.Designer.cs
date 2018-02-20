@@ -56,11 +56,6 @@
             this.OBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.POS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabspbrf = new System.Windows.Forms.TabPage();
-            this.tabLOspbrf = new System.Windows.Forms.TabPage();
-            this.Bills = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
             this.datagridspbrf = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -69,6 +64,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLOspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrflo = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -77,6 +73,13 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bills = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lUTAG9TableAdapter = new Econom.DataSet1TableAdapters.LUTAG9TableAdapter();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.groupBox1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabLO.SuspendLayout();
@@ -84,11 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tabspbrf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
             this.tabLOspbrf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
             this.Bills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -109,7 +113,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(736, 116);
+            this.groupBox1.Size = new System.Drawing.Size(824, 116);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Меню";
@@ -270,16 +274,17 @@
             this.tab.Location = new System.Drawing.Point(0, 116);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(736, 221);
+            this.tab.Size = new System.Drawing.Size(824, 265);
             this.tab.TabIndex = 1;
             // 
             // tabLO
             // 
+            this.tabLO.Controls.Add(this.statusStrip1);
             this.tabLO.Controls.Add(this.datageidlo);
             this.tabLO.Location = new System.Drawing.Point(4, 22);
             this.tabLO.Name = "tabLO";
             this.tabLO.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLO.Size = new System.Drawing.Size(728, 195);
+            this.tabLO.Size = new System.Drawing.Size(816, 239);
             this.tabLO.TabIndex = 0;
             this.tabLO.Text = "ЛО";
             this.tabLO.UseVisualStyleBackColor = true;
@@ -299,7 +304,7 @@
             this.datageidlo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datageidlo.Location = new System.Drawing.Point(3, 3);
             this.datageidlo.Name = "datageidlo";
-            this.datageidlo.Size = new System.Drawing.Size(722, 189);
+            this.datageidlo.Size = new System.Drawing.Size(810, 233);
             this.datageidlo.TabIndex = 0;
             this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
             // 
@@ -373,45 +378,6 @@
             this.tabspbrf.Text = "СПБ+РФ";
             this.tabspbrf.UseVisualStyleBackColor = true;
             // 
-            // tabLOspbrf
-            // 
-            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
-            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
-            this.tabLOspbrf.Name = "tabLOspbrf";
-            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
-            this.tabLOspbrf.TabIndex = 2;
-            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
-            this.tabLOspbrf.UseVisualStyleBackColor = true;
-            // 
-            // Bills
-            // 
-            this.Bills.Controls.Add(this.listBox1);
-            this.Bills.Location = new System.Drawing.Point(4, 22);
-            this.Bills.Name = "Bills";
-            this.Bills.Padding = new System.Windows.Forms.Padding(3);
-            this.Bills.Size = new System.Drawing.Size(728, 195);
-            this.Bills.TabIndex = 3;
-            this.Bills.Text = "Счета";
-            this.Bills.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(722, 189);
-            this.listBox1.TabIndex = 0;
-            // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // lUTAG9TableAdapter
-            // 
-            this.lUTAG9TableAdapter.ClearBeforeFill = true;
-            // 
             // datagridspbrf
             // 
             this.datagridspbrf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -478,6 +444,16 @@
             this.dataGridViewTextBoxColumn6.DataPropertyName = "POS";
             this.dataGridViewTextBoxColumn6.HeaderText = "Кол-во Посещений";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // tabLOspbrf
+            // 
+            this.tabLOspbrf.Controls.Add(this.datagridspbrflo);
+            this.tabLOspbrf.Location = new System.Drawing.Point(4, 22);
+            this.tabLOspbrf.Name = "tabLOspbrf";
+            this.tabLOspbrf.Size = new System.Drawing.Size(728, 195);
+            this.tabLOspbrf.TabIndex = 2;
+            this.tabLOspbrf.Text = "СПБ+РФ+ЛО";
+            this.tabLOspbrf.UseVisualStyleBackColor = true;
             // 
             // datagridspbrflo
             // 
@@ -546,11 +522,62 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "Кол-во Посещений";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
+            // Bills
+            // 
+            this.Bills.Controls.Add(this.listBox1);
+            this.Bills.Location = new System.Drawing.Point(4, 22);
+            this.Bills.Name = "Bills";
+            this.Bills.Padding = new System.Windows.Forms.Padding(3);
+            this.Bills.Size = new System.Drawing.Size(728, 195);
+            this.Bills.TabIndex = 3;
+            this.Bills.Text = "Счета";
+            this.Bills.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(722, 189);
+            this.listBox1.TabIndex = 0;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // lUTAG9TableAdapter
+            // 
+            this.lUTAG9TableAdapter.ClearBeforeFill = true;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 214);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(810, 22);
+            this.statusStrip1.TabIndex = 25;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
             // vozvrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 337);
+            this.ClientSize = new System.Drawing.Size(824, 381);
             this.Controls.Add(this.tab);
             this.Controls.Add(this.groupBox1);
             this.Name = "vozvrat";
@@ -561,15 +588,18 @@
             this.groupBox1.PerformLayout();
             this.tab.ResumeLayout(false);
             this.tabLO.ResumeLayout(false);
+            this.tabLO.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datageidlo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tabspbrf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
             this.tabLOspbrf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
             this.Bills.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrf)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridspbrflo)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -624,5 +654,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

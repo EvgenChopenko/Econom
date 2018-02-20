@@ -119,7 +119,7 @@ group by get_specdocid(v.num)";
             this.MonthBox.Enabled = false;
             this.yearBox.Enabled = false;
 
-            SelectParametrsList();
+           
 
 
             if (count > 0)
@@ -134,9 +134,10 @@ group by get_specdocid(v.num)";
                 datatextfinish.Visible = true;
                 datatextstart.Visible = true;
                 button2.Visible = true;
+              //  SelectParametrsList();
 
             }
-            else if (count ==0)
+            else if (count <=0)
             {
                // ex_oracle.Visible = true;
                 datatextfinish.Visible = true;
@@ -402,7 +403,7 @@ group by get_specdocid(v.num)";
             Atribute.AddSelectParametr(":MONTHS", OracleType.NChar, 255, MonthBox.SelectedValue);
             Atribute.AddSelectParametr(":YEAR", OracleType.Number, 5, yearBox.SelectedValue);
             Atribute.adapterinstal();
-           atr= Atribute.Dt.Rows[0]["PARAMETRS"].ToString();
+           this.atr= Atribute.Dt.Rows[0]["PARAMETRS"].ToString();
 
         }
 
@@ -617,12 +618,27 @@ group by get_specdocid(v.num)";
 
         private void sPBLOToExelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TO_EXEL a = new TO_EXEL("СПБ+ло+рФ " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), datagridspbrflo);
+
+            Vozvratset ALL = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "ALL");
+            ALL.setselectcomand(EconomLibrary.Select.SqlDohALL_NOMAS_TOEXEL(atr));
+            ALL.adapterinstal();
+           
+
+
+            TO_EXEL a = new TO_EXEL("СПБ+РФ+ЛО" + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), ALL.Dt);
         }
 
         private void lOToExelToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            TO_EXEL a = new TO_EXEL("ЛО " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), datageidlo);
+            Vozvratset LO = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "LO");
+            LO.setselectcomand(EconomLibrary.Select.SqlDohLO_NOMAS_TOEXEL(atr));
+            LO.adapterinstal();
+           // DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+
+           // MessageBox.Show(LO.GetDataView().Table.Rows[0]["uet"].ToString());
+
+
+            TO_EXEL a = new TO_EXEL("ЛО " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), LO.Dt);
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -634,6 +650,34 @@ group by get_specdocid(v.num)";
             father.Enabled = true;
             father.Show();
             this.Hide();
+        }
+
+        private void sPBToExelToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Vozvratset SPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "SPB");
+            SPB.setselectcomand(EconomLibrary.Select.SqlDohSPB_NOMAS_TOEXEL(atr));
+            SPB.adapterinstal();
+            // DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+
+            // MessageBox.Show(LO.GetDataView().Table.Rows[0]["uet"].ToString());
+
+
+            TO_EXEL a = new TO_EXEL("CПБ+РФ" + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), SPB.Dt);
+        }
+
+        private void общийДоходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //SqlDohTOTAL_NOMAS_TOEXEL
+
+            Vozvratset total = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "SPB");
+            total.setselectcomand(EconomLibrary.Select.SqlDohTOTAL_NOMAS_TOEXEL(atr));
+            total.adapterinstal();
+            // DohTablLO.load(LO.Dt, "inv_income_tabl_LO");
+
+            // MessageBox.Show(LO.GetDataView().Table.Rows[0]["uet"].ToString());
+
+
+            TO_EXEL a = new TO_EXEL("CПБ+РФ+ЛО " + MonthBox.SelectedValue.ToString() + " " + yearBox.SelectedValue.ToString(), total.Dt);
         }
     }
 }

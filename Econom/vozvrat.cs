@@ -7,6 +7,7 @@ using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Econom
     
     public partial class vozvrat : Form
     {
+        private string atr = "";
         private Home father=null;
         private Vozvratset VozTablLO;
         private Vozvratset VozTablSPB;
@@ -87,6 +89,8 @@ group by get_specdocid(v.num)";
         private string sqlinsert = @"Int_REF_Inv_TABL";
         private string sqlupdate = @"UPT_REF_INV_TABL";
         private string sqldelet= @"DelRef_TABL";
+
+        public string Atr { get => atr; set => atr = value; }
 
         public vozvrat()
         {
@@ -330,40 +334,116 @@ group by get_specdocid(v.num)";
 
 
 
-            Vozvratset LO = new Vozvratset(ConectString, "MED", "LO");
-            Vozvratset SPB = new Vozvratset(ConectString, "MED", "SPB");
-            Vozvratset ALL = new Vozvratset(ConectString, "MED", "ALL");
-            LO.setselectcomand(SqlVozLO, CommandType.Text);
-            LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            // Vozvratset LO = new Vozvratset(ConectString, "MED", "LO");
+            // Vozvratset SPB = new Vozvratset(ConectString, "MED", "SPB");
+            // Vozvratset ALL = new Vozvratset(ConectString, "MED", "ALL");
+            // LO.setselectcomand(SqlVozLO, CommandType.Text);
+            // LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            // LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
 
-            SPB.setselectcomand(SqlVozSPB, CommandType.Text);
-            SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            // SPB.setselectcomand(SqlVozSPB, CommandType.Text);
+            // SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            // SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
 
-            ALL.setselectcomand(SqlVozALL, CommandType.Text);
-            ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
-            ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
-            long iMaxLO = VozTablLO.maxkeid(VozTablLO.Ds.Tables["inv_ref_tabl_LO"], "keyid");
-            //"System.Int32"
-
-
-            long iMaxSPB = VozTablSPB.maxkeid(VozTablSPB.Ds.Tables["inv_ref_tabl_SPB"], "keyid");
-            long iMaxALL = VozTablALL.maxkeid(VozTablALL.Ds.Tables["inv_ref_tabl_ALL"], "keyid");
-           // MessageBox.Show("" + iMaxALL + iMaxLO + iMaxSPB);
-            LO.dataColumn("keyid", "System.Int32", iMaxLO, 1);
-            SPB.dataColumn("keyid", "System.Int32", iMaxSPB, 1);
-            ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
+            // ALL.setselectcomand(SqlVozALL, CommandType.Text);
+            // ALL.AddSelectParametr(":DATES", OracleType.DateTime, 6, this.dates);
+            // ALL.AddSelectParametr(":DATEf", OracleType.DateTime, 6, this.datef);
+            // long iMaxLO = VozTablLO.maxkeid(VozTablLO.Ds.Tables["inv_ref_tabl_LO"], "keyid");
+            // //"System.Int32"
 
 
+            // long iMaxSPB = VozTablSPB.maxkeid(VozTablSPB.Ds.Tables["inv_ref_tabl_SPB"], "keyid");
+            // long iMaxALL = VozTablALL.maxkeid(VozTablALL.Ds.Tables["inv_ref_tabl_ALL"], "keyid");
+            //// MessageBox.Show("" + iMaxALL + iMaxLO + iMaxSPB);
+            // LO.dataColumn("keyid", "System.Int32", iMaxLO, 1);
+            // SPB.dataColumn("keyid", "System.Int32", iMaxSPB, 1);
+            // ALL.dataColumn("keyid", "System.Int32", iMaxALL, 1);
 
-            SPB.adapterinstal();
+
+
+            // SPB.adapterinstal();
+            // LO.adapterinstal();
+            // ALL.adapterinstal();
+
+            // VozTablALL.load(ALL.Dt, "inv_ref_tabl_ALL");
+            // VozTablSPB.load(SPB.Dt, "inv_ref_tabl_SPB");
+            // VozTablLO.load(LO.Dt, "inv_ref_tabl_LO");
+
+            ListDohodSchet LDS = new ListDohodSchet(dates, datef, this);
+            LDS.Show();
+        }
+
+        private void TotalLORun()
+        {
+            // возвраты по ЛО 
+            //VozTablLO = new Vozvratset(ConectString, "MED", "inv_ref_tabl_LO");
+            VozTablLO.DeletRows();
+            Vozvratset LO = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "inv_ref_tabl_LO");
+            LO.setselectcomand(EconomLibrary.Select.SqlVozLO_NOMAS(atr));
             LO.adapterinstal();
-            ALL.adapterinstal();
-
-            VozTablALL.load(ALL.Dt, "inv_ref_tabl_ALL");
-            VozTablSPB.load(SPB.Dt, "inv_ref_tabl_SPB");
             VozTablLO.load(LO.Dt, "inv_ref_tabl_LO");
+
+
+        }
+
+
+        private void TotalSPBRun()
+        {
+            // возвраты по СПБ+РФ
+          
+            VozTablSPB.DeletRows();
+            Vozvratset SPB = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "inv_ref_tabl_SPB");
+            SPB.setselectcomand(EconomLibrary.Select.SqlVozSPB_NOMAS(atr));
+            SPB.adapterinstal();
+            VozTablSPB.load(SPB.Dt, "inv_ref_tabl_SPB");
+
+
+        }
+
+        private void TotalALLRun()
+        {
+            // возвраты по СПБ+РФ+ЛО
+
+            VozTablALL.DeletRows();
+            Vozvratset ALL = new Vozvratset(EconomLibrary.BD.ConnectionStrings, "MED", "inv_ref_tabl_ALL");
+            ALL.setselectcomand(EconomLibrary.Select.SqlVozALL_NOMAS(atr));
+            ALL.adapterinstal();
+            VozTablALL.load(ALL.Dt, "inv_ref_tabl_ALL");
+
+
+        }
+
+        private void fun()
+        {
+            TotalLORun();
+            toolStripProgressBar1.Value = 10;
+            TotalSPBRun();
+            toolStripProgressBar1.Value = 25;
+            TotalALLRun();
+            toolStripProgressBar1.Value = 100;
+            //DoH_US_ALL();
+            //toolStripProgressBar1.Value = 15;
+            //DoH_STOMA_ALL();
+            //toolStripProgressBar1.Value = 25;
+            //Save_Bills_ALL();
+            //toolStripProgressBar1.Value = 35;
+            //SelectParametrsList();
+            //SelectSqlDoh_NOMASH_LO();
+            //toolStripProgressBar1.Value = 55;
+            //SelectSqlDoh_NOMASH_SPB();
+            //toolStripProgressBar1.Value = 65;
+            //SelectSqlDoh_NOMASH_ALL();
+            //toolStripProgressBar1.Value = 100;
+        }
+
+        public void run()
+        {
+            Thread thread = new Thread(fun);
+            MessageBox.Show(Atr);
+            thread.Start();
+            fun();
+            //TotalLORun();
+            toolStripProgressBar1.Value = 5;
         }
 
         private void vozvrat_FormClosed(object sender, FormClosedEventArgs e)
@@ -401,17 +481,17 @@ group by get_specdocid(v.num)";
         private void yearBox_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-            VozTablALL.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            VozTablALL.AddSelectParametr(":year", OracleType.Number, 5, yearBox.Text);
             VozTablALL.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
             VozTablALL.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
             VozTablALL.Dt.Clear();
 
-            VozTablSPB.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            VozTablSPB.AddSelectParametr(":year", OracleType.Number, 5, yearBox.Text);
             VozTablSPB.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
             VozTablSPB.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
             VozTablSPB.Dt.Clear();
 
-            VozTablLO.AddSelectParametr(":year", OracleType.Number, 5, this.yearBox.Text);
+            VozTablLO.AddSelectParametr(":year", OracleType.Number, 5, yearBox.Text);
             VozTablLO.AddUpdateParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
             VozTablLO.AddInsertParametr("tYEAR", OracleType.Number, 5, yearBox.SelectedValue);
 

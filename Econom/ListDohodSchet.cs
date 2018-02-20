@@ -20,6 +20,7 @@ namespace Econom
         public string LOBILL = "";
         public string SPBBILL = "";
         private dohod Father = null;
+        private vozvrat Father_vozvrat = null;
         private string ListSchet = "";
 
 
@@ -35,7 +36,15 @@ namespace Econom
         private void DateLORun(DateTime datas, DateTime dataf)
         {
             LO = new dohodset(EconomLibrary.BD.Connection_GET, "MED", "LOLIST");
-            LO.setselectcomand(EconomLibrary.Select.SelectListScheta_LO());
+            if (!(this.Father_vozvrat is null))
+            {
+                LO.setselectcomand(EconomLibrary.Select.SelectListScheta_LO_Voz());
+            }
+            else
+            {
+                LO.setselectcomand(EconomLibrary.Select.SelectListScheta_LO());
+            }
+           
             LO.AddSelectParametr(":DATES", OracleType.DateTime, 6, datas);
             LO.AddSelectParametr(":DATEf", OracleType.DateTime, 6, dataf);
             LO.adapterinstal();
@@ -46,7 +55,15 @@ namespace Econom
         private void DateSPBRun(DateTime datas, DateTime dataf)
         {
             SPB = new dohodset(EconomLibrary.BD.Connection_GET, "MED", "SPBLIST");
-            SPB.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB());
+            if (!(this.Father_vozvrat is null))
+            {
+                SPB.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB_Voz());
+            }
+            else
+            {
+                SPB.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB());
+            }
+         
             SPB.AddSelectParametr(":DATES", OracleType.DateTime, 6, datas);
             SPB.AddSelectParametr(":DATEf", OracleType.DateTime, 6, dataf);
             SPB.adapterinstal();
@@ -77,6 +94,18 @@ namespace Econom
 
         }
 
+        public ListDohodSchet(DateTime datas, DateTime dataf, vozvrat Father)
+        {
+            InitializeComponent();
+            this.Father_vozvrat = Father;
+            DateLORun(datas, dataf);
+            DateSPBRun(datas, dataf);
+
+            this.DataGridListLo.DataSource = LO.GetDataView();
+            this.DataGridListSpb.DataSource = SPB.GetDataView();
+
+        }
+
         private void AddSchet_Click(object sender, EventArgs e)
         {
             LOBILL = LO.ListKeyidTostring("BILLSID");
@@ -91,11 +120,25 @@ namespace Econom
 
             if (commands.Length != 0)
             {
+                if (!(this.Father_vozvrat is null))
+                {
+                    ListSPBLO.setselectcomand(EconomLibrary.Select.SelectListScheta_ALL_NOMAS_Voz(commands));
+
+                }   else
+                {
+                    ListSPBLO.setselectcomand(EconomLibrary.Select.SelectListScheta_ALL_NOMAS(commands));
+                }
                 
-                ListSPBLO.setselectcomand(EconomLibrary.Select.SelectListScheta_ALL_NOMAS(commands));
             }else
             {
-                ListSPBLO.setselectcomand(EconomLibrary.Select.SelectListScheta_ALL_NODATE());
+                if (!(this.Father_vozvrat is null))
+                {
+                    ListSPBLO.setselectcomand(EconomLibrary.Select.SelectListScheta_ALL_NODATE_Voz());
+                }
+                else
+                {
+                    ListSPBLO.setselectcomand(EconomLibrary.Select.SelectListScheta_ALL_NODATE());
+                }
             }
             
           
@@ -122,11 +165,29 @@ namespace Econom
         
 
             dohodset lobill = new dohodset(EconomLibrary.BD.Connection_GET, "MED", "LOLIST");
-            lobill.setselectcomand(EconomLibrary.Select.SelectListScheta_LO_NOMAS(LOBILL));
+            if (!(this.Father_vozvrat is null))
+            {
+                lobill.setselectcomand(EconomLibrary.Select.SelectListScheta_LO_NOMAS_Voz(LOBILL));
+            }
+            else
+            {
+                lobill.setselectcomand(EconomLibrary.Select.SelectListScheta_LO_NOMAS(LOBILL));
+            }
+            
+
             lobill.adapterinstal();
 
             dohodset spbbill = new dohodset(EconomLibrary.BD.Connection_GET, "MED", "SPBLIST");
-            spbbill.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB_NOMAS(SPBBILL));
+            if (!(this.Father_vozvrat is null))
+            {
+                spbbill.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB_NOMAS_Voz(SPBBILL));
+            }
+            else
+            {
+                spbbill.setselectcomand(EconomLibrary.Select.SelectListScheta_SPB_NOMAS(SPBBILL));
+            }
+           
+
             spbbill.adapterinstal();
 
             DataGridListLo.DataSource = lobill.GetDataView();
@@ -139,6 +200,11 @@ namespace Econom
             if (!(this.Father is null)){
                 Father.Atr = ListSchet;
                 Father.run();
+            }else if (!(this.Father_vozvrat is null))
+            {
+                MessageBox.Show(ListSchet);
+                Father_vozvrat.Atr = ListSchet;
+                Father_vozvrat.run();
             }
 
             this.Hide();

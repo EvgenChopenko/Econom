@@ -60,45 +60,40 @@
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabschetaSPB = new System.Windows.Forms.TabPage();
             this.SchetaSPB = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabschetaLO = new System.Windows.Forms.TabPage();
             this.SchetaLO = new System.Windows.Forms.DataGridView();
-            this.Companyname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BILLID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeSchetaDohLO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SumdohChetLO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BUHCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BUHCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SumdohChetLO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeSchetaDohLO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BILLID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Companyname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLOspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrflo = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabspbrf = new System.Windows.Forms.TabPage();
             this.datagridspbrf = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLO = new System.Windows.Forms.TabPage();
             this.datageidlo = new System.Windows.Forms.DataGridView();
-            this.tab = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridDohUS = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.DataGridSromaDoh = new System.Windows.Forms.DataGridView();
             this.keyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specid = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dohsum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,9 +101,15 @@
             this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridDohUS = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DataGridSromaDoh = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.TotalDohodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lUTAG9BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -383,29 +384,31 @@
             this.toExelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lOToExelToolStripMenuItem,
             this.sPBToExelToolStripMenuItem,
-            this.sPBLOToExelToolStripMenuItem});
+            this.sPBLOToExelToolStripMenuItem,
+            this.TotalDohodToolStripMenuItem});
             this.toExelToolStripMenuItem.Name = "toExelToolStripMenuItem";
-            this.toExelToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.toExelToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.toExelToolStripMenuItem.Text = "To_ Exel";
             // 
             // lOToExelToolStripMenuItem
             // 
             this.lOToExelToolStripMenuItem.Name = "lOToExelToolStripMenuItem";
-            this.lOToExelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.lOToExelToolStripMenuItem.Text = "LO to Exel";
+            this.lOToExelToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.lOToExelToolStripMenuItem.Text = "Доход по ЛО ";
             this.lOToExelToolStripMenuItem.Click += new System.EventHandler(this.lOToExelToolStripMenuItem_Click_1);
             // 
             // sPBToExelToolStripMenuItem
             // 
             this.sPBToExelToolStripMenuItem.Name = "sPBToExelToolStripMenuItem";
-            this.sPBToExelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.sPBToExelToolStripMenuItem.Text = "SPB to Exel";
+            this.sPBToExelToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.sPBToExelToolStripMenuItem.Text = "Доход по СПБ+РФ";
+            this.sPBToExelToolStripMenuItem.Click += new System.EventHandler(this.sPBToExelToolStripMenuItem_Click_1);
             // 
             // sPBLOToExelToolStripMenuItem
             // 
             this.sPBLOToExelToolStripMenuItem.Name = "sPBLOToExelToolStripMenuItem";
-            this.sPBLOToExelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.sPBLOToExelToolStripMenuItem.Text = "SPB+LO to Exel";
+            this.sPBLOToExelToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.sPBLOToExelToolStripMenuItem.Text = "Доход по ЛО+РФ+СПБ";
             this.sPBLOToExelToolStripMenuItem.Click += new System.EventHandler(this.sPBLOToExelToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
@@ -444,12 +447,33 @@
             this.SchetaSPB.Size = new System.Drawing.Size(722, 228);
             this.SchetaSPB.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn18
+            // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Companyname";
-            this.dataGridViewTextBoxColumn18.HeaderText = "СтраховаяКомпания";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Schet";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Счет";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "BUHCODE";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Буг.Код";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "SumdohChetLO";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Сумма по Счету ";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "TypeSchetaDohLO";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Тип Счета";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
@@ -459,33 +483,12 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Visible = false;
             // 
-            // dataGridViewTextBoxColumn16
+            // dataGridViewTextBoxColumn18
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "TypeSchetaDohLO";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Тип Счета";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "SumdohChetLO";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Сумма по Счету ";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "BUHCODE";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Буг.Код";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Schet";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Счет";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Companyname";
+            this.dataGridViewTextBoxColumn18.HeaderText = "СтраховаяКомпания";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // tabschetaLO
             // 
@@ -516,12 +519,33 @@
             this.SchetaLO.Size = new System.Drawing.Size(722, 228);
             this.SchetaLO.TabIndex = 0;
             // 
-            // Companyname
+            // Schet
             // 
-            this.Companyname.DataPropertyName = "Companyname";
-            this.Companyname.HeaderText = "СтраховаяКомпания";
-            this.Companyname.Name = "Companyname";
-            this.Companyname.ReadOnly = true;
+            this.Schet.DataPropertyName = "Schet";
+            this.Schet.HeaderText = "Счет";
+            this.Schet.Name = "Schet";
+            this.Schet.ReadOnly = true;
+            // 
+            // BUHCODE
+            // 
+            this.BUHCODE.DataPropertyName = "BUHCODE";
+            this.BUHCODE.HeaderText = "Буг.Код";
+            this.BUHCODE.Name = "BUHCODE";
+            this.BUHCODE.ReadOnly = true;
+            // 
+            // SumdohChetLO
+            // 
+            this.SumdohChetLO.DataPropertyName = "SumdohChetLO";
+            this.SumdohChetLO.HeaderText = "Сумма по Счету ";
+            this.SumdohChetLO.Name = "SumdohChetLO";
+            this.SumdohChetLO.ReadOnly = true;
+            // 
+            // TypeSchetaDohLO
+            // 
+            this.TypeSchetaDohLO.DataPropertyName = "TypeSchetaDohLO";
+            this.TypeSchetaDohLO.HeaderText = "Тип Счета";
+            this.TypeSchetaDohLO.Name = "TypeSchetaDohLO";
+            this.TypeSchetaDohLO.ReadOnly = true;
             // 
             // BILLID
             // 
@@ -531,33 +555,12 @@
             this.BILLID.ReadOnly = true;
             this.BILLID.Visible = false;
             // 
-            // TypeSchetaDohLO
+            // Companyname
             // 
-            this.TypeSchetaDohLO.DataPropertyName = "TypeSchetaDohLO";
-            this.TypeSchetaDohLO.HeaderText = "Тип Счета";
-            this.TypeSchetaDohLO.Name = "TypeSchetaDohLO";
-            this.TypeSchetaDohLO.ReadOnly = true;
-            // 
-            // SumdohChetLO
-            // 
-            this.SumdohChetLO.DataPropertyName = "SumdohChetLO";
-            this.SumdohChetLO.HeaderText = "Сумма по Счету ";
-            this.SumdohChetLO.Name = "SumdohChetLO";
-            this.SumdohChetLO.ReadOnly = true;
-            // 
-            // BUHCODE
-            // 
-            this.BUHCODE.DataPropertyName = "BUHCODE";
-            this.BUHCODE.HeaderText = "Буг.Код";
-            this.BUHCODE.Name = "BUHCODE";
-            this.BUHCODE.ReadOnly = true;
-            // 
-            // Schet
-            // 
-            this.Schet.DataPropertyName = "Schet";
-            this.Schet.HeaderText = "Счет";
-            this.Schet.Name = "Schet";
-            this.Schet.ReadOnly = true;
+            this.Companyname.DataPropertyName = "Companyname";
+            this.Companyname.HeaderText = "СтраховаяКомпания";
+            this.Companyname.Name = "Companyname";
+            this.Companyname.ReadOnly = true;
             // 
             // tabLOspbrf
             // 
@@ -587,35 +590,13 @@
             this.datagridspbrflo.Size = new System.Drawing.Size(728, 234);
             this.datagridspbrflo.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "UET";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Кол-во УЕТ";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "QTY";
-            this.dataGridViewTextBoxColumn5.HeaderText = "кол-во услуг";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Pos";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Кол-во Посещений ";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Obr";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Кол-Во Обращение ";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "SUMDOH";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Сумма Дохода ";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "KEYID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "keyid";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewComboBoxColumn1
             // 
@@ -628,13 +609,35 @@
             this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewComboBoxColumn1.ValueMember = "ID";
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "KEYID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "keyid";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "SUMDOH";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Сумма Дохода ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Obr";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Кол-Во Обращение ";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Pos";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Кол-во Посещений ";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "QTY";
+            this.dataGridViewTextBoxColumn5.HeaderText = "кол-во услуг";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "UET";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Кол-во УЕТ";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // tabspbrf
             // 
@@ -665,35 +668,13 @@
             this.datagridspbrf.Size = new System.Drawing.Size(722, 228);
             this.datagridspbrf.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn12
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "UET";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Кол-во УЕТ";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "QTY";
-            this.dataGridViewTextBoxColumn11.HeaderText = "кол-во услуг";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Pos";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Кол-во Посещений ";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Obr";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Кол-Во Обращение ";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "SUMDOH";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Сумма Дохода ";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "KEYID";
+            this.dataGridViewTextBoxColumn7.HeaderText = "keyid";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
             // 
             // dataGridViewComboBoxColumn2
             // 
@@ -706,13 +687,35 @@
             this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewComboBoxColumn2.ValueMember = "ID";
             // 
-            // dataGridViewTextBoxColumn7
+            // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "KEYID";
-            this.dataGridViewTextBoxColumn7.HeaderText = "keyid";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "SUMDOH";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Сумма Дохода ";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Obr";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Кол-Во Обращение ";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Pos";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Кол-во Посещений ";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "QTY";
+            this.dataGridViewTextBoxColumn11.HeaderText = "кол-во услуг";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "UET";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Кол-во УЕТ";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
             // tabLO
             // 
@@ -743,6 +746,54 @@
             this.datageidlo.Size = new System.Drawing.Size(722, 228);
             this.datageidlo.TabIndex = 0;
             this.datageidlo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datageidlo_CellContentClick);
+            // 
+            // keyid
+            // 
+            this.keyid.DataPropertyName = "keyid";
+            this.keyid.HeaderText = "keyid";
+            this.keyid.Name = "keyid";
+            this.keyid.Visible = false;
+            // 
+            // specid
+            // 
+            this.specid.DataPropertyName = "specid";
+            this.specid.DataSource = this.lUTAG9BindingSource;
+            this.specid.DisplayMember = "DOC_SPEC";
+            this.specid.HeaderText = "specid";
+            this.specid.Name = "specid";
+            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.specid.ValueMember = "ID";
+            // 
+            // dohsum
+            // 
+            this.dohsum.DataPropertyName = "sumdoh";
+            this.dohsum.HeaderText = "Сумма Доход";
+            this.dohsum.Name = "dohsum";
+            // 
+            // obr
+            // 
+            this.obr.DataPropertyName = "obr";
+            this.obr.HeaderText = "obr";
+            this.obr.Name = "obr";
+            // 
+            // pos
+            // 
+            this.pos.DataPropertyName = "pos";
+            this.pos.HeaderText = "pos";
+            this.pos.Name = "pos";
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "qty";
+            this.qty.Name = "qty";
+            // 
+            // uet
+            // 
+            this.uet.DataPropertyName = "uet";
+            this.uet.HeaderText = "uet";
+            this.uet.Name = "uet";
             // 
             // tab
             // 
@@ -799,54 +850,6 @@
             this.DataGridSromaDoh.Size = new System.Drawing.Size(722, 228);
             this.DataGridSromaDoh.TabIndex = 0;
             // 
-            // keyid
-            // 
-            this.keyid.DataPropertyName = "keyid";
-            this.keyid.HeaderText = "keyid";
-            this.keyid.Name = "keyid";
-            this.keyid.Visible = false;
-            // 
-            // specid
-            // 
-            this.specid.DataPropertyName = "specid";
-            this.specid.DataSource = this.lUTAG9BindingSource;
-            this.specid.DisplayMember = "DOC_SPEC";
-            this.specid.HeaderText = "specid";
-            this.specid.Name = "specid";
-            this.specid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.specid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.specid.ValueMember = "ID";
-            // 
-            // dohsum
-            // 
-            this.dohsum.DataPropertyName = "sumdoh";
-            this.dohsum.HeaderText = "Сумма Доход";
-            this.dohsum.Name = "dohsum";
-            // 
-            // obr
-            // 
-            this.obr.DataPropertyName = "obr";
-            this.obr.HeaderText = "obr";
-            this.obr.Name = "obr";
-            // 
-            // pos
-            // 
-            this.pos.DataPropertyName = "pos";
-            this.pos.HeaderText = "pos";
-            this.pos.Name = "pos";
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.HeaderText = "qty";
-            this.qty.Name = "qty";
-            // 
-            // uet
-            // 
-            this.uet.DataPropertyName = "uet";
-            this.uet.HeaderText = "uet";
-            this.uet.Name = "uet";
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -868,6 +871,13 @@
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
+            // TotalDohodToolStripMenuItem
+            // 
+            this.TotalDohodToolStripMenuItem.Name = "TotalDohodToolStripMenuItem";
+            this.TotalDohodToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.TotalDohodToolStripMenuItem.Text = "Общий Доход";
+            this.TotalDohodToolStripMenuItem.Click += new System.EventHandler(this.общийДоходToolStripMenuItem_Click);
             // 
             // dohod
             // 
@@ -994,5 +1004,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripMenuItem TotalDohodToolStripMenuItem;
     }
 }
